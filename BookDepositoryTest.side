@@ -2,11 +2,209 @@
   "id": "31272560-c8a7-416c-88b7-067e1a7758c4",
   "version": "2.0",
   "name": "BookDepositoryTest",
-  "url": "",
+  "url": "https://www.bookdepository.com",
   "tests": [{
     "id": "d13fefff-1750-4e17-9aa7-f51f6faa36df",
     "name": "Untitled",
     "commands": []
+  }, {
+    "id": "af4097c1-dd9b-4ab0-a593-3c39c595e13d",
+    "name": "SuccessfulRegistration",
+    "commands": [{
+      "id": "c70aea55-35e2-4e86-aaed-4f21f7534d74",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1b72494c-c787-41cd-9aaf-657a22d38fd4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8cc5d7d9-34ce-46eb-904b-e88463f979db",
+      "comment": "",
+      "command": "assertText",
+      "target": "linkText=Sign in/Join",
+      "targets": [
+        ["linkText=Sign in/Join", "linkText"],
+        ["css=.right-nav:nth-child(3) > .mob-nav-account:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Sign in/Join')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/account/login/to/account')]", "xpath:href"],
+        ["xpath=//ul[2]/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Sign in/Join')]", "xpath:innerText"]
+      ],
+      "value": "Sign in/Join"
+    }, {
+      "id": "e75de2b4-71a9-4652-8cd2-aa8bceb15eac",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sign in/Join",
+      "targets": [
+        ["linkText=Sign in/Join", "linkText"],
+        ["css=.right-nav:nth-child(3) > .mob-nav-account:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Sign in/Join')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/account/login/to/account')]", "xpath:href"],
+        ["xpath=//ul[2]/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Sign in/Join')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9f7703b3-2884-45ad-acea-87c6dfee3051",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=1",
+      "targets": [
+        ["index=1"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7bbecb1-ece4-4f4a-be62-c782f2d117e8",
+      "comment": "",
+      "command": "click",
+      "target": "id=ap_customer_name",
+      "targets": [
+        ["id=ap_customer_name", "id"],
+        ["name=customerName", "name"],
+        ["css=#ap_customer_name", "css:finder"],
+        ["xpath=//input[@id='ap_customer_name']", "xpath:attributes"],
+        ["xpath=//form[@id='ap_register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "52cc2d6b-a12d-4acc-98cf-71d605cbaa5c",
+      "comment": "",
+      "command": "type",
+      "target": "id=ap_customer_name",
+      "targets": [
+        ["id=ap_customer_name", "id"],
+        ["name=customerName", "name"],
+        ["css=#ap_customer_name", "css:finder"],
+        ["xpath=//input[@id='ap_customer_name']", "xpath:attributes"],
+        ["xpath=//form[@id='ap_register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "SampleName SampleFamilyName"
+    }, {
+      "id": "6db855ad-c41d-4430-a02e-4812f4b62538",
+      "comment": "",
+      "command": "click",
+      "target": "id=ap_email",
+      "targets": [
+        ["id=ap_email", "id"],
+        ["name=email", "name"],
+        ["css=#ap_email", "css:finder"],
+        ["xpath=//input[@id='ap_email']", "xpath:attributes"],
+        ["xpath=//form[@id='ap_register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ab7444e-d08d-46fd-9b80-976d768cb0fc",
+      "comment": "",
+      "command": "click",
+      "target": "id=ap_email",
+      "targets": [
+        ["id=ap_email", "id"],
+        ["name=email", "name"],
+        ["css=#ap_email", "css:finder"],
+        ["xpath=//input[@id='ap_email']", "xpath:attributes"],
+        ["xpath=//form[@id='ap_register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "50f153ed-5741-4091-a3ed-5515d58fd49e",
+      "comment": "",
+      "command": "type",
+      "target": "id=ap_email",
+      "targets": [
+        ["id=ap_email", "id"],
+        ["name=email", "name"],
+        ["css=#ap_email", "css:finder"],
+        ["xpath=//input[@id='ap_email']", "xpath:attributes"],
+        ["xpath=//form[@id='ap_register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "sample_mail37@abv.bg"
+    }, {
+      "id": "8309b481-822a-415b-82ae-cb4364b7429e",
+      "comment": "",
+      "command": "click",
+      "target": "id=ap_password",
+      "targets": [
+        ["id=ap_password", "id"],
+        ["name=password", "name"],
+        ["css=#ap_password", "css:finder"],
+        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
+        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0a40033-c77a-462f-a72d-e8dc2b6b0c3c",
+      "comment": "",
+      "command": "type",
+      "target": "id=ap_password",
+      "targets": [
+        ["id=ap_password", "id"],
+        ["name=password", "name"],
+        ["css=#ap_password", "css:finder"],
+        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
+        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "8f13d2dd-3ea4-418a-8820-ec16bf617db4",
+      "comment": "",
+      "command": "click",
+      "target": "id=continue",
+      "targets": [
+        ["id=continue", "id"],
+        ["css=#continue", "css:finder"],
+        ["xpath=//input[@id='continue']", "xpath:attributes"],
+        ["xpath=//span[@id='a-autoid-0']/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f26cbe74-7bed-41fd-8f4c-ad89521160b7",
+      "comment": "",
+      "command": "click",
+      "target": "id=continue",
+      "targets": [
+        ["id=continue", "id"],
+        ["css=#continue", "css:finder"],
+        ["xpath=//input[@id='continue']", "xpath:attributes"],
+        ["xpath=//span[@id='a-autoid-0']/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "818502f2-0d46-4cd7-aab7-4c77f079dc37",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "relative=parent",
+      "targets": [
+        ["relative=parent"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc60a2f1-1862-4b9c-ad88-d608cd336ecd",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.message-success > .text",
+      "targets": [
+        ["css=.message-success > .text", "css:finder"],
+        ["xpath=//div[5]/div/div", "xpath:position"]
+      ],
+      "value": "Thank you for registering!"
+    }]
   }],
   "suites": [{
     "id": "a36a91d7-ce64-4f35-bc62-58601a160423",
@@ -21,7 +219,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": []
+    "tests": ["af4097c1-dd9b-4ab0-a593-3c39c595e13d"]
   }, {
     "id": "6175e1e9-9853-4e82-b617-476302dcf953",
     "name": "SortingTest",
@@ -113,14 +311,7 @@
     "parallel": false,
     "timeout": 300,
     "tests": []
-  }, {
-    "id": "baeb93e9-38d5-46bc-a714-c42bb3c9c244",
-    "name": "SampleSuite",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
   }],
-  "urls": [],
+  "urls": ["https://www.bookdepository.com/"],
   "plugins": []
 }
