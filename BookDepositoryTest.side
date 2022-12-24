@@ -4,10 +4,6 @@
   "name": "BookDepositoryTest",
   "url": "https://www.bookdepository.com",
   "tests": [{
-    "id": "d13fefff-1750-4e17-9aa7-f51f6faa36df",
-    "name": "Untitled",
-    "commands": []
-  }, {
     "id": "af4097c1-dd9b-4ab0-a593-3c39c595e13d",
     "name": "SuccessfulRegistration",
     "commands": [{
@@ -205,6 +201,409 @@
       ],
       "value": "Thank you for registering!"
     }]
+  }, {
+    "id": "0e866b2a-f37c-4c8b-8e3f-c636bcfedbb1",
+    "name": "WishlistBeforeLoginTest",
+    "commands": [{
+      "id": "fae1cebe-9754-459e-9343-d24bc2f5e449",
+      "comment": "Open website without loggin in",
+      "command": "open",
+      "target": "https://www.bookdepository.com/ap/signin?openid.ns=http://specs.openid.net/auth/2.0&openid.assoc_handle=amzn_bookdepository_website_uk&openid.mode=logout&openid.return_to=https://www.bookdepository.com/?status%3Dlogout&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&language=en_US",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b61cf397-2ec8-4fa2-a467-e926ded61f7e",
+      "comment": "Select the first possible book",
+      "command": "click",
+      "target": "css=.tab-373 .book-item:nth-child(1) .title > a",
+      "targets": [
+        ["linkText=Heaven Official's Blessing: Tian Guan Ci Fu (Novel) Vol. 5", "linkText"],
+        ["css=.tab-373 .book-item:nth-child(1) .title > a", "css:finder"],
+        ["xpath=(//a[contains(@href, '/Heaven-Officials-Blessing-Tian-Guan-Ci-Fu-Novel-Vol-5-Mo-Xiang-Tong-Xiu/9781638585503?ref=grid-view')])[2]", "xpath:href"],
+        ["xpath=//h3/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "36d4902f-05d6-4716-9a24-511a208808ae",
+      "comment": "Attempt to add to Wishlist",
+      "command": "click",
+      "target": "linkText=Add to wishlist",
+      "targets": [
+        ["linkText=Add to wishlist", "linkText"],
+        ["css=.btn-grey", "css:finder"],
+        ["xpath=//a[contains(text(),'Add to wishlist')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/account/wishlistItemUpdate?mainAction=add&isbn13=9781638585503')]", "xpath:href"],
+        ["xpath=//div[3]/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Add to wishlist')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "764a9b9b-8029-4221-a2c1-81c4dbfbe5d9",
+      "comment": "Assert there is an error popup",
+      "command": "assertText",
+      "target": "css=.modal-title",
+      "targets": [],
+      "value": "Not logged in"
+    }]
+  }, {
+    "id": "eaebcd66-12a0-4363-b2b0-aa64c02602f7",
+    "name": "WishlistAfterLoginTest",
+    "commands": [{
+      "id": "bbfc57d8-6203-48b0-bf92-d4f16d0f61a1",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.bookdepository.com/ap/signin?openid.ns=http://specs.openid.net/auth/2.0&openid.assoc_handle=amzn_bookdepository_website_uk&openid.mode=logout&openid.return_to=https://www.bookdepository.com/?status%3Dlogout&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&language=en_US",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cc202fcc-580b-4963-bec9-d7ddfed5c090",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sign in/Join",
+      "targets": [
+        ["linkText=Sign in/Join", "linkText"],
+        ["css=.right-nav:nth-child(3) > .mob-nav-account:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Sign in/Join')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/account/login/to/account')]", "xpath:href"],
+        ["xpath=//ul[2]/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Sign in/Join')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "01d3b1ff-ac57-4279-a655-1e4c24e79020",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "f894bbe3-bc72-4f91-8f41-3f79f2c31e42",
+      "comment": "",
+      "command": "click",
+      "target": "id=ap_email",
+      "targets": [
+        ["id=ap_email", "id"],
+        ["name=email", "name"],
+        ["css=#ap_email", "css:finder"],
+        ["xpath=//input[@id='ap_email']", "xpath:attributes"],
+        ["xpath=//form[@id='signin-embedded-layout']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c663edb-89b6-4131-bf64-30d5f60f690b",
+      "comment": "",
+      "command": "type",
+      "target": "id=ap_email",
+      "targets": [
+        ["id=ap_email", "id"],
+        ["name=email", "name"],
+        ["css=#ap_email", "css:finder"],
+        ["xpath=//input[@id='ap_email']", "xpath:attributes"],
+        ["xpath=//form[@id='signin-embedded-layout']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "sample_mail@abv.bg"
+    }, {
+      "id": "ac2806e9-63af-46d8-b9fa-6ee08e491175",
+      "comment": "",
+      "command": "click",
+      "target": "id=ap_password",
+      "targets": [
+        ["id=ap_password", "id"],
+        ["name=password", "name"],
+        ["css=#ap_password", "css:finder"],
+        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
+        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bc7f909-ff91-4490-9c3f-c3969bbbfad0",
+      "comment": "",
+      "command": "type",
+      "target": "id=ap_password",
+      "targets": [
+        ["id=ap_password", "id"],
+        ["name=password", "name"],
+        ["css=#ap_password", "css:finder"],
+        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
+        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwe"
+    }, {
+      "id": "f0a86e4d-ac20-494e-a745-1d7d2d6b1bf7",
+      "comment": "",
+      "command": "click",
+      "target": "id=signInSubmit",
+      "targets": [
+        ["id=signInSubmit", "id"],
+        ["css=#signInSubmit", "css:finder"],
+        ["xpath=//input[@id='signInSubmit']", "xpath:attributes"],
+        ["xpath=//span[@id='auth-signin-button']/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "17309c69-259c-4dd5-b896-2828fb91457b",
+      "comment": "",
+      "command": "click",
+      "target": "id=ap_password",
+      "targets": [
+        ["id=ap_password", "id"],
+        ["name=password", "name"],
+        ["css=#ap_password", "css:finder"],
+        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
+        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b903a6f-f50d-4a57-8cf7-7dbf735a9d1b",
+      "comment": "",
+      "command": "type",
+      "target": "id=ap_password",
+      "targets": [
+        ["id=ap_password", "id"],
+        ["name=password", "name"],
+        ["css=#ap_password", "css:finder"],
+        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
+        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "7d40fb19-7832-4615-84fb-9f1ea466a69d",
+      "comment": "",
+      "command": "click",
+      "target": "id=signInSubmit",
+      "targets": [
+        ["id=signInSubmit", "id"],
+        ["css=#signInSubmit", "css:finder"],
+        ["xpath=//input[@id='signInSubmit']", "xpath:attributes"],
+        ["xpath=//span[@id='auth-signin-button']/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b6c0d7b-a185-4dcd-8465-92a29177c7f1",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "relative=parent",
+      "targets": [
+        ["relative=parent"]
+      ],
+      "value": ""
+    }, {
+      "id": "abb0e037-3076-493d-ad79-1d5c9e456d34",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Heaven Official's Blessing: Tian Guan Ci Fu (Novel) Vol. 5",
+      "targets": [
+        ["linkText=Heaven Official's Blessing: Tian Guan Ci Fu (Novel) Vol. 5", "linkText"],
+        ["css=.tab-373 .book-item:nth-child(1) .title > a", "css:finder"],
+        ["xpath=(//a[contains(@href, '/Heaven-Officials-Blessing-Tian-Guan-Ci-Fu-Novel-Vol-5-Mo-Xiang-Tong-Xiu/9781638585503?ref=grid-view')])[2]", "xpath:href"],
+        ["xpath=//h3/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "af743e1a-50f2-40d6-a26b-1508e136f988",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add to wishlist",
+      "targets": [
+        ["linkText=Add to wishlist", "linkText"],
+        ["css=.btn-grey", "css:finder"],
+        ["xpath=//a[contains(text(),'Add to wishlist')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/account/wishlistItemUpdate?mainAction=add&isbn13=9781638585503')]", "xpath:href"],
+        ["xpath=//div[3]/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Add to wishlist')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd435b6e-e0ef-4bc2-8e63-caf7a3d0a6e4",
+      "comment": "",
+      "command": "click",
+      "target": "name=wishlistLabel",
+      "targets": [
+        ["name=wishlistLabel", "name"],
+        ["css=.new-wl .form-control", "css:finder"],
+        ["xpath=//input[@name='wishlistLabel']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea43e6f7-7a09-4bc1-a182-39b6d326ba4a",
+      "comment": "",
+      "command": "type",
+      "target": "name=wishlistLabel",
+      "targets": [
+        ["name=wishlistLabel", "name"],
+        ["css=.new-wl .form-control", "css:finder"],
+        ["xpath=//input[@name='wishlistLabel']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "Name"
+    }, {
+      "id": "c80e9939-63c1-475d-acd7-c3ff1bb7d679",
+      "comment": "",
+      "command": "click",
+      "target": "css=.pull-right:nth-child(1)",
+      "targets": [
+        ["css=.pull-right:nth-child(1)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/div/form/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d665783-91a6-420c-8f52-b3ee71d241e7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Go to Name",
+      "targets": [
+        ["linkText=Go to Name", "linkText"],
+        ["css=.pull-right", "css:finder"],
+        ["xpath=//a[contains(text(),'Go to Name')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/account/wishlist?wishlistId=4049155')]", "xpath:href"],
+        ["xpath=//div[8]/div/div/div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Go to Name')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2749d3c3-00fb-478a-b3ea-b4294d2e4a07",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-edit-text",
+      "targets": [
+        ["css=.btn-edit-text", "css:finder"],
+        ["xpath=//div[2]/div/a/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9f11256-5818-4634-abef-b09bcb871e8d",
+      "comment": "",
+      "command": "webdriverChooseOkOnVisibleConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "37e9d97b-99f8-48a5-a96a-784c0e63ba4e",
+      "comment": "",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "18b60928-cc01-4ee3-9d7b-bffe5f936573",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Delete wishlist",
+      "targets": [
+        ["linkText=Delete wishlist", "linkText"],
+        ["css=.wishlist-edit-block:nth-child(1) .btn-danger", "css:finder"],
+        ["xpath=(//a[contains(text(),'Delete wishlist')])[2]", "xpath:link"],
+        ["xpath=(//a[@onclick=\"return confirm('This action cannot be undone. Are you sure you want to delete this wishlist?')\"])[2]", "xpath:attributes"],
+        ["xpath=(//a[contains(@href, '/account/wishlistupdate?mainAction=delete&wishlistId=4049155')])[2]", "xpath:href"],
+        ["xpath=//div[2]/div/form/div[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf8f4aad-f180-43bd-a0bd-c3a667737c88",
+      "comment": "",
+      "command": "webdriverChooseOkOnVisibleConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1ccdc530-fa6a-44b5-8260-b5ab770b140b",
+      "comment": "",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d41206ad-5a87-4bc2-83f2-481afe4be371",
+    "name": "LoginProcess",
+    "commands": [{
+      "id": "811b8d6b-8cb1-4b9b-add2-4786d36b964d",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.bookdepository.com/ap/signin?openid.ns=http://specs.openid.net/auth/2.0&openid.assoc_handle=amzn_bookdepository_website_uk&openid.mode=logout&openid.return_to=https://www.bookdepository.com/?status%3Dlogout&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&language=en_US",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "610a0244-52f9-4782-8cd9-aafca88beb86",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sign in/Join",
+      "targets": [
+        ["linkText=Sign in/Join", "linkText"],
+        ["css=.right-nav:nth-child(3) > .mob-nav-account:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Sign in/Join')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/account/login/to/account')]", "xpath:href"],
+        ["xpath=//ul[2]/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Sign in/Join')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0fd12f33-72c4-4abd-a7a3-c8f981641def",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "92f856d2-8305-4a35-8666-db3d6cf84c1a",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=ap_email",
+      "targets": [],
+      "value": "sample_mail@abv.bg"
+    }, {
+      "id": "5101cb04-861a-449c-9939-e985053566cd",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=ap_password",
+      "targets": [],
+      "value": "12345678qwer"
+    }, {
+      "id": "3fa06eb3-929e-41a6-86fc-8fdad2a8f383",
+      "comment": "",
+      "command": "click",
+      "target": "id=signInSubmit",
+      "targets": [
+        ["id=signInSubmit", "id"],
+        ["css=#signInSubmit", "css:finder"],
+        ["xpath=//input[@id='signInSubmit']", "xpath:attributes"],
+        ["xpath=//span[@id='auth-signin-button']/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "280f5757-bee5-4be4-8b95-237d63436e6f",
+    "name": "LoginClick",
+    "commands": [{
+      "id": "563b2c5a-ec9e-4cf7-a746-d859bc458278",
+      "comment": "",
+      "command": "click",
+      "target": "id=signInSubmit",
+      "targets": [
+        ["id=signInSubmit", "id"],
+        ["css=#signInSubmit", "css:finder"],
+        ["xpath=//input[@id='signInSubmit']", "xpath:attributes"],
+        ["xpath=//span[@id='auth-signin-button']/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "a36a91d7-ce64-4f35-bc62-58601a160423",
@@ -240,7 +639,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": []
+    "tests": ["0e866b2a-f37c-4c8b-8e3f-c636bcfedbb1"]
   }, {
     "id": "7e244931-6727-4686-88e9-52f9b10a4b76",
     "name": "SearchTest",
