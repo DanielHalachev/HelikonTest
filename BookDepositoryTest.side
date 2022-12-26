@@ -1,716 +1,142 @@
 {
-  "id": "31272560-c8a7-416c-88b7-067e1a7758c4",
+  "id": "efc437a8-f399-42e4-8a76-952a41ce0810",
   "version": "2.0",
   "name": "BookDepositoryTest",
-  "url": "https://www.bookdepository.com",
+  "url": "https://helikon.bg",
   "tests": [{
-    "id": "af4097c1-dd9b-4ab0-a593-3c39c595e13d",
-    "name": "SuccessfulRegistration",
+    "id": "1a28f82f-fd7d-4239-b879-c9d6192ed248",
+    "name": "LoginProcess",
     "commands": [{
-      "id": "c70aea55-35e2-4e86-aaed-4f21f7534d74",
+      "id": "ddbf264e-ed77-451d-bd19-49fec464069d",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d871e4fd-ecf2-4ebb-ba71-2db56152f0c8",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "aba4432f-cecd-4e9d-994a-ab2e6364a8f0",
+      "comment": "Enter UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "e4d8465f-cd4c-43ff-9528-91387789f51a",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "61754163-7249-465f-9911-cd172c1d7f32",
+      "comment": "Confirm Login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "5dfab364-9775-4c90-a159-d85e4128c259",
+    "name": "AddToFavouritesBeforeLoginTest",
+    "commands": [{
+      "id": "8494fd10-4373-415b-8a3b-0782438cedef",
       "comment": "",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
-      "id": "1b72494c-c787-41cd-9aaf-657a22d38fd4",
+      "id": "b41d77bb-7da9-4ad8-b571-6fb5fdb15924",
       "comment": "",
-      "command": "setWindowSize",
-      "target": "1536x824",
+      "command": "click",
+      "target": "xpath=//div[@id='owl-item']/div/div/a/img",
+      "targets": [
+        ["css=.margin-bottom-30:nth-child(3) .owl-item:nth-child(1) .custom-responsive-style", "css:finder"],
+        ["xpath=//img[@alt='Да живееш нататък']", "xpath:img"],
+        ["xpath=//div[@id='owl-item']/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div/div/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb20b85b-8792-4609-945d-136fe7bc8c52",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-12 li:nth-child(2) > .btn",
+      "targets": [
+        ["css=.col-12 li:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Добави в любими')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div/div[2]/div/div[2]/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[12]", "xpath:href"],
+        ["xpath=//div[2]/div/div/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a0286138-5f15-42bd-a74c-991a59f43f34",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Трябва да влезете в профила си за да добавите този продукт в любими!",
       "targets": [],
       "value": ""
     }, {
-      "id": "8cc5d7d9-34ce-46eb-904b-e88463f979db",
-      "comment": "",
-      "command": "assertText",
-      "target": "linkText=Sign in/Join",
-      "targets": [
-        ["linkText=Sign in/Join", "linkText"],
-        ["css=.right-nav:nth-child(3) > .mob-nav-account:nth-child(3) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Sign in/Join')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/account/login/to/account')]", "xpath:href"],
-        ["xpath=//ul[2]/li[3]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Sign in/Join')]", "xpath:innerText"]
-      ],
-      "value": "Sign in/Join"
-    }, {
-      "id": "e75de2b4-71a9-4652-8cd2-aa8bceb15eac",
+      "id": "ff7015df-59ba-42f2-89b5-4ec610ad1a80",
       "comment": "",
       "command": "click",
-      "target": "linkText=Sign in/Join",
+      "target": "css=.col-12 li:nth-child(2) > .btn",
       "targets": [
-        ["linkText=Sign in/Join", "linkText"],
-        ["css=.right-nav:nth-child(3) > .mob-nav-account:nth-child(3) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Sign in/Join')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/account/login/to/account')]", "xpath:href"],
-        ["xpath=//ul[2]/li[3]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Sign in/Join')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "9f7703b3-2884-45ad-acea-87c6dfee3051",
-      "comment": "",
-      "command": "selectFrame",
-      "target": "index=1",
-      "targets": [
-        ["index=1"]
-      ],
-      "value": ""
-    }, {
-      "id": "c7bbecb1-ece4-4f4a-be62-c782f2d117e8",
-      "comment": "",
-      "command": "click",
-      "target": "id=ap_customer_name",
-      "targets": [
-        ["id=ap_customer_name", "id"],
-        ["name=customerName", "name"],
-        ["css=#ap_customer_name", "css:finder"],
-        ["xpath=//input[@id='ap_customer_name']", "xpath:attributes"],
-        ["xpath=//form[@id='ap_register_form']/div/input", "xpath:idRelative"],
-        ["xpath=//div/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "52cc2d6b-a12d-4acc-98cf-71d605cbaa5c",
-      "comment": "",
-      "command": "type",
-      "target": "id=ap_customer_name",
-      "targets": [
-        ["id=ap_customer_name", "id"],
-        ["name=customerName", "name"],
-        ["css=#ap_customer_name", "css:finder"],
-        ["xpath=//input[@id='ap_customer_name']", "xpath:attributes"],
-        ["xpath=//form[@id='ap_register_form']/div/input", "xpath:idRelative"],
-        ["xpath=//div/input", "xpath:position"]
-      ],
-      "value": "SampleName SampleFamilyName"
-    }, {
-      "id": "6db855ad-c41d-4430-a02e-4812f4b62538",
-      "comment": "",
-      "command": "click",
-      "target": "id=ap_email",
-      "targets": [
-        ["id=ap_email", "id"],
-        ["name=email", "name"],
-        ["css=#ap_email", "css:finder"],
-        ["xpath=//input[@id='ap_email']", "xpath:attributes"],
-        ["xpath=//form[@id='ap_register_form']/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "9ab7444e-d08d-46fd-9b80-976d768cb0fc",
-      "comment": "",
-      "command": "click",
-      "target": "id=ap_email",
-      "targets": [
-        ["id=ap_email", "id"],
-        ["name=email", "name"],
-        ["css=#ap_email", "css:finder"],
-        ["xpath=//input[@id='ap_email']", "xpath:attributes"],
-        ["xpath=//form[@id='ap_register_form']/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "50f153ed-5741-4091-a3ed-5515d58fd49e",
-      "comment": "",
-      "command": "type",
-      "target": "id=ap_email",
-      "targets": [
-        ["id=ap_email", "id"],
-        ["name=email", "name"],
-        ["css=#ap_email", "css:finder"],
-        ["xpath=//input[@id='ap_email']", "xpath:attributes"],
-        ["xpath=//form[@id='ap_register_form']/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": "sample_mail37@abv.bg"
-    }, {
-      "id": "8309b481-822a-415b-82ae-cb4364b7429e",
-      "comment": "",
-      "command": "click",
-      "target": "id=ap_password",
-      "targets": [
-        ["id=ap_password", "id"],
-        ["name=password", "name"],
-        ["css=#ap_password", "css:finder"],
-        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
-        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
-        ["xpath=//div/div/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "f0a40033-c77a-462f-a72d-e8dc2b6b0c3c",
-      "comment": "",
-      "command": "type",
-      "target": "id=ap_password",
-      "targets": [
-        ["id=ap_password", "id"],
-        ["name=password", "name"],
-        ["css=#ap_password", "css:finder"],
-        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
-        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
-        ["xpath=//div/div/input", "xpath:position"]
-      ],
-      "value": "12345678qwer"
-    }, {
-      "id": "8f13d2dd-3ea4-418a-8820-ec16bf617db4",
-      "comment": "",
-      "command": "click",
-      "target": "id=continue",
-      "targets": [
-        ["id=continue", "id"],
-        ["css=#continue", "css:finder"],
-        ["xpath=//input[@id='continue']", "xpath:attributes"],
-        ["xpath=//span[@id='a-autoid-0']/span/input", "xpath:idRelative"],
-        ["xpath=//span/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "f26cbe74-7bed-41fd-8f4c-ad89521160b7",
-      "comment": "",
-      "command": "click",
-      "target": "id=continue",
-      "targets": [
-        ["id=continue", "id"],
-        ["css=#continue", "css:finder"],
-        ["xpath=//input[@id='continue']", "xpath:attributes"],
-        ["xpath=//span[@id='a-autoid-0']/span/input", "xpath:idRelative"],
-        ["xpath=//span/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "818502f2-0d46-4cd7-aab7-4c77f079dc37",
-      "comment": "",
-      "command": "selectFrame",
-      "target": "relative=parent",
-      "targets": [
-        ["relative=parent"]
-      ],
-      "value": ""
-    }, {
-      "id": "fc60a2f1-1862-4b9c-ad88-d608cd336ecd",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=.message-success > .text",
-      "targets": [
-        ["css=.message-success > .text", "css:finder"],
-        ["xpath=//div[5]/div/div", "xpath:position"]
-      ],
-      "value": "Thank you for registering!"
-    }]
-  }, {
-    "id": "0e866b2a-f37c-4c8b-8e3f-c636bcfedbb1",
-    "name": "WishlistBeforeLoginTest",
-    "commands": [{
-      "id": "fae1cebe-9754-459e-9343-d24bc2f5e449",
-      "comment": "Open website without loggin in",
-      "command": "open",
-      "target": "https://www.bookdepository.com/ap/signin?openid.ns=http://specs.openid.net/auth/2.0&openid.assoc_handle=amzn_bookdepository_website_uk&openid.mode=logout&openid.return_to=https://www.bookdepository.com/?status%3Dlogout&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&language=en_US",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "b61cf397-2ec8-4fa2-a467-e926ded61f7e",
-      "comment": "Select the first possible book",
-      "command": "click",
-      "target": "css=.tab-373 .book-item:nth-child(1) .title > a",
-      "targets": [
-        ["linkText=Heaven Official's Blessing: Tian Guan Ci Fu (Novel) Vol. 5", "linkText"],
-        ["css=.tab-373 .book-item:nth-child(1) .title > a", "css:finder"],
-        ["xpath=(//a[contains(@href, '/Heaven-Officials-Blessing-Tian-Guan-Ci-Fu-Novel-Vol-5-Mo-Xiang-Tong-Xiu/9781638585503?ref=grid-view')])[2]", "xpath:href"],
-        ["xpath=//h3/a", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "36d4902f-05d6-4716-9a24-511a208808ae",
-      "comment": "Attempt to add to Wishlist",
-      "command": "click",
-      "target": "linkText=Add to wishlist",
-      "targets": [
-        ["linkText=Add to wishlist", "linkText"],
-        ["css=.btn-grey", "css:finder"],
-        ["xpath=//a[contains(text(),'Add to wishlist')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/account/wishlistItemUpdate?mainAction=add&isbn13=9781638585503')]", "xpath:href"],
-        ["xpath=//div[3]/a[2]", "xpath:position"],
-        ["xpath=//a[contains(.,'Add to wishlist')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "764a9b9b-8029-4221-a2c1-81c4dbfbe5d9",
-      "comment": "Assert there is an error popup",
-      "command": "assertText",
-      "target": "css=.modal-title",
-      "targets": [],
-      "value": "Not logged in"
-    }]
-  }, {
-    "id": "eaebcd66-12a0-4363-b2b0-aa64c02602f7",
-    "name": "WishlistAfterLoginTest",
-    "commands": [{
-      "id": "bbfc57d8-6203-48b0-bf92-d4f16d0f61a1",
-      "comment": "",
-      "command": "open",
-      "target": "https://www.bookdepository.com/ap/signin?openid.ns=http://specs.openid.net/auth/2.0&openid.assoc_handle=amzn_bookdepository_website_uk&openid.mode=logout&openid.return_to=https://www.bookdepository.com/?status%3Dlogout&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&language=en_US",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "cc202fcc-580b-4963-bec9-d7ddfed5c090",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Sign in/Join",
-      "targets": [
-        ["linkText=Sign in/Join", "linkText"],
-        ["css=.right-nav:nth-child(3) > .mob-nav-account:nth-child(3) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Sign in/Join')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/account/login/to/account')]", "xpath:href"],
-        ["xpath=//ul[2]/li[3]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Sign in/Join')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "01d3b1ff-ac57-4279-a655-1e4c24e79020",
-      "comment": "",
-      "command": "selectFrame",
-      "target": "index=0",
-      "targets": [
-        ["index=0"]
-      ],
-      "value": ""
-    }, {
-      "id": "f894bbe3-bc72-4f91-8f41-3f79f2c31e42",
-      "comment": "",
-      "command": "click",
-      "target": "id=ap_email",
-      "targets": [
-        ["id=ap_email", "id"],
-        ["name=email", "name"],
-        ["css=#ap_email", "css:finder"],
-        ["xpath=//input[@id='ap_email']", "xpath:attributes"],
-        ["xpath=//form[@id='signin-embedded-layout']/div[2]/div/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "8c663edb-89b6-4131-bf64-30d5f60f690b",
-      "comment": "",
-      "command": "type",
-      "target": "id=ap_email",
-      "targets": [
-        ["id=ap_email", "id"],
-        ["name=email", "name"],
-        ["css=#ap_email", "css:finder"],
-        ["xpath=//input[@id='ap_email']", "xpath:attributes"],
-        ["xpath=//form[@id='signin-embedded-layout']/div[2]/div/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div/input", "xpath:position"]
-      ],
-      "value": "sample_mail@abv.bg"
-    }, {
-      "id": "ac2806e9-63af-46d8-b9fa-6ee08e491175",
-      "comment": "",
-      "command": "click",
-      "target": "id=ap_password",
-      "targets": [
-        ["id=ap_password", "id"],
-        ["name=password", "name"],
-        ["css=#ap_password", "css:finder"],
-        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
-        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div[2]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "8bc7f909-ff91-4490-9c3f-c3969bbbfad0",
-      "comment": "",
-      "command": "type",
-      "target": "id=ap_password",
-      "targets": [
-        ["id=ap_password", "id"],
-        ["name=password", "name"],
-        ["css=#ap_password", "css:finder"],
-        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
-        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div[2]/input", "xpath:position"]
-      ],
-      "value": "12345678qwe"
-    }, {
-      "id": "f0a86e4d-ac20-494e-a745-1d7d2d6b1bf7",
-      "comment": "",
-      "command": "click",
-      "target": "id=signInSubmit",
-      "targets": [
-        ["id=signInSubmit", "id"],
-        ["css=#signInSubmit", "css:finder"],
-        ["xpath=//input[@id='signInSubmit']", "xpath:attributes"],
-        ["xpath=//span[@id='auth-signin-button']/span/input", "xpath:idRelative"],
-        ["xpath=//span/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "17309c69-259c-4dd5-b896-2828fb91457b",
-      "comment": "",
-      "command": "click",
-      "target": "id=ap_password",
-      "targets": [
-        ["id=ap_password", "id"],
-        ["name=password", "name"],
-        ["css=#ap_password", "css:finder"],
-        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
-        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div[2]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "5b903a6f-f50d-4a57-8cf7-7dbf735a9d1b",
-      "comment": "",
-      "command": "type",
-      "target": "id=ap_password",
-      "targets": [
-        ["id=ap_password", "id"],
-        ["name=password", "name"],
-        ["css=#ap_password", "css:finder"],
-        ["xpath=//input[@id='ap_password']", "xpath:attributes"],
-        ["xpath=//div[@id='auth-password-container']/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div[2]/input", "xpath:position"]
-      ],
-      "value": "12345678qwer"
-    }, {
-      "id": "7d40fb19-7832-4615-84fb-9f1ea466a69d",
-      "comment": "",
-      "command": "click",
-      "target": "id=signInSubmit",
-      "targets": [
-        ["id=signInSubmit", "id"],
-        ["css=#signInSubmit", "css:finder"],
-        ["xpath=//input[@id='signInSubmit']", "xpath:attributes"],
-        ["xpath=//span[@id='auth-signin-button']/span/input", "xpath:idRelative"],
-        ["xpath=//span/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "3b6c0d7b-a185-4dcd-8465-92a29177c7f1",
-      "comment": "",
-      "command": "selectFrame",
-      "target": "relative=parent",
-      "targets": [
-        ["relative=parent"]
-      ],
-      "value": ""
-    }, {
-      "id": "abb0e037-3076-493d-ad79-1d5c9e456d34",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Heaven Official's Blessing: Tian Guan Ci Fu (Novel) Vol. 5",
-      "targets": [
-        ["linkText=Heaven Official's Blessing: Tian Guan Ci Fu (Novel) Vol. 5", "linkText"],
-        ["css=.tab-373 .book-item:nth-child(1) .title > a", "css:finder"],
-        ["xpath=(//a[contains(@href, '/Heaven-Officials-Blessing-Tian-Guan-Ci-Fu-Novel-Vol-5-Mo-Xiang-Tong-Xiu/9781638585503?ref=grid-view')])[2]", "xpath:href"],
-        ["xpath=//h3/a", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "af743e1a-50f2-40d6-a26b-1508e136f988",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Add to wishlist",
-      "targets": [
-        ["linkText=Add to wishlist", "linkText"],
-        ["css=.btn-grey", "css:finder"],
-        ["xpath=//a[contains(text(),'Add to wishlist')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/account/wishlistItemUpdate?mainAction=add&isbn13=9781638585503')]", "xpath:href"],
-        ["xpath=//div[3]/a[2]", "xpath:position"],
-        ["xpath=//a[contains(.,'Add to wishlist')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "bd435b6e-e0ef-4bc2-8e63-caf7a3d0a6e4",
-      "comment": "",
-      "command": "click",
-      "target": "name=wishlistLabel",
-      "targets": [
-        ["name=wishlistLabel", "name"],
-        ["css=.new-wl .form-control", "css:finder"],
-        ["xpath=//input[@name='wishlistLabel']", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/div/form/div/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "ea43e6f7-7a09-4bc1-a182-39b6d326ba4a",
-      "comment": "",
-      "command": "type",
-      "target": "name=wishlistLabel",
-      "targets": [
-        ["name=wishlistLabel", "name"],
-        ["css=.new-wl .form-control", "css:finder"],
-        ["xpath=//input[@name='wishlistLabel']", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/div/form/div/input", "xpath:position"]
-      ],
-      "value": "Name"
-    }, {
-      "id": "c80e9939-63c1-475d-acd7-c3ff1bb7d679",
-      "comment": "",
-      "command": "click",
-      "target": "css=.pull-right:nth-child(1)",
-      "targets": [
-        ["css=.pull-right:nth-child(1)", "css:finder"],
-        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
-        ["xpath=//div[2]/div/div/div/form/div[2]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Add')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "2d665783-91a6-420c-8f52-b3ee71d241e7",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Go to Name",
-      "targets": [
-        ["linkText=Go to Name", "linkText"],
-        ["css=.pull-right", "css:finder"],
-        ["xpath=//a[contains(text(),'Go to Name')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/account/wishlist?wishlistId=4049155')]", "xpath:href"],
-        ["xpath=//div[8]/div/div/div[2]/div/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Go to Name')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "2749d3c3-00fb-478a-b3ea-b4294d2e4a07",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn-edit-text",
-      "targets": [
-        ["css=.btn-edit-text", "css:finder"],
-        ["xpath=//div[2]/div/a/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "c9f11256-5818-4634-abef-b09bcb871e8d",
-      "comment": "",
-      "command": "webdriverChooseOkOnVisibleConfirmation",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "37e9d97b-99f8-48a5-a96a-784c0e63ba4e",
-      "comment": "",
-      "command": "chooseOkOnNextConfirmation",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "18b60928-cc01-4ee3-9d7b-bffe5f936573",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Delete wishlist",
-      "targets": [
-        ["linkText=Delete wishlist", "linkText"],
-        ["css=.wishlist-edit-block:nth-child(1) .btn-danger", "css:finder"],
-        ["xpath=(//a[contains(text(),'Delete wishlist')])[2]", "xpath:link"],
-        ["xpath=(//a[@onclick=\"return confirm('This action cannot be undone. Are you sure you want to delete this wishlist?')\"])[2]", "xpath:attributes"],
-        ["xpath=(//a[contains(@href, '/account/wishlistupdate?mainAction=delete&wishlistId=4049155')])[2]", "xpath:href"],
-        ["xpath=//div[2]/div/form/div[4]/a", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "cf8f4aad-f180-43bd-a0bd-c3a667737c88",
-      "comment": "",
-      "command": "webdriverChooseOkOnVisibleConfirmation",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "1ccdc530-fa6a-44b5-8260-b5ab770b140b",
-      "comment": "",
-      "command": "chooseOkOnNextConfirmation",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }]
-  }, {
-    "id": "d41206ad-5a87-4bc2-83f2-481afe4be371",
-    "name": "LoginProcess",
-    "commands": [{
-      "id": "811b8d6b-8cb1-4b9b-add2-4786d36b964d",
-      "comment": "",
-      "command": "open",
-      "target": "https://www.bookdepository.com/ap/signin?openid.ns=http://specs.openid.net/auth/2.0&openid.assoc_handle=amzn_bookdepository_website_uk&openid.mode=logout&openid.return_to=https://www.bookdepository.com/?status%3Dlogout&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&language=en_US",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "610a0244-52f9-4782-8cd9-aafca88beb86",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Sign in/Join",
-      "targets": [
-        ["linkText=Sign in/Join", "linkText"],
-        ["css=.right-nav:nth-child(3) > .mob-nav-account:nth-child(3) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Sign in/Join')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/account/login/to/account')]", "xpath:href"],
-        ["xpath=//ul[2]/li[3]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Sign in/Join')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "0fd12f33-72c4-4abd-a7a3-c8f981641def",
-      "comment": "",
-      "command": "selectFrame",
-      "target": "index=0",
-      "targets": [
-        ["index=0"]
-      ],
-      "value": ""
-    }, {
-      "id": "92f856d2-8305-4a35-8666-db3d6cf84c1a",
-      "comment": "",
-      "command": "sendKeys",
-      "target": "id=ap_email",
-      "targets": [],
-      "value": "sample_mail@abv.bg"
-    }, {
-      "id": "5101cb04-861a-449c-9939-e985053566cd",
-      "comment": "",
-      "command": "sendKeys",
-      "target": "id=ap_password",
-      "targets": [],
-      "value": "12345678qwer"
-    }, {
-      "id": "3fa06eb3-929e-41a6-86fc-8fdad2a8f383",
-      "comment": "",
-      "command": "click",
-      "target": "id=signInSubmit",
-      "targets": [
-        ["id=signInSubmit", "id"],
-        ["css=#signInSubmit", "css:finder"],
-        ["xpath=//input[@id='signInSubmit']", "xpath:attributes"],
-        ["xpath=//span[@id='auth-signin-button']/span/input", "xpath:idRelative"],
-        ["xpath=//span/input", "xpath:position"]
-      ],
-      "value": ""
-    }]
-  }, {
-    "id": "280f5757-bee5-4be4-8b95-237d63436e6f",
-    "name": "LoginClick",
-    "commands": [{
-      "id": "563b2c5a-ec9e-4cf7-a746-d859bc458278",
-      "comment": "",
-      "command": "click",
-      "target": "id=signInSubmit",
-      "targets": [
-        ["id=signInSubmit", "id"],
-        ["css=#signInSubmit", "css:finder"],
-        ["xpath=//input[@id='signInSubmit']", "xpath:attributes"],
-        ["xpath=//span[@id='auth-signin-button']/span/input", "xpath:idRelative"],
-        ["xpath=//span/input", "xpath:position"]
+        ["css=.col-12 li:nth-child(2) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Добави в любими')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div/div[2]/div/div[2]/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[12]", "xpath:href"],
+        ["xpath=//div[2]/div/div/ul/li[2]/a", "xpath:position"]
       ],
       "value": ""
     }]
   }],
   "suites": [{
-    "id": "a36a91d7-ce64-4f35-bc62-58601a160423",
-    "name": "LoginTest",
+    "id": "36764a98-1bf1-404c-92a0-1a6ee6e8c58b",
+    "name": "Utility",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
     "tests": []
   }, {
-    "id": "6525c999-95c0-4b6f-81d6-5078cceff127",
-    "name": "RegistrationTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": ["af4097c1-dd9b-4ab0-a593-3c39c595e13d"]
-  }, {
-    "id": "6175e1e9-9853-4e82-b617-476302dcf953",
-    "name": "SortingTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "18b9d006-2c61-4e6e-b6f5-d1d541b9e882",
-    "name": "FilterTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "a3f3137c-6094-4ee6-8bee-0c558ab24091",
+    "id": "65ca21f0-bf5e-4c61-8d67-4d8c06853851",
     "name": "WishlistTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": ["0e866b2a-f37c-4c8b-8e3f-c636bcfedbb1"]
-  }, {
-    "id": "7e244931-6727-4686-88e9-52f9b10a4b76",
-    "name": "SearchTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "52a104d5-ec8e-465c-aeb4-2bab1465ee31",
-    "name": "AddToCartTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "28fe6ea7-ecd4-4e1e-bfed-0801692359e9",
-    "name": "RemoveFromCartTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "b6632b01-f703-4b22-87de-23650a27c855",
-    "name": "OrderTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "f44affb7-2d87-41db-8f63-e09e35314a88",
-    "name": "UpdateQuantityInCartTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "81c86550-fcd9-4008-b5f5-7ecf773c253f",
-    "name": "ApplyPromoCodeTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "90905374-4637-4b1a-91bd-d5564a9ff0e5",
-    "name": "SendGiftTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "2c5c183a-0831-45aa-aa65-d7057e1050be",
-    "name": "PreOrderTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "dbec14c4-03a1-48f3-8093-ae1d97234c85",
-    "name": "NavbarTest",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": []
-  }, {
-    "id": "7d2ad375-16b8-46d5-a18f-89072b47529d",
-    "name": "ImageLoadedTest",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
     "tests": []
   }],
-  "urls": ["https://www.bookdepository.com/"],
+  "urls": ["https://helikon.bg/"],
   "plugins": []
 }
