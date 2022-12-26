@@ -1,2 +1,2 @@
 # BookDepositoryTest
-A project aimed at testing the website *Book Repository* using `Selenium`
+A project aimed at testing the website *Helikon* using `Selenium`
