@@ -72,7 +72,7 @@
       "id": "8494fd10-4373-415b-8a3b-0782438cedef",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
@@ -101,19 +101,19 @@
       ],
       "value": ""
     }, {
-      "id": "29ed40fc-9c59-4208-a5a5-f2602217a6d6",
+      "id": "672e8fbc-41cc-4860-bda0-f06c0fbb0b5b",
       "comment": "",
       "command": "assertAlert",
-      "target": "Трябва да влезете в профила си за да добавите този продукт в любими!",
+      "target": "\"Трябва да влезете в профила си за да добавите този продукт в любими!\"",
       "targets": [],
-      "value": ""
+      "value": "myAlert"
     }, {
-      "id": "51b6639e-cc4a-402f-b2e8-c4161bcb4525",
+      "id": "3f24fdad-c613-4c3f-8e58-52e84fa4b575",
       "comment": "",
-      "command": "pause",
+      "command": "chooseOkOnNextConfirmation",
       "target": "",
       "targets": [],
-      "value": "100"
+      "value": ""
     }]
   }, {
     "id": "8f830b3d-a77f-4001-ac7b-eb3902d7c539",
@@ -277,6 +277,792 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "f361b298-0039-478e-810e-2a7039f60cf0",
+    "name": "SearchTestValidCriteria",
+    "commands": [{
+      "id": "2d999eae-e622-4fc9-9654-1dca17353fe7",
+      "comment": "",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6c8bef71-5017-4a31-a53c-eb0a6061a557",
+      "comment": "",
+      "command": "click",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58cc11f2-f9f6-4ebe-bb12-21a1b14c4598",
+      "comment": "",
+      "command": "type",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": "Agatha Christie"
+    }, {
+      "id": "d3380406-7192-4eee-bb37-4fc7dc89d440",
+      "comment": "",
+      "command": "click",
+      "target": "css=.navbar-left .submit-search-btn",
+      "targets": [
+        ["css=.navbar-left .submit-search-btn", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca1f2434-28a2-440c-9ade-be45ee6a0da4",
+      "comment": "",
+      "command": "executeScript",
+      "target": "books = document.getElementsByClassName('product-caption'); results = []; for (var i = 0; i< books.length; i++){   var book = books[i];   results[i]  = book.innerHTML.includes(\"Agatha\") || book.innerHTML.includes(\"Christie\") || book.innerHTML.includes(\"Агата\") || book.innerHTML.includes(\"Кристи\"); } return results;",
+      "targets": [],
+      "value": "results"
+    }, {
+      "id": "50da94b8-0a8f-4836-a411-919bb438d0c7",
+      "comment": "",
+      "command": "forEach",
+      "target": "results",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "efd69a5c-d3e8-41f6-b82a-782e91e4f288",
+      "comment": "",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }, {
+      "id": "7b26f5c6-85cf-4639-bf40-0d4327901e15",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4bf8989d-a196-4bb7-89ed-b02d7a421ec0",
+    "name": "SearchTestInvalidCriteria",
+    "commands": [{
+      "id": "31a3fcc8-4523-4316-accc-ca9c84005662",
+      "comment": "",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a609162f-3462-4e61-8770-b6aeb0b5f840",
+      "comment": "",
+      "command": "click",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "697e2b00-e93c-4c0f-aad2-d3ebe4ac63e8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.navbar-left .submit-search-btn",
+      "targets": [
+        ["css=.navbar-left .submit-search-btn", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c6f8e45-a87a-472c-9161-5534e9246be5",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//h1[contains(.,'Резултати')]",
+      "targets": [
+        ["css=.page-title", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/header/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Търсене - Резултати за - \"agatha christie\"')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "cd6ddeb1-b465-4f15-abb7-0844c5b9e598",
+    "name": "LogoTest",
+    "commands": [{
+      "id": "760dcb25-97de-46aa-b83f-9a90541e5192",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b4ab11a8-27c2-4379-bdd3-22f8c3de1680",
+      "comment": "",
+      "command": "click",
+      "target": "css=.navbar-brand > .loaded",
+      "targets": [
+        ["css=.navbar-brand > .loaded", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c9299bd-9c0b-49bc-83c5-babda83c1c91",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "4db0456f-be4d-4063-800b-be776dce0c5e",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/"
+    }]
+  }, {
+    "id": "9d873c0f-28d0-4ddd-95a4-cee76a6081ba",
+    "name": "BooksTest",
+    "commands": [{
+      "id": "03ef9358-6b52-468d-a37e-1bbca674f19b",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "30e28453-66f9-48ac-882d-efcc71454667",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Начало')]",
+      "targets": [
+        ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//nav[2]/div/div[2]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce8766d5-ae8d-42c6-9f5a-7e2cfeca0673",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "cae72c85-73fc-489c-b9d1-e747ac3f47b5",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/books/"
+    }]
+  }, {
+    "id": "b5d16cb7-e847-40c4-981f-afde1c685019",
+    "name": "HomeTest",
+    "commands": [{
+      "id": "182515a1-91bd-44b5-8e8d-e617143e67b2",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a23939bb-474e-4dd3-8eeb-afd79facd2e0",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Начало')]",
+      "targets": [
+        ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//nav[2]/div/div[2]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afd95d7e-9ac9-49c6-839c-142943ae80e6",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "f7f9fdf4-7b2a-40cf-ad4e-8addb668e1e9",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/"
+    }]
+  }, {
+    "id": "9423638e-f31a-4f3b-a933-a571f65451f7",
+    "name": "TextbooksTest",
+    "commands": [{
+      "id": "3320f56b-d889-4643-8cf8-3d300100c6b4",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "18ae1a8e-f3b7-46cb-9e9c-5671f7734053",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Учебници')]",
+      "targets": [
+        ["css=.dropdown:nth-child(3) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Учебници')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/textbooks/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a649e45-3c0f-45a9-8c1c-5b854e613f2b",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "57f0c0e2-6ac2-4029-9c2d-f67726145ba8",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/textbooks/"
+    }]
+  }, {
+    "id": "ff5b8676-0566-4ec2-9c21-0fd93a0da713",
+    "name": "EBooksTest",
+    "commands": [{
+      "id": "801bd422-d86b-4c7d-abcf-def0c9fb234a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3d611cc8-d819-42ce-8fc4-570a8bf63a9c",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Е-Книги')]",
+      "targets": [
+        ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//nav[2]/div/div[2]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e54d4e5-d46d-470d-8971-fe54755d7c26",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "ce82d876-5f3e-4deb-8194-17a16b65d62e",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/ebooks/"
+    }]
+  }, {
+    "id": "c6789b7c-5ad7-4246-8b0f-ce3508561786",
+    "name": "EMagazinesTest",
+    "commands": [{
+      "id": "a38fcc15-1f35-4392-86bf-8a210f3860d8",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c3f51f87-6966-4130-8b3c-1b5aa739b064",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Е-списания')]",
+      "targets": [
+        ["css=.dropdown:nth-child(5) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Е-списания')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ezines/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "448f6f4e-8bae-419e-96fa-4e54ed156218",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "8b435ac9-3430-44f5-9bb9-6236210ecb28",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/ezines/"
+    }]
+  }, {
+    "id": "ef019ff7-c670-4069-9db6-5c1ce0876fdc",
+    "name": "GiftsTest",
+    "commands": [{
+      "id": "0774b83a-a2da-48ed-8f53-ed114a7b61c8",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "556fa437-dcf5-45c0-be0b-570a5149c4ae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-menu > .collapseProfile .darkBlue",
+      "targets": [
+        ["css=.nav-menu > .collapseProfile .darkBlue", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Здравей,')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e5157bd-3e0c-4f3d-83ba-52441419675d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Любими продукти",
+      "targets": [
+        ["linkText=Любими продукти", "linkText"],
+        ["css=#profile-dialog > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Любими продукти')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/profile.php?do=favorite-products')]", "xpath:href"],
+        ["xpath=//li/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Любими продукти')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9d03aa5-8234-4821-b7d5-b4a3b86ed5dc",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "391cb40b-c1ab-40db-8c02-88358c61b544",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/gifts/"
+    }]
+  }, {
+    "id": "9d4e5487-f42e-4478-abfa-2f5fff1ed5bb",
+    "name": "AccessoriesTest",
+    "commands": [{
+      "id": "e9b85bff-681a-433a-aba8-68b8d75b8ee5",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de47c567-7844-48a1-a411-00a306580cbb",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Аксесоари')]",
+      "targets": [
+        ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//nav[2]/div/div[2]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2251189d-338e-41e1-b2f1-f014296be0da",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "2233f678-7aba-4a25-bd37-6523f4fedf39",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/accessories/"
+    }]
+  }, {
+    "id": "1a6d355e-b1cf-42b3-94b1-212da98e33cd",
+    "name": "CouponsTest",
+    "commands": [{
+      "id": "fb231f9a-8367-4b74-abcf-212ce2c6555d",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5931681e-86cd-41fa-95da-b7d237af7429",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Ваучери')]",
+      "targets": [
+        ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//nav[2]/div/div[2]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4be7e21-bb55-44f4-a166-0fd8b97f9a54",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "cdd4bc6e-e146-46b5-a70d-4598d8ff5025",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/coupons/"
+    }]
+  }, {
+    "id": "7c4311d9-c802-47a0-a384-5a130f0842a3",
+    "name": "ClassificationsTest",
+    "commands": [{
+      "id": "51c2b5e3-0fd9-40b8-916d-d927342dc46b",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d586a41b-39fe-4de0-ab3d-39599e062b3e",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'класации')]",
+      "targets": [
+        ["css=.navbar-left a", "css:finder"],
+        ["xpath=//a[contains(text(),'класации')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/classifications/')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38eaa189-35b0-40d5-a863-71c8cc22fe72",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "da7c55d5-3ef1-41e1-bfb3-1f020e7fd114",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/classifications/"
+    }]
+  }, {
+    "id": "bfc8b49c-39d0-4834-a716-cfa6b8c760bb",
+    "name": "FavouitesLinkTest",
+    "commands": [{
+      "id": "9545854c-1775-404d-a74d-5a88941a69b2",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff936547-4e48-439b-a8bf-ac5bbeeb958b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Любими продукти",
+      "targets": [
+        ["linkText=Любими продукти", "linkText"],
+        ["css=#profile-dialog > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Любими продукти')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/profile.php?do=favorite-products')]", "xpath:href"],
+        ["xpath=//li/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Любими продукти')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "605f4505-4ff7-4322-9864-b3294a39dc03",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "ff679d99-817e-49f8-ab9c-dec68c0471cc",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/profile.php?do=favorite-products"
+    }]
+  }, {
+    "id": "d1ff0ec5-0940-43df-a53a-ba95481b881d",
+    "name": "OrderHistoryLinkTest",
+    "commands": [{
+      "id": "83537abb-0afe-4f6c-844c-d30e22fc9b90",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6e67e90d-5314-4adb-b058-064f713bf034",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-menu > .collapseProfile .darkBlue",
+      "targets": [
+        ["css=.nav-menu > .collapseProfile .darkBlue", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Здравей,')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd98f5e7-cbee-4161-9f43-41f34a526e4f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=История на поръчките",
+      "targets": [
+        ["linkText=История на поръчките", "linkText"],
+        ["css=#profile-dialog > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'История на поръчките')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/profile.php?do=order-history')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' История на поръчките')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f8315af-2e40-40d9-955e-776b018ce5b8",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "f530fa5d-5ed2-46f0-9faa-0f3910a35965",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/profile.php?do=order-history"
+    }]
+  }, {
+    "id": "0d5cec07-dd49-43d4-899b-4ea276f3d010",
+    "name": "ProfileLinkTest",
+    "commands": [{
+      "id": "e930632c-8b17-49f2-ac13-9301206fb2f1",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b73800e5-9b51-4128-8b54-301b6111571b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Здравей,",
+      "targets": [
+        ["linkText=Здравей,", "linkText"],
+        ["css=.nav-menu > .collapseProfile > a", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#profile-dialog')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Здравей,')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0bb35b55-0091-4ca9-bbab-42a135e417da",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Профил",
+      "targets": [
+        ["linkText=Профил", "linkText"],
+        ["css=#profile-dialog > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Профил')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/profile.php')])[3]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1815f885-ba15-41de-a4b9-1f1f89ad5692",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "5fc7a6e3-88a5-4104-9ac6-6b5805dda9fa",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/profile.php"
+    }]
+  }, {
+    "id": "0c29d511-bfd0-47c5-af3c-515eb675ed94",
+    "name": "TestCheckCartEmpty",
+    "commands": [{
+      "id": "7cc9f6f1-1625-46ac-9e78-65f32f1026de",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9e332820-e396-49d8-96c8-9e1924a8a372",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "36525ab1-d0ab-4f2a-a5b6-033a415f3a14",
+      "comment": "Enter UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "cde9fd44-f30e-4d75-80f2-7ed205cbeea9",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "63630402-fedb-4488-9462-c0e5b384b395",
+      "comment": "Confirm Login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18890b0e-8cf4-4035-a9c7-f8103fae12df",
+      "comment": "Go to Home",
+      "command": "click",
+      "target": "css=.navbar-brand > .loaded",
+      "targets": [
+        ["css=.navbar-brand > .loaded", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1835ea7e-e489-4f7e-b529-17af1628242b",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [],
+      "value": "cartStatus"
+    }, {
+      "id": "95c5f5ba-a517-49a2-85b9-ea768b23a27e",
+      "comment": "",
+      "command": "if",
+      "target": "${cartStatus} === \"0 продукта\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0125b1b-f324-4e44-a13c-65977b11e91b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 0 продукта')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6e40e4e-4296-4c45-b9c1-9b8453471fbe",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "dd117e9d-54ce-4566-b4b3-8212f46fb739",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/"
+    }, {
+      "id": "f56f1d64-18ba-45fb-9f93-0298c873108a",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "36764a98-1bf1-404c-92a0-1a6ee6e8c58b",
@@ -284,14 +1070,28 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": []
+    "tests": ["1a28f82f-fd7d-4239-b879-c9d6192ed248"]
   }, {
     "id": "65ca21f0-bf5e-4c61-8d67-4d8c06853851",
-    "name": "WishlistTest",
+    "name": "FavouritesTest",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": []
+    "tests": ["5dfab364-9775-4c90-a159-d85e4128c259", "8f830b3d-a77f-4001-ac7b-eb3902d7c539"]
+  }, {
+    "id": "8068fdf0-0d73-41f0-b556-fb66e20b268e",
+    "name": "SearchTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["4bf8989d-a196-4bb7-89ed-b02d7a421ec0", "f361b298-0039-478e-810e-2a7039f60cf0"]
+  }, {
+    "id": "c6a2c2b8-598a-47c4-b025-1ef9f3381979",
+    "name": "NavigationTests",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["9d4e5487-f42e-4478-abfa-2f5fff1ed5bb", "5dfab364-9775-4c90-a159-d85e4128c259", "7c4311d9-c802-47a0-a384-5a130f0842a3", "1a6d355e-b1cf-42b3-94b1-212da98e33cd", "ff5b8676-0566-4ec2-9c21-0fd93a0da713", "c6789b7c-5ad7-4246-8b0f-ce3508561786", "ef019ff7-c670-4069-9db6-5c1ce0876fdc", "b5d16cb7-e847-40c4-981f-afde1c685019", "cd6ddeb1-b465-4f15-abb7-0844c5b9e598", "9423638e-f31a-4f3b-a933-a571f65451f7"]
   }],
   "urls": ["https://helikon.bg/"],
   "plugins": []
