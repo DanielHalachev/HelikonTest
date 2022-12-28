@@ -5,7 +5,7 @@
   "url": "https://helikon.bg",
   "tests": [{
     "id": "1a28f82f-fd7d-4239-b879-c9d6192ed248",
-    "name": "LoginProcess",
+    "name": "LoginSuccessfullyTest",
     "commands": [{
       "id": "ddbf264e-ed77-451d-bd19-49fec464069d",
       "comment": "Open a session of a logged-out user",
@@ -64,6 +64,18 @@
         ["xpath=//form/a", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "46f0de87-7be8-49e5-9033-ba948e8cf9cc",
+      "comment": "Assert Successfully Logged-In",
+      "command": "assertText",
+      "target": "css=.nav-menu > .collapseProfile .darkBlue",
+      "targets": [
+        ["css=.nav-menu > .collapseProfile .darkBlue", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Здравей,')]", "xpath:innerText"]
+      ],
+      "value": "Здравей,"
     }]
   }, {
     "id": "5dfab364-9775-4c90-a159-d85e4128c259",
@@ -1063,6 +1075,717 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "05806705-f5ae-4063-9cc5-c6c4bab9ce5e",
+    "name": "LoginWithWrongPasswordTest",
+    "commands": [{
+      "id": "1e9ba034-447b-445a-aeaf-b8479329b0be",
+      "comment": "Open Session of a Logged-Out User",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f080db57-2821-4bf6-ae2a-e8221e8a769a",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlue",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlue", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Вход')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "086da4ed-763b-4cd5-8fea-b9edea25b9eb",
+      "comment": "Click UserName",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ecb21740-1ede-4306-be36-7bd0745a8cf3",
+      "comment": "Enter UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "a5186490-4cce-451a-ae2e-1142db6ac0f2",
+      "comment": "Click Password",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "87487ede-9b50-4886-83ad-bc4a2d1fe0ce",
+      "comment": "EnterPassword",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "wrongPassword"
+    }, {
+      "id": "31cf0889-73e2-41fe-85f9-f0ae3cd4b3d3",
+      "comment": "Confirm Login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "36f350ca-9504-402b-8eb9-6dc47726c380",
+      "comment": "Assert Error Message",
+      "command": "assertText",
+      "target": "css=div:nth-child(1) > ul:nth-child(1) > li",
+      "targets": [
+        ["css=div:nth-child(1) > ul:nth-child(1) > li", "css:finder"],
+        ["xpath=//div[@id='nav-login-dialog']/div[3]/div/div/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"]
+      ],
+      "value": "* Неправилно потребителско име или парола в Хеликон"
+    }]
+  }, {
+    "id": "5192d4f2-40a7-47a2-b2b0-7df589037ea2",
+    "name": "RegistrationWithAlreadyExistingUserNameTest",
+    "commands": [{
+      "id": "bc8760c1-6911-40c2-bd5c-4500d5ba7ab6",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9060dd3-88b9-400f-8fca-8e4c2597f3cb",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e266787-0321-473f-bd1f-5c6e99990293",
+      "comment": "Click Registation",
+      "command": "click",
+      "target": "linkText=Регистрация",
+      "targets": [
+        ["linkText=Регистрация", "linkText"],
+        ["css=.list-inline:nth-child(8) > li:nth-child(1) > .popup-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//div[@id='nav-login-dialog']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#nav-account-dialog')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Регистрация')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7791209-6f64-47e0-bd44-3963cf7f6ef3",
+      "comment": "Click UserName",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d5a4e98-a63b-46f9-84f5-f680145cb4a7",
+      "comment": "Enter Already Existing UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "ea652479-a619-461f-9a99-7427e873806f",
+      "comment": "Click Password",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "71d22bb6-ba4a-4067-88f2-084154159b3c",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "d5cebcc7-c2cc-488f-943d-958614aa2b4f",
+      "comment": "Click Re-enter Password",
+      "command": "click",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b28704bf-3381-446f-8cb6-c4d527c3d8de",
+      "comment": "Enter Re-enter Password",
+      "command": "type",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "430dedd0-1322-44ac-92e3-8f77898ffffd",
+      "comment": "Click Email",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1d0cdc2-8227-4eca-9b8f-d6b6b1db32e6",
+      "comment": "Enter Email",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "sample_mail34@abv.bg"
+    }, {
+      "id": "c743b9fa-40a4-4828-a218-a1eada0e83a0",
+      "comment": "Click Phone Number",
+      "command": "click",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f423212-6748-4a98-a928-19b18a31134b",
+      "comment": "Enter Phone Number",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "0888888888"
+    }, {
+      "id": "71369af9-f872-4187-addd-f182c1b5f5f9",
+      "comment": "Agree with Terms & Conditions",
+      "command": "click",
+      "target": "xpath=//label[contains(.,'Приемам Общите условия.')]",
+      "targets": [
+        ["css=.checkbox > .hover", "css:finder"],
+        ["xpath=//form[@id='register_form']/div[7]/label", "xpath:idRelative"],
+        ["xpath=//div[7]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Приемам Общите условия.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "71b3b7ff-b458-4360-b265-b188a2e0ebfd",
+      "comment": "Click Registration Button",
+      "command": "click",
+      "target": "css=.register-btn",
+      "targets": [
+        ["css=.register-btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//form[@id='register_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "03998f99-64a6-4ec5-9257-0e532b309a7c",
+      "comment": "Assert Error Message in UserName",
+      "command": "assertText",
+      "target": "css=div:nth-child(1) > ul:nth-child(1) > li",
+      "targets": [
+        ["css=div:nth-child(1) > ul:nth-child(1) > li", "css:finder"],
+        ["xpath=//div[@id='nav-account-dialog']/div/div/div/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"]
+      ],
+      "value": "* възникна грешка в следните полета:\\nПотребителско име"
+    }]
+  }, {
+    "id": "a41c0c19-df67-4b4c-8b1a-68a1b8e4a60a",
+    "name": "RegistrationWithAlreadyExistingEmailTest",
+    "commands": [{
+      "id": "2898dd6b-34ce-435a-b04f-e3df46cf3356",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef15f68c-37d0-4105-ad68-73ab7a2b6e6f",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1004106-58dd-4418-9877-5f6bf3c77b42",
+      "comment": "Click Registation",
+      "command": "click",
+      "target": "linkText=Регистрация",
+      "targets": [
+        ["linkText=Регистрация", "linkText"],
+        ["css=.list-inline:nth-child(8) > li:nth-child(1) > .popup-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//div[@id='nav-login-dialog']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#nav-account-dialog')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Регистрация')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d682ae2-8609-4dc1-bed7-b81c01e9facb",
+      "comment": "Click UserName",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e19fa6f2-25f7-426b-b615-0933516ebbf6",
+      "comment": "Enter UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "unexistingSampleUser"
+    }, {
+      "id": "b546070f-5efc-4c1a-a31d-b832a8e9368c",
+      "comment": "Click Password",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1fd43957-b84b-4f6c-8ee8-598ff8609d0f",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "c381ac7e-a3b0-471e-a6e7-44b1e0bd8b5b",
+      "comment": "Click Re-enter Password",
+      "command": "click",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee8d7cd6-5afa-4dda-bd39-3389efe7cdcf",
+      "comment": "Enter Re-enter Password",
+      "command": "type",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "8b541daf-ec8f-45ff-b67a-3278cefc057a",
+      "comment": "Click Email",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9a80c05-41a7-4cfe-9717-876bfee898c7",
+      "comment": "Enter Already Existing Email",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "sample_mail@abv.bg"
+    }, {
+      "id": "d0e0c91f-c6cc-4ac8-a359-f042edb74813",
+      "comment": "Click Phone Number",
+      "command": "click",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afe7538a-8f30-440e-a976-7af801008e72",
+      "comment": "Enter Phone Number",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "0888888888"
+    }, {
+      "id": "cb77255c-a34f-49de-acf9-8e8ede88a0a8",
+      "comment": "Agree with Terms & Conditions",
+      "command": "click",
+      "target": "xpath=//label[contains(.,'Приемам Общите условия.')]",
+      "targets": [
+        ["css=.checkbox > .hover", "css:finder"],
+        ["xpath=//form[@id='register_form']/div[7]/label", "xpath:idRelative"],
+        ["xpath=//div[7]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Приемам Общите условия.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e8995c2-73ca-4636-92dd-d91148b57b17",
+      "comment": "Click Registration Button",
+      "command": "click",
+      "target": "css=.register-btn",
+      "targets": [
+        ["css=.register-btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//form[@id='register_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b50ad32-ed56-496a-b48d-284b6cca3db3",
+      "comment": "Assert Error Message in Email",
+      "command": "assertText",
+      "target": "css=div:nth-child(1) > ul:nth-child(1) > li",
+      "targets": [
+        ["css=div:nth-child(1) > ul:nth-child(1) > li", "css:finder"],
+        ["xpath=//div[@id='nav-account-dialog']/div/div/div/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"]
+      ],
+      "value": "* възникна грешка в следните полета:\\nЕ-mail адрес"
+    }]
+  }, {
+    "id": "4e82dd8a-5771-4ada-aae6-76693f9931ed",
+    "name": "RegistrationWithDifferentReenteredPasswordTest",
+    "commands": [{
+      "id": "1e00b559-4390-4e35-9289-dcb2dd53e446",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6690a545-93d3-4715-a753-b645cfc788d4",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "34ffe86d-8504-4458-8a57-87c959cb7568",
+      "comment": "Click Registation",
+      "command": "click",
+      "target": "linkText=Регистрация",
+      "targets": [
+        ["linkText=Регистрация", "linkText"],
+        ["css=.list-inline:nth-child(8) > li:nth-child(1) > .popup-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//div[@id='nav-login-dialog']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#nav-account-dialog')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Регистрация')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "20485002-2ec0-4b15-83b7-b0fe0e32a8c2",
+      "comment": "Click UserName",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "40c1d286-5680-4734-985e-6c60117721d4",
+      "comment": "Enter Already Existing UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user34"
+    }, {
+      "id": "4281e835-87eb-4940-b57e-613769024eb0",
+      "comment": "Click Password",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b1744321-61f5-490f-91a2-9bf8cd54923c",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "3ec5a013-f9c6-46ad-b68f-44becbdc9959",
+      "comment": "Click Re-enter Password",
+      "command": "click",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d44e2623-b09f-4504-af67-9f0b923a9616",
+      "comment": "Enter Wrong Re-entered Password",
+      "command": "type",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "7c3c5c6c-39cc-47f2-826e-0525372d58c7",
+      "comment": "Click Email",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "13ef9f08-4af0-4b92-b304-5943803094af",
+      "comment": "Enter Email",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "sample_mail34@abv.bg"
+    }, {
+      "id": "63c644c3-9a9d-490b-a491-4fad6af96a54",
+      "comment": "Click Phone Number",
+      "command": "click",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20e59b87-5882-45cf-a816-ee5f4ccbc44a",
+      "comment": "Enter Phone Number",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "0888888888"
+    }, {
+      "id": "9d85ace4-a503-417a-970e-556147cd5a04",
+      "comment": "Agree with Terms & Conditions",
+      "command": "click",
+      "target": "xpath=//label[contains(.,'Приемам Общите условия.')]",
+      "targets": [
+        ["css=.checkbox > .hover", "css:finder"],
+        ["xpath=//form[@id='register_form']/div[7]/label", "xpath:idRelative"],
+        ["xpath=//div[7]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Приемам Общите условия.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b3b1133-bbf4-4ea8-b490-cb859b734202",
+      "comment": "Click Registration Button",
+      "command": "click",
+      "target": "css=.register-btn",
+      "targets": [
+        ["css=.register-btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//form[@id='register_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9282c526-069d-4119-86a2-6541434641ba",
+      "comment": "Assert Error Message in UserName",
+      "command": "assertText",
+      "target": "css=div:nth-child(1) > ul:nth-child(1) > li",
+      "targets": [
+        ["css=div:nth-child(1) > ul:nth-child(1) > li", "css:finder"],
+        ["xpath=//div[@id='nav-account-dialog']/div/div/div/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"]
+      ],
+      "value": "* Въведените пароли не съвпадат"
+    }]
   }],
   "suites": [{
     "id": "36764a98-1bf1-404c-92a0-1a6ee6e8c58b",
@@ -1091,7 +1814,21 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["9d4e5487-f42e-4478-abfa-2f5fff1ed5bb", "5dfab364-9775-4c90-a159-d85e4128c259", "7c4311d9-c802-47a0-a384-5a130f0842a3", "1a6d355e-b1cf-42b3-94b1-212da98e33cd", "ff5b8676-0566-4ec2-9c21-0fd93a0da713", "c6789b7c-5ad7-4246-8b0f-ce3508561786", "ef019ff7-c670-4069-9db6-5c1ce0876fdc", "b5d16cb7-e847-40c4-981f-afde1c685019", "cd6ddeb1-b465-4f15-abb7-0844c5b9e598", "9423638e-f31a-4f3b-a933-a571f65451f7"]
+    "tests": ["9d873c0f-28d0-4ddd-95a4-cee76a6081ba", "9d4e5487-f42e-4478-abfa-2f5fff1ed5bb", "5dfab364-9775-4c90-a159-d85e4128c259", "7c4311d9-c802-47a0-a384-5a130f0842a3", "1a6d355e-b1cf-42b3-94b1-212da98e33cd", "ff5b8676-0566-4ec2-9c21-0fd93a0da713", "c6789b7c-5ad7-4246-8b0f-ce3508561786", "ef019ff7-c670-4069-9db6-5c1ce0876fdc", "b5d16cb7-e847-40c4-981f-afde1c685019", "cd6ddeb1-b465-4f15-abb7-0844c5b9e598", "9423638e-f31a-4f3b-a933-a571f65451f7"]
+  }, {
+    "id": "73702d4a-8b80-4d79-8152-a116147e4042",
+    "name": "RegistrationTests",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["a41c0c19-df67-4b4c-8b1a-68a1b8e4a60a", "4e82dd8a-5771-4ada-aae6-76693f9931ed", "5192d4f2-40a7-47a2-b2b0-7df589037ea2"]
+  }, {
+    "id": "a9d0ef88-6b0b-43f8-872a-61dfb625c2c3",
+    "name": "LoginTests",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1a28f82f-fd7d-4239-b879-c9d6192ed248", "05806705-f5ae-4063-9cc5-c6c4bab9ce5e"]
   }],
   "urls": ["https://helikon.bg/"],
   "plugins": []
