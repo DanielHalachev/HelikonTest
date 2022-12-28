@@ -100,6 +100,13 @@
       ],
       "value": ""
     }, {
+      "id": "3f24fdad-c613-4c3f-8e58-52e84fa4b575",
+      "comment": "",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "ad965e4f-586a-47ef-84ca-01d4b93fb7d9",
       "comment": "",
       "command": "click",
@@ -117,13 +124,6 @@
       "comment": "",
       "command": "assertAlert",
       "target": "\"Трябва да влезете в профила си за да добавите този продукт в любими!\"",
-      "targets": [],
-      "value": "myAlert"
-    }, {
-      "id": "3f24fdad-c613-4c3f-8e58-52e84fa4b575",
-      "comment": "",
-      "command": "chooseOkOnNextConfirmation",
-      "target": "",
       "targets": [],
       "value": ""
     }]
@@ -467,7 +467,7 @@
       "id": "30e28453-66f9-48ac-882d-efcc71454667",
       "comment": "",
       "command": "click",
-      "target": "xpath=//a[contains(text(),'Начало')]",
+      "target": "xpath=//a[contains(text(),'Книги')]",
       "targets": [
         ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
         ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
@@ -650,34 +650,20 @@
       "id": "0774b83a-a2da-48ed-8f53-ed114a7b61c8",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "556fa437-dcf5-45c0-be0b-570a5149c4ae",
       "comment": "",
       "command": "click",
-      "target": "css=.nav-menu > .collapseProfile .darkBlue",
+      "target": "xpath=//a[contains(text(),'Подаръци')]",
       "targets": [
-        ["css=.nav-menu > .collapseProfile .darkBlue", "css:finder"],
-        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a/span", "xpath:idRelative"],
-        ["xpath=//li/a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'Здравей,')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "0e5157bd-3e0c-4f3d-83ba-52441419675d",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Любими продукти",
-      "targets": [
-        ["linkText=Любими продукти", "linkText"],
-        ["css=#profile-dialog > li:nth-child(1) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Любими продукти')]", "xpath:link"],
-        ["xpath=//ul[@id='profile-dialog']/li/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/profile.php?do=favorite-products')]", "xpath:href"],
-        ["xpath=//li/ul/li/a", "xpath:position"],
-        ["xpath=//a[contains(.,' Любими продукти')]", "xpath:innerText"]
+        ["css=.dropdown:nth-child(6) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Подаръци')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/gifts/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[6]/a", "xpath:position"]
       ],
       "value": ""
     }, {
@@ -811,149 +797,57 @@
     }]
   }, {
     "id": "bfc8b49c-39d0-4834-a716-cfa6b8c760bb",
-    "name": "FavouitesLinkTest",
+    "name": "FavouitesLinkLogoutUserTest",
     "commands": [{
       "id": "9545854c-1775-404d-a74d-5a88941a69b2",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "ff936547-4e48-439b-a8bf-ac5bbeeb958b",
       "comment": "",
-      "command": "click",
+      "command": "assertElementNotPresent",
       "target": "linkText=Любими продукти",
-      "targets": [
-        ["linkText=Любими продукти", "linkText"],
-        ["css=#profile-dialog > li:nth-child(1) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Любими продукти')]", "xpath:link"],
-        ["xpath=//ul[@id='profile-dialog']/li/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/profile.php?do=favorite-products')]", "xpath:href"],
-        ["xpath=//li/ul/li/a", "xpath:position"],
-        ["xpath=//a[contains(.,' Любими продукти')]", "xpath:innerText"]
-      ],
+      "targets": [],
       "value": ""
-    }, {
-      "id": "605f4505-4ff7-4322-9864-b3294a39dc03",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return window.location.href;",
-      "targets": [],
-      "value": "href"
-    }, {
-      "id": "ff679d99-817e-49f8-ab9c-dec68c0471cc",
-      "comment": "",
-      "command": "assert",
-      "target": "href",
-      "targets": [],
-      "value": "https://helikon.bg/profile.php?do=favorite-products"
     }]
   }, {
     "id": "d1ff0ec5-0940-43df-a53a-ba95481b881d",
-    "name": "OrderHistoryLinkTest",
+    "name": "OrderHistoryLinkLoggedOutUserTest",
     "commands": [{
       "id": "83537abb-0afe-4f6c-844c-d30e22fc9b90",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "/logout.php",
       "targets": [],
-      "value": ""
-    }, {
-      "id": "6e67e90d-5314-4adb-b058-064f713bf034",
-      "comment": "",
-      "command": "click",
-      "target": "css=.nav-menu > .collapseProfile .darkBlue",
-      "targets": [
-        ["css=.nav-menu > .collapseProfile .darkBlue", "css:finder"],
-        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a/span", "xpath:idRelative"],
-        ["xpath=//li/a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'Здравей,')]", "xpath:innerText"]
-      ],
       "value": ""
     }, {
       "id": "fd98f5e7-cbee-4161-9f43-41f34a526e4f",
       "comment": "",
-      "command": "click",
+      "command": "assertElementNotPresent",
       "target": "linkText=История на поръчките",
-      "targets": [
-        ["linkText=История на поръчките", "linkText"],
-        ["css=#profile-dialog > li:nth-child(2) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'История на поръчките')]", "xpath:link"],
-        ["xpath=//ul[@id='profile-dialog']/li[2]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/profile.php?do=order-history')]", "xpath:href"],
-        ["xpath=//li[2]/a", "xpath:position"],
-        ["xpath=//a[contains(.,' История на поръчките')]", "xpath:innerText"]
-      ],
+      "targets": [],
       "value": ""
-    }, {
-      "id": "1f8315af-2e40-40d9-955e-776b018ce5b8",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return window.location.href;",
-      "targets": [],
-      "value": "href"
-    }, {
-      "id": "f530fa5d-5ed2-46f0-9faa-0f3910a35965",
-      "comment": "",
-      "command": "assert",
-      "target": "href",
-      "targets": [],
-      "value": "https://helikon.bg/profile.php?do=order-history"
     }]
   }, {
     "id": "0d5cec07-dd49-43d4-899b-4ea276f3d010",
-    "name": "ProfileLinkTest",
+    "name": "ProfileLinkLoggedOutUserTest",
     "commands": [{
       "id": "e930632c-8b17-49f2-ac13-9301206fb2f1",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "/logout.php",
       "targets": [],
-      "value": ""
-    }, {
-      "id": "b73800e5-9b51-4128-8b54-301b6111571b",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Здравей,",
-      "targets": [
-        ["linkText=Здравей,", "linkText"],
-        ["css=.nav-menu > .collapseProfile > a", "css:finder"],
-        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '#profile-dialog')]", "xpath:href"],
-        ["xpath=//li/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Здравей,')]", "xpath:innerText"]
-      ],
       "value": ""
     }, {
       "id": "0bb35b55-0091-4ca9-bbab-42a135e417da",
       "comment": "",
-      "command": "click",
+      "command": "assertElementNotPresent",
       "target": "linkText=Профил",
-      "targets": [
-        ["linkText=Профил", "linkText"],
-        ["css=#profile-dialog > li:nth-child(3) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Профил')]", "xpath:link"],
-        ["xpath=//ul[@id='profile-dialog']/li[3]/a", "xpath:idRelative"],
-        ["xpath=(//a[contains(@href, '/profile.php')])[3]", "xpath:href"],
-        ["xpath=//li[3]/a", "xpath:position"],
-        ["xpath=//a[contains(.,' Профил')]", "xpath:innerText"]
-      ],
+      "targets": [],
       "value": ""
-    }, {
-      "id": "1815f885-ba15-41de-a4b9-1f1f89ad5692",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return window.location.href;",
-      "targets": [],
-      "value": "href"
-    }, {
-      "id": "5fc7a6e3-88a5-4104-9ac6-6b5805dda9fa",
-      "comment": "",
-      "command": "assert",
-      "target": "href",
-      "targets": [],
-      "value": "https://helikon.bg/profile.php"
     }]
   }, {
     "id": "0c29d511-bfd0-47c5-af3c-515eb675ed94",
@@ -2674,6 +2568,293 @@
       "target": "result",
       "targets": [],
       "value": "true"
+    }]
+  }, {
+    "id": "367a8037-ffaa-4d3b-90a8-c16581b1c277",
+    "name": "FavouitesLinkLoggedInUserTest",
+    "commands": [{
+      "id": "414b5ad4-9f90-44b1-8a21-4980a3ef581f",
+      "comment": "",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5af90792-27c7-4b5b-92a9-ee930ae85dc1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7053ecb-40a8-4692-b74e-bf9e65eaeb79",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "66ba8460-c721-4762-9ce3-0c728e98087f",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "28f298fa-edc8-4b22-946e-b8b1e056b2d3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e0a5d3b9-5660-4121-a823-49dc0b71a897",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Любими продукти",
+      "targets": [
+        ["linkText=Любими продукти", "linkText"],
+        ["css=#profile-dialog > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Любими продукти')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/profile.php?do=favorite-products')]", "xpath:href"],
+        ["xpath=//li/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Любими продукти')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7aa05b20-e0fc-47ab-b4b5-99df5580042f",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "ea42e4f4-b114-404e-82de-d8316052ef41",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/profile.php?do=favorite-products"
+    }]
+  }, {
+    "id": "9588b008-6108-4385-81d9-8d64ee1f6477",
+    "name": "OrderHistoryLinkLoggedInUserTest",
+    "commands": [{
+      "id": "e574a767-180c-4600-89c2-5e8887c3b0c3",
+      "comment": "",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "931a6fd0-7bb9-4008-b594-6394d3168e35",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "52337fd3-fe4c-4f61-a953-1568738faefb",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "686c0904-7cf1-4c64-a16a-af859fbfb282",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "c868ef8e-2d41-4866-806b-fb3abea94668",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "df36ce16-ff04-4da8-817b-95409720b7e7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-menu > .collapseProfile .darkBlue",
+      "targets": [
+        ["css=.nav-menu > .collapseProfile .darkBlue", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Здравей,')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "194300e8-800c-42ec-82b1-47054e7bba18",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=История на поръчките",
+      "targets": [
+        ["linkText=История на поръчките", "linkText"],
+        ["css=#profile-dialog > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'История на поръчките')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/profile.php?do=order-history')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' История на поръчките')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d610adb8-aa0d-4c44-9832-8d8584437369",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "40894149-8ef6-4783-b1e1-510b6edb6c2c",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/profile.php?do=order-history"
+    }]
+  }, {
+    "id": "5ac12d71-b0a1-4b4d-ba95-24c132baaaa7",
+    "name": "ProfileLinkLoggedInUserTest",
+    "commands": [{
+      "id": "77ab4045-ffb9-4605-b6ff-c07c7686d5c4",
+      "comment": "",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ef5138a-6005-470f-81aa-705d68765f7c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "370542dd-a87c-40f7-b5e1-50488ba43e42",
+      "comment": "",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "507ff1e4-493b-4d11-965c-0ce7af313312",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "3389540d-4768-41d7-891d-b0a7d2528288",
+      "comment": "",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "753ba20f-6758-4fde-a65b-37a3fcad3b75",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Здравей,",
+      "targets": [
+        ["linkText=Здравей,", "linkText"],
+        ["css=.nav-menu > .collapseProfile > a", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#profile-dialog')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Здравей,')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4cce1752-86b2-4b95-b204-aab8baa86fe3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Профил",
+      "targets": [
+        ["linkText=Профил", "linkText"],
+        ["css=#profile-dialog > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Профил')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/profile.php')])[3]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c187c89f-4f34-48a6-91ff-cc5e654c6eaf",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "9b685c54-19e1-40f3-bc6a-5c116f4f8c29",
+      "comment": "",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/profile.php"
     }]
   }],
   "suites": [{
