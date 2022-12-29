@@ -3049,6 +3049,602 @@
       ],
       "value": "* Съгласете се с Общите условия"
     }]
+  }, {
+    "id": "40d965e4-09fa-4963-89e3-b28ecc5d029a",
+    "name": "AddToCartIfEmptyTest",
+    "commands": [{
+      "id": "a8d26637-6af1-4453-926d-f77fc5be0ef7",
+      "comment": "Open Session of a Logged-Out User",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c9a98aed-de8e-473f-9253-0d2cf35abdc8",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "ebefc0f1-b433-4227-8131-f722e89f0480",
+      "comment": "Assert Cart is Empty",
+      "command": "assert",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "0 продукта"
+    }, {
+      "id": "5e80bd06-7f99-4314-991e-d202ba44e0a8",
+      "comment": "Click Search Bar",
+      "command": "click",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "222863ef-911d-42a5-8600-cd40b676766d",
+      "comment": "Store Desired Book Title",
+      "command": "store",
+      "target": "Смърт край Нил",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "f87d1fe9-b283-43ff-91b5-d146b6e8eef4",
+      "comment": "Enter Desired Book Title",
+      "command": "type",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${title}"
+    }, {
+      "id": "16c45f08-6e1f-46a5-bf34-465e78138014",
+      "comment": "Click Search Button",
+      "command": "click",
+      "target": "css=.navbar-left .submit-search-btn",
+      "targets": [
+        ["css=.navbar-left .submit-search-btn", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3fcd06c9-f9bf-46b6-b155-c9c2f2f3e698",
+      "comment": "Choose Book",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .custom-responsive-style",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .custom-responsive-style", "css:finder"],
+        ["xpath=//img[@alt='Смърт край Нил']", "xpath:img"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div[2]/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffb3b960-a145-4439-a350-1214714ca796",
+      "comment": "Click Buy Button",
+      "command": "click",
+      "target": "css=.btn > .loading",
+      "targets": [
+        ["css=.btn > .loading", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "26d1c0be-c5ef-4232-855d-d31e26597fc0",
+      "comment": "Click View Cart Button",
+      "command": "click",
+      "target": "css=.col-md-3 > .btn",
+      "targets": [
+        ["css=.col-md-3 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'виж количката')]", "xpath:link"],
+        ["xpath=//div[@id='dynamicModal']/div/div/div[2]/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/cart/')])[3]", "xpath:href"],
+        ["xpath=//div/div[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c0b3ce2-1855-465c-86ef-2936fd85415d",
+      "comment": "Wait to Load My Order Page",
+      "command": "waitForElementVisible",
+      "target": "css=.page-title",
+      "targets": [
+        ["css=.page-title", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/header/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Моята поръчка')]", "xpath:innerText"]
+      ],
+      "value": "3000"
+    }, {
+      "id": "85d18030-520b-41a7-b9eb-2c0a60325509",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "e90072b9-1d46-48f0-b8bf-3d3586c1b9c7",
+      "comment": "Verify There is One Product in Cart",
+      "command": "verify",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "1 продукт"
+    }, {
+      "id": "a178a2f0-bdf3-4d69-888f-bf663f12b323",
+      "comment": "Choose OK On Next Alert",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "578f5409-7a24-4dfa-82e1-d6b8ab12ee36",
+      "comment": "Remove Product from Cart",
+      "command": "click",
+      "target": "linkText=изтрий",
+      "targets": [
+        ["linkText=изтрий", "linkText"],
+        ["css=.text-orange", "css:finder"],
+        ["xpath=//a[contains(text(),'изтрий')]", "xpath:link"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[14]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' изтрий')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "54fb94dd-0aca-4577-9230-530095353bf7",
+    "name": "UpdateProductQuantityInCartTest",
+    "commands": [{
+      "id": "d19bea11-d854-47b3-a927-65b24de46058",
+      "comment": "Open Session of a Logged-Out User",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e951185a-4c81-4818-848b-4bc37a67a9e7",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "a62d3d8b-cd5d-4e66-a2e9-f500699a28ce",
+      "comment": "Assert Cart is Empty",
+      "command": "assert",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "0 продукта"
+    }, {
+      "id": "53bbe3df-cb6f-40d0-a59e-ff0869bb6960",
+      "comment": "Click Search Bar",
+      "command": "click",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d44f74cc-f9bb-41d3-a0dd-13cbde4e8e9c",
+      "comment": "Store Desired Book Title",
+      "command": "store",
+      "target": "Смърт край Нил",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "fd732865-2452-432e-be4c-97ee71eb23d3",
+      "comment": "Enter Desired Book Title",
+      "command": "type",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${title}"
+    }, {
+      "id": "aaa7f9fd-9b27-43c7-b44a-da0d8d273dec",
+      "comment": "Click Search Button",
+      "command": "click",
+      "target": "css=.navbar-left .submit-search-btn",
+      "targets": [
+        ["css=.navbar-left .submit-search-btn", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c859f292-6ae7-4971-b3c2-2df35e59637a",
+      "comment": "Choose Book",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .custom-responsive-style",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .custom-responsive-style", "css:finder"],
+        ["xpath=//img[@alt='Смърт край Нил']", "xpath:img"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div[2]/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9f088b0-af01-4824-a9a0-0e6f43662cc6",
+      "comment": "Click Buy Button",
+      "command": "click",
+      "target": "css=.btn > .loading",
+      "targets": [
+        ["css=.btn > .loading", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3447b0f-39bc-4a36-a45f-640d807378d8",
+      "comment": "Click View Cart Button",
+      "command": "click",
+      "target": "css=.col-md-3 > .btn",
+      "targets": [
+        ["css=.col-md-3 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'виж количката')]", "xpath:link"],
+        ["xpath=//div[@id='dynamicModal']/div/div/div[2]/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/cart/')])[3]", "xpath:href"],
+        ["xpath=//div/div[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "645e4808-b3e2-4b02-b165-65fc1675d55a",
+      "comment": "Wait to Load My Order Page",
+      "command": "waitForElementVisible",
+      "target": "css=.page-title",
+      "targets": [
+        ["css=.page-title", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/header/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Моята поръчка')]", "xpath:innerText"]
+      ],
+      "value": "3000"
+    }, {
+      "id": "456b6996-9776-44ff-a69a-5587c3c50520",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "b1e397ad-841a-4dda-aea3-a6c72dc7347b",
+      "comment": "Assert There is One Product in Cart",
+      "command": "assert",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "1 продукт"
+    }, {
+      "id": "f5240cf8-4c2c-43c9-9ae0-3262115e0489",
+      "comment": "Create LoopVariable",
+      "command": "executeScript",
+      "target": "return 0",
+      "targets": [],
+      "value": "loopVariable"
+    }, {
+      "id": "56fed31d-4905-4087-9322-67f65b7f26a5",
+      "comment": "Start Do Loop",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f61c01f2-2a01-4d72-a04f-81072fa25a1a",
+      "comment": "Click + button",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[2]/div/div/span[2]/a/i", "xpath:idRelative"],
+        ["xpath=//span[2]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c681199-e9b4-4427-aa3b-f0486c8faf03",
+      "comment": "Increment LoopVariable",
+      "command": "executeScript",
+      "target": "return ${loopVariable} + 1",
+      "targets": [],
+      "value": "loopVariable"
+    }, {
+      "id": "c2d8ac27-6b64-4d74-889b-3adb2db49541",
+      "comment": "Check Do Loop Condition",
+      "command": "repeatIf",
+      "target": "${loopVariable} < 9",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4bb6111d-6413-4973-bc9c-b3cb9440eab7",
+      "comment": "Click Finish Order Button",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Завърши поръчката')]",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(text(),'Завърши поръчката')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div[2]/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/checkout/')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2bd5cc8-a759-4575-b31d-4287d63b2a89",
+      "comment": "Verify that Ten Books are Ordered",
+      "command": "verifyText",
+      "target": "css=td:nth-child(3)",
+      "targets": [],
+      "value": "10"
+    }, {
+      "id": "17c81c9d-d7a9-460e-8595-a382bfc328a1",
+      "comment": "Go back to My Order Page",
+      "command": "click",
+      "target": "linkText=Моята поръчка",
+      "targets": [
+        ["linkText=Моята поръчка", "linkText"],
+        ["css=.breadcrumb > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Моята поръчка')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/header/ol/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/cart/')])[5]", "xpath:href"],
+        ["xpath=//ol/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9f61dfe-7b29-4e06-9aa4-0f3dc671b800",
+      "comment": "Choose OK on next alert",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1c86bd2-f827-4fd2-a450-4862c8cb4ac6",
+      "comment": "Remove the Books from the Cart",
+      "command": "click",
+      "target": "linkText=изтрий",
+      "targets": [
+        ["linkText=изтрий", "linkText"],
+        ["css=.text-orange", "css:finder"],
+        ["xpath=//a[contains(text(),'изтрий')]", "xpath:link"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[14]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' изтрий')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4e8d9a76-4d96-46f0-a33f-04da0cc8f0a2",
+    "name": "UpdateProductQuantityTryToDecreaseToZeroInCartTest",
+    "commands": [{
+      "id": "e7f03dac-6a54-4ba0-8f3f-a9f0871eba3b",
+      "comment": "Open Session of a Logged-Out User",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85b2f334-16ed-4aa9-a2a1-1c45a710b3a4",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "2001febb-5faa-43c7-9099-9af9cd6bbdc7",
+      "comment": "Assert Cart is Empty",
+      "command": "assert",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "0 продукта"
+    }, {
+      "id": "f21c2cf2-4b2a-4493-b2fc-1ba0d6fccff5",
+      "comment": "Click Search Bar",
+      "command": "click",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae39ccf4-d73b-43b5-83df-bc3fe3a298d0",
+      "comment": "Store Desired Book Title",
+      "command": "store",
+      "target": "Смърт край Нил",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "0772ba77-e2a6-4f62-8642-074335a8589e",
+      "comment": "Enter Desired Book Title",
+      "command": "type",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${title}"
+    }, {
+      "id": "f8323a8d-c7a7-4020-a750-0edb41680290",
+      "comment": "Click Search Button",
+      "command": "click",
+      "target": "css=.navbar-left .submit-search-btn",
+      "targets": [
+        ["css=.navbar-left .submit-search-btn", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79ad5222-2c06-4519-83b4-a4e7dff4cdb6",
+      "comment": "Choose Book",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .custom-responsive-style",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .custom-responsive-style", "css:finder"],
+        ["xpath=//img[@alt='Смърт край Нил']", "xpath:img"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div[2]/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a75ca321-2952-457c-ab9b-83d223f8a2a9",
+      "comment": "Click Buy Button",
+      "command": "click",
+      "target": "css=.btn > .loading",
+      "targets": [
+        ["css=.btn > .loading", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d98316e-5d84-411d-850a-91632c1a1fdf",
+      "comment": "Click View Cart Button",
+      "command": "click",
+      "target": "css=.col-md-3 > .btn",
+      "targets": [
+        ["css=.col-md-3 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'виж количката')]", "xpath:link"],
+        ["xpath=//div[@id='dynamicModal']/div/div/div[2]/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/cart/')])[3]", "xpath:href"],
+        ["xpath=//div/div[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ab81c10-8f76-481e-9b26-5c0ae67b2470",
+      "comment": "Wait to Load My Order Page",
+      "command": "waitForElementVisible",
+      "target": "css=.page-title",
+      "targets": [
+        ["css=.page-title", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/header/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Моята поръчка')]", "xpath:innerText"]
+      ],
+      "value": "3000"
+    }, {
+      "id": "9455f7ce-f61c-473f-ad76-3946939c83cc",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "d0dd7ab9-f9f6-4352-87b9-594234ed2ad6",
+      "comment": "Assert There is One Product in Cart",
+      "command": "assert",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "1 продукт"
+    }, {
+      "id": "eff28700-1fca-41d8-82e1-c7499b1d0199",
+      "comment": "Decrease Quantity of Book",
+      "command": "click",
+      "target": "css=.fa-minus",
+      "targets": [
+        ["css=.fa-minus", "css:finder"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[2]/div/div/span/span/i", "xpath:idRelative"],
+        ["xpath=//span/span/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "836b1a56-1c27-47ce-913d-0ef601b2eb01",
+      "comment": "Verify Decrease Button On Only One Product Does Not Remove Book ",
+      "command": "verifyElementPresent",
+      "target": "linkText=${title}",
+      "targets": [
+        ["linkText=Смърт край Нил", "linkText"],
+        ["css=.margin-bottom-5 > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Смърт край Нил')]", "xpath:link"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/155151-Смърт-край-Нил.html')])[4]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6f8b291-8af1-409a-96a7-59bb8a50703f",
+      "comment": "Choose OK on next alert",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "338dc659-a347-443b-a9ab-f25c8a44900c",
+      "comment": "Remove the Books from the Cart",
+      "command": "click",
+      "target": "linkText=изтрий",
+      "targets": [
+        ["linkText=изтрий", "linkText"],
+        ["css=.text-orange", "css:finder"],
+        ["xpath=//a[contains(text(),'изтрий')]", "xpath:link"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[14]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' изтрий')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "36764a98-1bf1-404c-92a0-1a6ee6e8c58b",
@@ -3099,6 +3695,13 @@
     "parallel": false,
     "timeout": 300,
     "tests": ["a41c0c19-df67-4b4c-8b1a-68a1b8e4a60a", "5192d4f2-40a7-47a2-b2b0-7df589037ea2", "4e82dd8a-5771-4ada-aae6-76693f9931ed", "067ab18a-3727-44b9-8f89-22d3b5b0be8a"]
+  }, {
+    "id": "ef7f5219-b225-42dd-ba53-4daa446f6158",
+    "name": "OrderTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["40d965e4-09fa-4963-89e3-b28ecc5d029a", "54fb94dd-0aca-4577-9230-530095353bf7", "4e8d9a76-4d96-46f0-a33f-04da0cc8f0a2"]
   }],
   "urls": ["https://helikon.bg/"],
   "plugins": []
