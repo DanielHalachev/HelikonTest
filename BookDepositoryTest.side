@@ -222,7 +222,7 @@
       "id": "61218d33-a0de-480b-b59d-d7d7bfe2b6be",
       "comment": "Click add to favourites",
       "command": "click",
-      "target": "xpath=//a[contains(text(),'Добави в любими')]",
+      "target": "xpath=/html/body/div[1]/div[3]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div/ul/li[2]",
       "targets": [
         ["css=.col-12 li:nth-child(2) > .btn", "css:finder"],
         ["xpath=//a[contains(text(),'Премахни от любими')]", "xpath:link"],
