@@ -1670,7 +1670,7 @@
       "value": ""
     }, {
       "id": "9282c526-069d-4119-86a2-6541434641ba",
-      "comment": "Assert Error Message in UserName",
+      "comment": "Assert Error Message for Unequal Passwords",
       "command": "assertText",
       "target": "css=div:nth-child(1) > ul:nth-child(1) > li",
       "targets": [
@@ -3052,7 +3052,7 @@
       "value": ""
     }, {
       "id": "f7c9f208-c9ca-41bc-ad65-03152013f604",
-      "comment": "Assert Error Message in UserName",
+      "comment": "Assert Error Message in Disagreement with Terms & Conditions",
       "command": "assertText",
       "target": "xpath=//li[contains(.,'* Съгласете се с Общите условия')]",
       "targets": [
@@ -4094,15 +4094,534 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "70b2d5ca-d5fb-4359-857c-948af0080987",
+    "name": "FilterByAvailabilityTest",
+    "commands": [{
+      "id": "bcd3d3e6-e757-476a-a67d-43597cd31c82",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "22f79bc5-ea2d-4591-b552-48431fc7d843",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbb47466-055d-4932-b848-5ed9a3fb4e2c",
+      "comment": "Click Filter By Availability",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(3)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "35910e28-be10-4def-8fcb-084c532f5675",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9a8424a0-5203-4df1-8e10-c676ca87b3e0",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "d9347165-571c-406f-9f92-dba0996cf293",
+      "comment": "Get info if the query is for all available books",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=available\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "91a1c33d-938f-4c9c-99b7-5b8860b15335",
+      "comment": "Assert the URL query is for all available books",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "9f9e930e-49fa-4302-831e-d7e1d40e419f",
+    "name": "FilterByFeaturedTest",
+    "commands": [{
+      "id": "db18fcf9-9beb-4f81-9ffb-96559ee8bf38",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8b3a2e2f-b5d4-4060-afa2-4386bc82f75f",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9bfbc6c-5b5a-4677-b9d6-113ac0ea49b5",
+      "comment": "Click Filter By Upcoming",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(7)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(7)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[12]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[2]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "52db1cbc-77f6-4d18-b80c-1e960b590ae4",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fbf91476-6ea4-4a6d-9188-b5dfb9d9dd17",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "fceb7c32-934a-4e90-958e-546eab81e2aa",
+      "comment": "Get info if the query is for all upcoming books",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=featured\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "ecfc5cf0-4e9c-44da-b401-c5215996c92d",
+      "comment": "Assert the URL query is for all upcoming books",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "0f8aa7a9-6402-4c75-9465-f07c3fa84349",
+    "name": "FilterByRecommendationTest",
+    "commands": [{
+      "id": "3131f059-d0bd-4f7c-8447-99a81e648e79",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b373143-d5d7-420a-a22f-184ec0df2ebd",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2776cb2e-c528-4f73-89fc-62a018a0af7d",
+      "comment": "Click Filter By Recommendation",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(11)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(11)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[13]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[3]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b55f454-15f7-4039-84f6-fefb2acebf84",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b310a3ad-514c-4232-9902-3331e187cbbe",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "41b55b46-4e25-4d3e-aacd-2abea018beed",
+      "comment": "Get info if the query is for all recommended books",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=recommended\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "bf213e2a-b665-4caf-a4af-9e938fbc1987",
+      "comment": "Assert the URL query is for all recommended books",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "ee42f5ff-527a-4c96-8faa-258b828ecc81",
+    "name": "FilterBySaleTest",
+    "commands": [{
+      "id": "14ec2e82-dfbd-45a8-bc75-d524bd1fa26d",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b1ca168-1db1-462c-ac78-40bdfe30ef49",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9426e12e-f13a-469b-b4f2-c96f1d32d480",
+      "comment": "Click Filter By In Sale",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(15)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(15)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[14]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[4]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0e9d0b0-a4bf-48ce-a31f-f3fb933ee7b5",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "56c592b8-cb39-4c11-b841-d9eb02653dc2",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "a721ecf7-8e1e-40ef-a9f9-7d761d2711fc",
+      "comment": "Get info if the query is for all books on offer",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=hot-price\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "832dc4ae-dfef-4c3d-b91d-df006595039b",
+      "comment": "Assert the URL query is for all books on offer",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "fb7bef8e-d324-449f-b03b-5756b480dfa3",
+    "name": "FilterByRevaluationTest",
+    "commands": [{
+      "id": "52d5eb4a-9246-4415-bab2-39544a917bc2",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98bb1eef-2f16-479b-8178-747f9e033c8d",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e16f498d-19de-43cf-9901-7a8ca312344f",
+      "comment": "Click Filter By Revaluation",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(19)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(19)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[15]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[5]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "212e830d-fd71-478f-9642-91534bc00394",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "578a70e9-c89c-454d-892e-7818584bb700",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "b0733cea-6560-499c-a9fb-b42b03f7eab1",
+      "comment": "Get info if the query is for all revalued books",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=revalued\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "3dc8af1f-d3b9-403a-8f95-71bb77a6aa62",
+      "comment": "Assert the URL query is for all revalued books",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "7225f5cd-f487-4ef2-8756-5e52c518a930",
+    "name": "FilterByReviewsTest",
+    "commands": [{
+      "id": "53ece102-d311-4f2a-abb6-68720a53e140",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7a3c208a-48c1-4a88-8fdf-8892b4ced794",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "61939272-bd76-4010-9dfe-41a7f9a73c69",
+      "comment": "Click Filter By Given Reviews",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(23)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(23)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[16]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[6]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea57e6ba-b216-45bb-a0f7-454a03c64a15",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28ac09e5-5c5a-408a-afc1-4c3540f80c8f",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "a413f53a-53d0-4074-90a3-12b4c1a6884c",
+      "comment": "Get info if the query is for all reviewed books",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=reviews\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "626ac55f-a4a2-49fb-ba54-658c7fe74614",
+      "comment": "Assert the URL query is for all reviewed books",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "147c9d26-3688-4f8a-ade7-033986acacca",
+    "name": "FilterByVideoReviewsTest",
+    "commands": [{
+      "id": "894ea9d9-2362-4a39-83f2-d78061cefda6",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98f98809-a02d-4009-aaf5-28fe667da96f",
+      "comment": "Click Gifts category",
+      "command": "click",
+      "target": "css=.dropdown:nth-child(6) > a:nth-child(1)",
+      "targets": [
+        ["css=.dropdown:nth-child(6) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Подаръци')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/gifts/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "89914994-958e-4592-8064-2efbe5f93f94",
+      "comment": "Click Filter By Availability of Video Reviews",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(27)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(27)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[17]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[7]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb586d6b-9f66-423a-9f3b-7de330787e85",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e93f303b-85cd-4623-a1ad-e7c7c0bbe765",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "2bfbc7c6-99c1-4ce5-9bdc-8572b756ff34",
+      "comment": "Get info if the query is for all gifts with video reviews",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=video_review\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "d5ad55b4-b95e-43e0-8c59-a336bdbda696",
+      "comment": "Assert the URL query is for all gifts with video reviews",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "98ebee28-c6dd-4ff1-8067-9d945abe58bb",
+    "name": "FilterByAvailabilityAndVideoReviewsTest",
+    "commands": [{
+      "id": "ff92416e-8258-48fe-b914-0a2f074edef9",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "19c2cb42-fa5f-4b9c-ae01-55603a88b56a",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ded73d83-3a64-4c87-a696-85d6d7f405b9",
+      "comment": "Click Filter By Availability",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(3)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(3)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[11]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc5e4fc7-4781-4394-bb43-43c2ef60bb11",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "40c15d29-9a6d-4f36-9c35-3b0dfc9ded61",
+      "comment": "Click Filter By Availability of Video Reviews",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(27)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(27)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[17]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[7]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd63d631-d642-4bcc-b54e-e4d98f1fb8a2",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d11471e-2f30-4ce6-acf1-20b08e33df7f",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "a96ea03f-51d2-488b-9328-bf4263f1df98",
+      "comment": "Get info if the query is for all available books having video reviews",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=video_review\") && ${href}.includes(\"sort[]=available\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "4596a7ec-6f12-4522-88dc-ba77e9cdff6d",
+      "comment": "Assert the URL query is for all available books having video reviews",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
   }],
   "suites": [{
-    "id": "36764a98-1bf1-404c-92a0-1a6ee6e8c58b",
-    "name": "Utility",
-    "persistSession": false,
-    "parallel": false,
-    "timeout": 300,
-    "tests": ["1a28f82f-fd7d-4239-b879-c9d6192ed248"]
-  }, {
     "id": "65ca21f0-bf5e-4c61-8d67-4d8c06853851",
     "name": "FavouritesTest",
     "persistSession": false,
@@ -4165,6 +4684,13 @@
     "parallel": false,
     "timeout": 300,
     "tests": ["acd3a38f-a71a-4859-9377-d66bd5666508"]
+  }, {
+    "id": "55acbbad-87f6-4782-887b-9458de323813",
+    "name": "FilterTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["147c9d26-3688-4f8a-ade7-033986acacca", "ee42f5ff-527a-4c96-8faa-258b828ecc81", "7225f5cd-f487-4ef2-8756-5e52c518a930", "fb7bef8e-d324-449f-b03b-5756b480dfa3", "0f8aa7a9-6402-4c75-9465-f07c3fa84349", "9f9e930e-49fa-4302-831e-d7e1d40e419f", "70b2d5ca-d5fb-4359-857c-948af0080987", "98ebee28-c6dd-4ff1-8067-9d945abe58bb"]
   }],
   "urls": ["https://helikon.bg/"],
   "plugins": []
