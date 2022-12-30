@@ -82,14 +82,14 @@
     "name": "AddToFavouritesBeforeLoginTest",
     "commands": [{
       "id": "8494fd10-4373-415b-8a3b-0782438cedef",
-      "comment": "",
+      "comment": "Open logged-out instance",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "b41d77bb-7da9-4ad8-b571-6fb5fdb15924",
-      "comment": "",
+      "comment": "Open first possible book",
       "command": "click",
       "target": "xpath=//div[@id='owl-item']/div/div/a/img",
       "targets": [
@@ -101,14 +101,14 @@
       "value": ""
     }, {
       "id": "3f24fdad-c613-4c3f-8e58-52e84fa4b575",
-      "comment": "",
+      "comment": "Prepare to click OK on alert",
       "command": "chooseOkOnNextConfirmation",
       "target": "",
       "targets": [],
       "value": ""
     }, {
       "id": "ad965e4f-586a-47ef-84ca-01d4b93fb7d9",
-      "comment": "",
+      "comment": "Click the AddToFavourites Button",
       "command": "click",
       "target": "css=.col-12 li:nth-child(2) > .btn",
       "targets": [
@@ -121,7 +121,7 @@
       "value": ""
     }, {
       "id": "672e8fbc-41cc-4860-bda0-f06c0fbb0b5b",
-      "comment": "",
+      "comment": "Make sure you get the alert",
       "command": "assertAlert",
       "target": "\"Трябва да влезете в профила си за да добавите този продукт в любими!\"",
       "targets": [],
@@ -132,14 +132,14 @@
     "name": "AddToFavouritesAfterLogin",
     "commands": [{
       "id": "fd895ac7-92e6-48f9-b905-7aa11ee603bd",
-      "comment": "",
+      "comment": "Open logged out instance",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "908ff310-2c6b-47d0-8dd7-94df77ff078b",
-      "comment": "",
+      "comment": "Click Login",
       "command": "click",
       "target": "css=.nav-menu .popup-text > .darkBlueBig",
       "targets": [
@@ -151,7 +151,7 @@
       "value": ""
     }, {
       "id": "54f734ad-5ba8-4bbd-a770-7c515a9709ad",
-      "comment": "",
+      "comment": "Enter username",
       "command": "type",
       "target": "name=username",
       "targets": [
@@ -164,7 +164,7 @@
       "value": "sample_user"
     }, {
       "id": "86173ffa-97f8-4ca5-a8de-8e7db13608d3",
-      "comment": "",
+      "comment": "Enter password",
       "command": "type",
       "target": "name=password",
       "targets": [
@@ -177,7 +177,7 @@
       "value": "12345678qwer"
     }, {
       "id": "a95e984e-92fe-407e-83a5-6c2b48e02b71",
-      "comment": "",
+      "comment": "Confirm login",
       "command": "click",
       "target": "css=.login-btn",
       "targets": [
@@ -190,7 +190,7 @@
       "value": ""
     }, {
       "id": "5613efe7-6f8b-426d-b8d7-2894f5958549",
-      "comment": "",
+      "comment": "Remember name of the book",
       "command": "storeText",
       "target": "xpath=//div[@id='owl-item']/div/div[2]/h5/a",
       "targets": [
@@ -205,7 +205,7 @@
       "value": "bookName"
     }, {
       "id": "6fa26965-4e99-4976-98e5-2a0567dfc97e",
-      "comment": "",
+      "comment": "Click the first possible book",
       "command": "click",
       "target": "xpath=//div[@id='owl-item']/div/div[2]/h5/a",
       "targets": [
@@ -220,9 +220,9 @@
       "value": ""
     }, {
       "id": "61218d33-a0de-480b-b59d-d7d7bfe2b6be",
-      "comment": "",
+      "comment": "Click add to favourites",
       "command": "click",
-      "target": "css=.col-12 li:nth-child(2) > .btn",
+      "target": "xpath=//a[contains(text(),'Добави в любими')]",
       "targets": [
         ["css=.col-12 li:nth-child(2) > .btn", "css:finder"],
         ["xpath=//a[contains(text(),'Премахни от любими')]", "xpath:link"],
@@ -233,7 +233,7 @@
       "value": ""
     }, {
       "id": "4db75b45-e85b-4a3b-be8b-e20a85312555",
-      "comment": "",
+      "comment": "Click profile button",
       "command": "click",
       "target": "css=.nav-menu > .collapseProfile .darkBlue",
       "targets": [
@@ -245,7 +245,7 @@
       "value": ""
     }, {
       "id": "e94f8902-4255-4711-9e6d-3ab44e93b8ce",
-      "comment": "",
+      "comment": "Select Favouites button",
       "command": "click",
       "target": "linkText=Любими продукти",
       "targets": [
@@ -260,7 +260,7 @@
       "value": ""
     }, {
       "id": "4bfbc83b-068b-4cc8-ac75-03bad5beb539",
-      "comment": "",
+      "comment": "Confirm the book is in the list",
       "command": "assertText",
       "target": "xpath=//div[2]/div/div/div/div/a",
       "targets": [
@@ -275,7 +275,7 @@
       "value": "${bookName}"
     }, {
       "id": "99543ebb-d4b8-42c2-a03a-c7eafea60e42",
-      "comment": "",
+      "comment": "Clean up test leftovers",
       "command": "click",
       "target": "linkText=премахни от любими",
       "targets": [
@@ -294,14 +294,14 @@
     "name": "SearchTestValidCriteria",
     "commands": [{
       "id": "2d999eae-e622-4fc9-9654-1dca17353fe7",
-      "comment": "",
+      "comment": "Open logged out instance",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "6c8bef71-5017-4a31-a53c-eb0a6061a557",
-      "comment": "",
+      "comment": "Click on search box",
       "command": "click",
       "target": "id=s_input_1",
       "targets": [
@@ -315,7 +315,7 @@
       "value": ""
     }, {
       "id": "58cc11f2-f9f6-4ebe-bb12-21a1b14c4598",
-      "comment": "",
+      "comment": "Enter \"Agatha Christie\" as search criteria",
       "command": "type",
       "target": "id=s_input_1",
       "targets": [
@@ -329,7 +329,7 @@
       "value": "Agatha Christie"
     }, {
       "id": "d3380406-7192-4eee-bb37-4fc7dc89d440",
-      "comment": "",
+      "comment": "Click search button",
       "command": "click",
       "target": "css=.navbar-left .submit-search-btn",
       "targets": [
@@ -341,21 +341,21 @@
       "value": ""
     }, {
       "id": "ca1f2434-28a2-440c-9ade-be45ee6a0da4",
-      "comment": "",
+      "comment": "Fetch title and author data of results",
       "command": "executeScript",
       "target": "books = document.getElementsByClassName('product-caption'); results = []; for (var i = 0; i< books.length; i++){   var book = books[i];   results[i]  = book.innerHTML.includes(\"Agatha\") || book.innerHTML.includes(\"Christie\") || book.innerHTML.includes(\"Агата\") || book.innerHTML.includes(\"Кристи\"); } return results;",
       "targets": [],
       "value": "results"
     }, {
       "id": "50da94b8-0a8f-4836-a411-919bb438d0c7",
-      "comment": "",
+      "comment": "For each book result",
       "command": "forEach",
       "target": "results",
       "targets": [],
       "value": "result"
     }, {
       "id": "efd69a5c-d3e8-41f6-b82a-782e91e4f288",
-      "comment": "",
+      "comment": "Assert the title/ author contains the words \"Agatha\" or \"Christie\" in Bulgarian or English",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -373,14 +373,14 @@
     "name": "SearchTestInvalidCriteria",
     "commands": [{
       "id": "31a3fcc8-4523-4316-accc-ca9c84005662",
-      "comment": "",
+      "comment": "Open logged out session",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "a609162f-3462-4e61-8770-b6aeb0b5f840",
-      "comment": "",
+      "comment": "Click on search box",
       "command": "click",
       "target": "id=s_input_1",
       "targets": [
@@ -394,7 +394,7 @@
       "value": ""
     }, {
       "id": "697e2b00-e93c-4c0f-aad2-d3ebe4ac63e8",
-      "comment": "",
+      "comment": "Click search button with nothing entered in search box",
       "command": "click",
       "target": "css=.navbar-left .submit-search-btn",
       "targets": [
@@ -406,7 +406,7 @@
       "value": ""
     }, {
       "id": "1c6f8e45-a87a-472c-9161-5534e9246be5",
-      "comment": "",
+      "comment": "Assert there are no results",
       "command": "assertElementNotPresent",
       "target": "xpath=//h1[contains(.,'Резултати')]",
       "targets": [
@@ -1685,14 +1685,14 @@
     "name": "AboutUsFooterLinkTest",
     "commands": [{
       "id": "ba9ae44d-89cd-47a2-a0a0-6eb00077d97d",
-      "comment": "",
+      "comment": "Open website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "5b936277-b9c8-49f2-b8be-3d5efcc4eaa1",
-      "comment": "",
+      "comment": "Click AboutUs link",
       "command": "click",
       "target": "linkText=За нас",
       "targets": [
@@ -1707,21 +1707,21 @@
       "value": ""
     }, {
       "id": "c28de24d-6cd8-46af-8530-24da40019b42",
-      "comment": "",
+      "comment": "Get HREF",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "ebe37a0f-f35c-42a5-8105-e15bcb81d8b7",
-      "comment": "",
+      "comment": "Assert we are at the right page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/page/za-helikon.html"
     }, {
       "id": "8ae042cc-72d2-49ce-ac51-9c2e65803844",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -1732,14 +1732,14 @@
       "value": ""
     }, {
       "id": "5709af7f-515e-4ca3-b1a2-a93df9f72c9f",
-      "comment": "",
+      "comment": "Run check if content contains meaningful information",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"хеликон\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "88f66101-89f0-4b2c-a2be-8d72c780c088",
-      "comment": "",
+      "comment": "Assert check result",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -1918,7 +1918,21 @@
   }, {
     "id": "495b6cad-b018-4ad2-aee7-3d68f9f4e1f6",
     "name": "SocialMediaFooterLinkTest",
-    "commands": []
+    "commands": [{
+      "id": "2add9f1e-3980-485b-998c-18401b0e9d2f",
+      "comment": "",
+      "command": "run",
+      "target": "LoginProcess",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e890b27d-4865-4cbc-a7f1-bd7c0765490a",
+      "comment": "",
+      "command": "click",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }, {
     "id": "ca5d6c6b-5576-4382-afaa-3b63f188020b",
     "name": "SearchHelpFooterLinkTest",
@@ -2444,14 +2458,14 @@
     "name": "BiscuitsFooterLink",
     "commands": [{
       "id": "578b53ca-015c-42f5-b002-068127212011",
-      "comment": "",
+      "comment": "Open website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "70964cfc-6088-4e9d-acd7-5aa9ea3ccb1f",
-      "comment": "",
+      "comment": "Click Biscuits link",
       "command": "click",
       "target": "linkText=Политика за използване на \"бисквитки\"",
       "targets": [
@@ -2466,21 +2480,21 @@
       "value": ""
     }, {
       "id": "b33b9488-5ac9-401b-9bac-0d09f2337d05",
-      "comment": "",
+      "comment": "Get HREF",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "2c8d20b7-890c-4c5a-af1f-fe9fd30b0c63",
-      "comment": "",
+      "comment": "Assert we are at the right page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/page/cookies.html"
     }, {
       "id": "3741ae01-e27c-44e6-8987-33662ea0ba43",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -2491,14 +2505,14 @@
       "value": ""
     }, {
       "id": "7dd0e179-a067-425d-a4d7-ef295e5ad42f",
-      "comment": "",
+      "comment": "Run check if content contains meaningful information",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"бисквитки\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "eebbb408-6344-4f5c-a23f-3a48bafacdb1",
-      "comment": "",
+      "comment": "Assert check result",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -3645,6 +3659,441 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "98825381-7aee-4d49-80c5-96d008a05654",
+    "name": "SortByPriceAscendingTest",
+    "commands": [{
+      "id": "8ca08ae0-618f-4a55-8745-2b18d6bee68c",
+      "comment": "Open the books page",
+      "command": "open",
+      "target": "/books",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f9ca2c2-bf39-4b67-9323-42f434e1c3d8",
+      "comment": "Click the sort selector",
+      "command": "click",
+      "target": "css=div > #popularity-sort",
+      "targets": [
+        ["css=div > #popularity-sort", "css:finder"],
+        ["xpath=(//select[@id='popularity-sort'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div/aside/div/div/select", "xpath:idRelative"],
+        ["xpath=//div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "76b5b52e-b52f-48e7-8d2c-a8f48878f041",
+      "comment": "Select Sort By Price Ascending Option",
+      "command": "select",
+      "target": "css=div > #popularity-sort",
+      "targets": [],
+      "value": "label=Цена - възходяща"
+    }, {
+      "id": "0d697407-02f2-4322-b4be-f2a5057b9650",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "86bba4d0-ecba-40e0-b977-d38f54a4ae42",
+      "comment": "Get the query part of the URL and extract the sort criteria",
+      "command": "executeScript",
+      "target": "return (new URLSearchParams(window.location.search).get(\"sort[]\"));",
+      "targets": [],
+      "value": "queryResult"
+    }, {
+      "id": "3b49e489-caf8-4c08-aa6c-3c01e59a31e8",
+      "comment": "Verify that the sort criteria is ascending",
+      "command": "verify",
+      "target": "queryResult",
+      "targets": [],
+      "value": "price-asc"
+    }, {
+      "id": "5eabfe19-015a-4952-afd3-88e51aa5c38f",
+      "comment": "Get all price texts, convert them to numbers and assert they are in increasing order",
+      "command": "executeScript",
+      "target": "function sorted(arr){     let second_index; \tfor(let first_index = 0; first_index < arr.length; first_index++){   \t  second_index = first_index + 1;       if(arr[second_index] - arr[first_index] < 0) return false;     }     return true; }  priceContainers = document.getElementsByClassName(\"product-caption-discount\"); prices = Array.apply(Number, Array(priceContainers.length)).map(function () {}); for (var i = 0; i < priceContainers.length; i++){     realPriceContainer = priceContainers[i].getElementsByClassName(\"product-caption-price\")[0];     if (realPriceContainer == null){         prices[i] = parseFloat(priceContainers[i].getElementsByClassName(\"text-orange\")[0].innerHTML.replace(\" лв.\", \"\"));     } else{         prices[i]=parseFloat(realPriceContainer.innerHTML);     } } return sorted(prices);",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "4845cfd5-9f50-4ba5-abc8-d1990b2f1675",
+      "comment": "Assert the prices are ascending",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "9c60fa14-2b7e-499a-a6a7-15509f81fd08",
+    "name": "SortByPriceDescendingTest",
+    "commands": [{
+      "id": "7d6b1e60-5315-44c2-91d2-627bb5d9cbbc",
+      "comment": "Open the books page",
+      "command": "open",
+      "target": "/books",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8919397c-309b-4be7-9b8b-af8a8fbc9f6a",
+      "comment": "Click the sort selector",
+      "command": "click",
+      "target": "css=div > #popularity-sort",
+      "targets": [
+        ["css=div > #popularity-sort", "css:finder"],
+        ["xpath=(//select[@id='popularity-sort'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div/aside/div/div/select", "xpath:idRelative"],
+        ["xpath=//div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6804a1c0-6bfc-43a9-9256-a69f36f01947",
+      "comment": "Select Sort By Price Decreasing Option",
+      "command": "select",
+      "target": "css=div > #popularity-sort",
+      "targets": [],
+      "value": "label=Цена - низходяща"
+    }, {
+      "id": "0d13e1ad-22e4-4490-a4cf-ff75e3364b44",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a57c73cc-890d-4a8b-a004-eb42b4c2b066",
+      "comment": "Extract the query from the URL and get the sort criteria",
+      "command": "executeScript",
+      "target": "return (new URLSearchParams(window.location.search).get(\"sort[]\"));",
+      "targets": [],
+      "value": "queryResult"
+    }, {
+      "id": "6e4c6313-eb3b-4c7a-bcd9-3e05d75440aa",
+      "comment": "Verify the sort criteria is price-descending",
+      "command": "verify",
+      "target": "queryResult",
+      "targets": [],
+      "value": "price-desc"
+    }, {
+      "id": "7da89f03-bbe5-496d-a1f6-5eac9374ae27",
+      "comment": "Fetch the prices of books, convert them to numbers and check the order",
+      "command": "executeScript",
+      "target": "function sorted(arr){     let second_index; \tfor(let first_index = 0; first_index < arr.length; first_index++){   \t  second_index = first_index + 1;       if(arr[second_index] - arr[first_index] > 0) return false;     }     return true; }  priceContainers = document.getElementsByClassName(\"product-caption-discount\"); prices = Array.apply(Number, Array(priceContainers.length)).map(function () {}); for (var i = 0; i < priceContainers.length; i++){     realPriceContainer = priceContainers[i].getElementsByClassName(\"product-caption-price\")[0];     if (realPriceContainer == null){         prices[i] = parseFloat(priceContainers[i].getElementsByClassName(\"text-orange\")[0].innerHTML.replace(\" лв.\", \"\"));     } else{         prices[i]=parseFloat(realPriceContainer.innerHTML);     } } return sorted(prices);",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "867e8cf3-ee1e-499e-bb1f-2cae9f88600c",
+      "comment": "Assert the order of prices is descending",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "51b1bf43-2067-42d7-a816-d1780482bc6f",
+    "name": "SortByTitleTest",
+    "commands": [{
+      "id": "55bde106-f3d6-4a33-8995-986c68f17c7c",
+      "comment": "Open books page",
+      "command": "open",
+      "target": "/books",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "539378b9-3945-4649-a3bd-f7b35f7db1b0",
+      "comment": "Click the sort selector",
+      "command": "click",
+      "target": "css=div > #popularity-sort",
+      "targets": [
+        ["css=div > #popularity-sort", "css:finder"],
+        ["xpath=(//select[@id='popularity-sort'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div/aside/div/div/select", "xpath:idRelative"],
+        ["xpath=//div/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "318bf4d9-a8fa-4926-b938-c95ef149118a",
+      "comment": "Select Sort By Tite Option",
+      "command": "select",
+      "target": "css=div > #popularity-sort",
+      "targets": [],
+      "value": "label=Заглавие"
+    }, {
+      "id": "1f42fee4-25ce-4191-bf66-2573a0b08f35",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b9634ce3-9bd5-4bdd-9e8c-b28be64651a2",
+      "comment": "Get the URL query and the sort criteria",
+      "command": "executeScript",
+      "target": "return (new URLSearchParams(window.location.search).get(\"sort[]\"));",
+      "targets": [],
+      "value": "queryResult"
+    }, {
+      "id": "7da6ba81-c212-4197-9a48-8b47238a3024",
+      "comment": "Verify the sort criteria is by title",
+      "command": "verify",
+      "target": "queryResult",
+      "targets": [],
+      "value": "name"
+    }, {
+      "id": "27e1c6fa-f82e-4b59-b606-407335a8c5b1",
+      "comment": "Fetch the book titles and check their order",
+      "command": "executeScript",
+      "target": "function sorted(arr){     let second_index; \tfor(let first_index = 0; first_index < arr.length; first_index++){   \t  second_index = first_index + 1;       if(arr[second_index] - arr[first_index] < 0) return false;     }     return true; }  titleContainers = document.getElementsByClassName(\"product-caption-title\"); titles = Array.apply(String, Array(titleContainers.length)).map(function () {}); for (var i = 0; i < titleContainers.length; i++){         titles[i] = titleContainers[i].getElementsByTagName(\"a\")[0].innerHTML; } return sorted(titles);",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "124ff086-b3f2-4c0d-9622-cfc049af98fb",
+      "comment": "Assert the books are ordered by title",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "acd3a38f-a71a-4859-9377-d66bd5666508",
+    "name": "PaymentTest",
+    "commands": [{
+      "id": "faec7394-7983-4751-a443-50bae99b6ea7",
+      "comment": "Open logged out instance",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "63917810-e63e-4905-935a-f50cde6c11fc",
+      "comment": "Click login button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c615f6d3-0730-4ecf-b6de-5c11c24144f2",
+      "comment": "Enter username",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "3f04d813-64ca-4d80-bf11-bb8e98a45eae",
+      "comment": "Enter password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "e643f1d3-bf94-4502-b551-4e3bf07385d0",
+      "comment": "Confirm login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7816be07-fae8-48b0-aa6e-bc56ff08f8eb",
+      "comment": "Select first possible book",
+      "command": "click",
+      "target": "xpath=//div[@id='owl-item']/div/div[2]/h5/a",
+      "targets": [
+        ["linkText=Малки жени (луксозно издание, нов превод)", "linkText"],
+        ["css=.margin-bottom-30:nth-child(3) .owl-item:nth-child(1) .product-caption a", "css:finder"],
+        ["xpath=//a[contains(text(),'Малки жени (луксозно издание, нов превод)')]", "xpath:link"],
+        ["xpath=//div[@id='owl-item']/div/div[2]/h5/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/236213-Малки-жени-(луксозно-издание,-нов-превод).html')])[5]", "xpath:href"],
+        ["xpath=//h5/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b857106f-731d-4075-ae61-a46dc692104c",
+      "comment": "Click Buy Button",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Купи')]",
+      "targets": [
+        ["css=.col-12 li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Купи')]", "xpath:link"],
+        ["xpath=//a[@onclick=\"if (!window.__cfRLUnblockHandlers) return false; onProductAddToCart('236213','Малки жени (луксозно издание, нов превод)','Световна детска класика','Хеликон','твърди','18.95','1',''); return !ga.loaded;\"]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div/div/div[2]/div/div[2]/div/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'javascript:;')])[3]", "xpath:href"],
+        ["xpath=//div[2]/div/div/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f667520-4d39-4ecf-8a6b-7e13f6c89b8f",
+      "comment": "Close image preview",
+      "command": "click",
+      "target": "css=.close > img",
+      "targets": [
+        ["css=.close > img", "css:finder"],
+        ["xpath=//div[@id='dynamicModal']/div/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2ff43f2-c02d-4335-b487-3be694afad6a",
+      "comment": "Go to cart",
+      "command": "click",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "42057e21-cbc9-4df9-a88e-ab6782659aec",
+      "comment": "Click continue with order button",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(text(),'Завърши поръчката')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div[2]/div[2]/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/checkout/')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "feeda851-c77f-4ffa-9a07-5017eab94943",
+      "comment": "Assert the page contains order continuation",
+      "command": "assertText",
+      "target": "css=.page-title",
+      "targets": [],
+      "value": "Завършване на поръчката"
+    }, {
+      "id": "a8747fd4-35b3-49a9-be77-e88d5a7dc7c4",
+      "comment": "Assert the page contains list of products section",
+      "command": "assertText",
+      "target": "css=.panel:nth-child(1) .margin0",
+      "targets": [
+        ["css=.panel:nth-child(1) .margin0", "css:finder"],
+        ["xpath=//div[@id='checkout_page']/div[2]/div/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Поръчани продукти')]", "xpath:innerText"]
+      ],
+      "value": "Поръчани продукти"
+    }, {
+      "id": "7611f96c-f87a-4195-acb7-47e0e778fc4d",
+      "comment": "Assert page contains client section",
+      "command": "assertText",
+      "target": "css=.panel:nth-child(3) .margin0",
+      "targets": [],
+      "value": "Данни на получателя"
+    }, {
+      "id": "477961cf-d1c2-41e6-a7e6-6224fd2d534e",
+      "comment": "Assert page contains delivery section",
+      "command": "assertText",
+      "target": "css=.panel:nth-child(4) .margin0",
+      "targets": [],
+      "value": "Куриер"
+    }, {
+      "id": "1bb09a79-76c0-4baa-a8eb-f472d924e731",
+      "comment": "Assert page contains delivery details section",
+      "command": "assertText",
+      "target": "css=.panel:nth-child(5) .margin0",
+      "targets": [],
+      "value": "Данни за доставка"
+    }, {
+      "id": "366003c4-f583-4b2a-8514-568bc3e95af4",
+      "comment": "Assert page contains payment methods section",
+      "command": "assertText",
+      "target": "css=.panel:nth-child(7) .margin0",
+      "targets": [],
+      "value": "Начин на плащане"
+    }, {
+      "id": "5718fa85-3b31-407f-b004-600dad3c7573",
+      "comment": "Click Confirm payment button",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(text(),'Завърши поръчката')]", "xpath:link"],
+        ["xpath=//form[@id='order_form']/div[8]/div/div/div/div[2]/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[10]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "216f303f-b991-4677-a708-860920f488f8",
+      "comment": "Get HREF",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "d4420a72-a030-4727-8725-81440ce9bcf0",
+      "comment": "Assert the page is the same (nothing has happened)",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/checkout/"
+    }, {
+      "id": "85f238f2-16bb-4af8-987b-f63af67017d4",
+      "comment": "Go to cart again to start test cleanup",
+      "command": "click",
+      "target": "css=.nav:nth-child(3) > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav:nth-child(3) > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=(//li[@id='cart-header']/a/span[2])[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/ul/li[2]/a/span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a35004ed-326c-4201-8dfe-329ec870a046",
+      "comment": "Prepare to confirm order deletion",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b5e9a07-be58-493c-8945-4ca773169d09",
+      "comment": "Click Delete order button",
+      "command": "click",
+      "target": "linkText=изтрий",
+      "targets": [
+        ["linkText=изтрий", "linkText"],
+        ["css=.panel:nth-child(1) .text-orange", "css:finder"],
+        ["xpath=//a[contains(text(),'изтрий')]", "xpath:link"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[12]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' изтрий')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d065a7f-cd9b-432e-8378-db6f2834b9b9",
+      "comment": "Confirm deletion",
+      "command": "webdriverChooseOkOnVisibleConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "36764a98-1bf1-404c-92a0-1a6ee6e8c58b",
@@ -3673,7 +4122,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["9d4e5487-f42e-4478-abfa-2f5fff1ed5bb", "5dfab364-9775-4c90-a159-d85e4128c259", "7c4311d9-c802-47a0-a384-5a130f0842a3", "1a6d355e-b1cf-42b3-94b1-212da98e33cd", "ff5b8676-0566-4ec2-9c21-0fd93a0da713", "c6789b7c-5ad7-4246-8b0f-ce3508561786", "ef019ff7-c670-4069-9db6-5c1ce0876fdc", "b5d16cb7-e847-40c4-981f-afde1c685019", "cd6ddeb1-b465-4f15-abb7-0844c5b9e598", "9423638e-f31a-4f3b-a933-a571f65451f7", "9d873c0f-28d0-4ddd-95a4-cee76a6081ba", "0d5cec07-dd49-43d4-899b-4ea276f3d010", "5ac12d71-b0a1-4b4d-ba95-24c132baaaa7", "173090cc-242a-4975-8f73-5dfacb3c6e89", "6d9f83bf-6692-4b63-af9d-40c58af391bc", "9588b008-6108-4385-81d9-8d64ee1f6477", "d1ff0ec5-0940-43df-a53a-ba95481b881d", "367a8037-ffaa-4d3b-90a8-c16581b1c277", "bfc8b49c-39d0-4834-a716-cfa6b8c760bb"]
+    "tests": ["9d4e5487-f42e-4478-abfa-2f5fff1ed5bb", "7c4311d9-c802-47a0-a384-5a130f0842a3", "1a6d355e-b1cf-42b3-94b1-212da98e33cd", "ff5b8676-0566-4ec2-9c21-0fd93a0da713", "c6789b7c-5ad7-4246-8b0f-ce3508561786", "ef019ff7-c670-4069-9db6-5c1ce0876fdc", "b5d16cb7-e847-40c4-981f-afde1c685019", "cd6ddeb1-b465-4f15-abb7-0844c5b9e598", "9423638e-f31a-4f3b-a933-a571f65451f7", "9d873c0f-28d0-4ddd-95a4-cee76a6081ba", "0d5cec07-dd49-43d4-899b-4ea276f3d010", "5ac12d71-b0a1-4b4d-ba95-24c132baaaa7", "173090cc-242a-4975-8f73-5dfacb3c6e89", "6d9f83bf-6692-4b63-af9d-40c58af391bc", "9588b008-6108-4385-81d9-8d64ee1f6477", "d1ff0ec5-0940-43df-a53a-ba95481b881d", "367a8037-ffaa-4d3b-90a8-c16581b1c277", "bfc8b49c-39d0-4834-a716-cfa6b8c760bb"]
   }, {
     "id": "6e100d29-0328-41f2-a453-8bbdecda608f",
     "name": "FooterNavigationTest",
@@ -3702,6 +4151,20 @@
     "parallel": false,
     "timeout": 300,
     "tests": ["40d965e4-09fa-4963-89e3-b28ecc5d029a", "54fb94dd-0aca-4577-9230-530095353bf7", "4e8d9a76-4d96-46f0-a33f-04da0cc8f0a2"]
+  }, {
+    "id": "544988a8-3d0a-4309-915e-55fe446466d1",
+    "name": "SortTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["98825381-7aee-4d49-80c5-96d008a05654", "9c60fa14-2b7e-499a-a6a7-15509f81fd08", "51b1bf43-2067-42d7-a816-d1780482bc6f"]
+  }, {
+    "id": "7931cc92-5838-47f3-ba3d-b618d14fc8f1",
+    "name": "PaymentTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["acd3a38f-a71a-4859-9377-d66bd5666508"]
   }],
   "urls": ["https://helikon.bg/"],
   "plugins": []
