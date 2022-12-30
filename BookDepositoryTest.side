@@ -110,13 +110,13 @@
       "id": "ad965e4f-586a-47ef-84ca-01d4b93fb7d9",
       "comment": "Click the AddToFavourites Button",
       "command": "click",
-      "target": "css=.col-12 li:nth-child(2) > .btn",
+      "target": "css=.col-md-3 li:nth-child(2) > .btn",
       "targets": [
-        ["css=.col-12 li:nth-child(2) > .btn", "css:finder"],
-        ["xpath=//a[contains(text(),'Добави в любими')]", "xpath:link"],
-        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div/div[2]/div/div[2]/div/div/ul/li[2]/a", "xpath:idRelative"],
-        ["xpath=(//a[contains(@href, '#')])[12]", "xpath:href"],
-        ["xpath=//div[2]/div/div/ul/li[2]/a", "xpath:position"]
+        ["css=.col-md-3 li:nth-child(2) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Добави в любими')])[2]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[14]", "xpath:href"],
+        ["xpath=//div[6]/div/div[2]/div/div/ul/li[2]/a", "xpath:position"]
       ],
       "value": ""
     }, {
@@ -141,12 +141,13 @@
       "id": "908ff310-2c6b-47d0-8dd7-94df77ff078b",
       "comment": "Click Login",
       "command": "click",
-      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "target": "css=.nav-menu .popup-text",
       "targets": [
-        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
-        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
-        ["xpath=//span[2]", "xpath:position"],
-        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+        ["css=.nav-menu .popup-text", "css:finder"],
+        ["xpath=//a[@onclick='if (!window.__cfRLUnblockHandlers) return false; loadGoogleScripts()']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#nav-login-dialog')])[2]", "xpath:href"],
+        ["xpath=//nav/div/ul/li/a", "xpath:position"]
       ],
       "value": ""
     }, {
@@ -222,13 +223,13 @@
       "id": "61218d33-a0de-480b-b59d-d7d7bfe2b6be",
       "comment": "Click add to favourites",
       "command": "click",
-      "target": "xpath=/html/body/div[1]/div[3]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div/ul/li[2]",
+      "target": "css=.col-md-3 li:nth-child(2) > .btn",
       "targets": [
-        ["css=.col-12 li:nth-child(2) > .btn", "css:finder"],
-        ["xpath=//a[contains(text(),'Премахни от любими')]", "xpath:link"],
-        ["xpath=//div[@id='global-wrapper']/div[3]/div/div/div/div[2]/div/div[2]/div/div/ul/li[2]/a", "xpath:idRelative"],
-        ["xpath=(//a[contains(@href, '#')])[8]", "xpath:href"],
-        ["xpath=//div[2]/div/div/ul/li[2]/a", "xpath:position"]
+        ["css=.col-md-3 li:nth-child(2) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Добави в любими')])[2]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div[2]/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[10]", "xpath:href"],
+        ["xpath=//div[3]/div/div[2]/div/div/ul/li[2]/a", "xpath:position"]
       ],
       "value": ""
     }, {
@@ -3673,12 +3674,14 @@
       "id": "1f9ca2c2-bf39-4b67-9323-42f434e1c3d8",
       "comment": "Click the sort selector",
       "command": "click",
-      "target": "css=div > #popularity-sort",
+      "target": "css=li > #popularity-sort",
       "targets": [
-        ["css=div > #popularity-sort", "css:finder"],
-        ["xpath=(//select[@id='popularity-sort'])[2]", "xpath:attributes"],
-        ["xpath=//div[@id='global-wrapper']/div[3]/div/div/aside/div/div/select", "xpath:idRelative"],
-        ["xpath=//div/select", "xpath:position"]
+        ["id=popularity-sort", "id"],
+        ["css=li > #popularity-sort", "css:finder"],
+        ["xpath=//select[@id='popularity-sort']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/header/ul/li/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'- Подреди по -\nЗаглавие\nНай-нови\nНай-продавани\nНай-коментирани\nНай-преглеждани\nЦена - възходяща\nЦена - низходяща')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -3738,12 +3741,14 @@
       "id": "8919397c-309b-4be7-9b8b-af8a8fbc9f6a",
       "comment": "Click the sort selector",
       "command": "click",
-      "target": "css=div > #popularity-sort",
+      "target": "css=li > #popularity-sort",
       "targets": [
-        ["css=div > #popularity-sort", "css:finder"],
-        ["xpath=(//select[@id='popularity-sort'])[2]", "xpath:attributes"],
-        ["xpath=//div[@id='global-wrapper']/div[3]/div/div/aside/div/div/select", "xpath:idRelative"],
-        ["xpath=//div/select", "xpath:position"]
+        ["id=popularity-sort", "id"],
+        ["css=li > #popularity-sort", "css:finder"],
+        ["xpath=//select[@id='popularity-sort']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/header/ul/li/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'- Подреди по -\nЗаглавие\nНай-нови\nНай-продавани\nНай-коментирани\nНай-преглеждани\nЦена - възходяща\nЦена - низходяща')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -3803,12 +3808,14 @@
       "id": "539378b9-3945-4649-a3bd-f7b35f7db1b0",
       "comment": "Click the sort selector",
       "command": "click",
-      "target": "css=div > #popularity-sort",
+      "target": "css=li > #popularity-sort",
       "targets": [
-        ["css=div > #popularity-sort", "css:finder"],
-        ["xpath=(//select[@id='popularity-sort'])[2]", "xpath:attributes"],
-        ["xpath=//div[@id='global-wrapper']/div[3]/div/div/aside/div/div/select", "xpath:idRelative"],
-        ["xpath=//div/select", "xpath:position"]
+        ["id=popularity-sort", "id"],
+        ["css=li > #popularity-sort", "css:finder"],
+        ["xpath=//select[@id='popularity-sort']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/header/ul/li/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'- Подреди по -\nЗаглавие\nНай-нови\nНай-продавани\nНай-коментирани\nНай-преглеждани\nЦена - възходяща\nЦена - низходяща')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -3933,14 +3940,14 @@
       "id": "b857106f-731d-4075-ae61-a46dc692104c",
       "comment": "Click Buy Button",
       "command": "click",
-      "target": "css=.col-12 li:nth-child(1) > .btn",
+      "target": "css=.col-md-3 li:nth-child(1) > .btn",
       "targets": [
-        ["css=.col-12 li:nth-child(1) > .btn", "css:finder"],
-        ["xpath=//a[contains(text(),'Купи')]", "xpath:link"],
-        ["xpath=//a[@onclick=\"if (!window.__cfRLUnblockHandlers) return false; onProductAddToCart('236213','Малки жени (луксозно издание, нов превод)','Световна детска класика','Хеликон','твърди','18.95','1',''); return !ga.loaded;\"]", "xpath:attributes"],
-        ["xpath=//div[@id='global-wrapper']/div[3]/div/div/div/div[2]/div/div[2]/div/div/ul/li/a", "xpath:idRelative"],
-        ["xpath=(//a[contains(@href, 'javascript:;')])[3]", "xpath:href"],
-        ["xpath=//div[2]/div/div/ul/li/a", "xpath:position"]
+        ["css=.col-md-3 li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Купи')])[2]", "xpath:link"],
+        ["xpath=(//a[@onclick=\"if (!window.__cfRLUnblockHandlers) return false; onProductAddToCart('236213','Малки жени (луксозно издание, нов превод)','Световна детска класика','Хеликон','твърди','18.95','1',''); return !ga.loaded;\"])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div[2]/div/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'javascript:;')])[2]", "xpath:href"],
+        ["xpath=//div[3]/div/div[2]/div/div/ul/li/a", "xpath:position"]
       ],
       "value": ""
     }, {
