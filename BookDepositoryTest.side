@@ -422,14 +422,14 @@
     "name": "LogoTest",
     "commands": [{
       "id": "760dcb25-97de-46aa-b83f-9a90541e5192",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "b4ab11a8-27c2-4379-bdd3-22f8c3de1680",
-      "comment": "",
+      "comment": "Click the logo",
       "command": "click",
       "target": "css=.navbar-brand > .loaded",
       "targets": [
@@ -440,14 +440,14 @@
       "value": ""
     }, {
       "id": "4c9299bd-9c0b-49bc-83c5-babda83c1c91",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "4db0456f-be4d-4063-800b-be776dce0c5e",
-      "comment": "",
+      "comment": "Assert this is the home page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -458,14 +458,14 @@
     "name": "BooksTest",
     "commands": [{
       "id": "03ef9358-6b52-468d-a37e-1bbca674f19b",
-      "comment": "",
+      "comment": "Open the page",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "30e28453-66f9-48ac-882d-efcc71454667",
-      "comment": "",
+      "comment": "Click the Books link",
       "command": "click",
       "target": "xpath=//a[contains(text(),'Книги')]",
       "targets": [
@@ -478,14 +478,14 @@
       "value": ""
     }, {
       "id": "ce8766d5-ae8d-42c6-9f5a-7e2cfeca0673",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "cae72c85-73fc-489c-b9d1-e747ac3f47b5",
-      "comment": "",
+      "comment": "Assert this is the Books page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -496,14 +496,14 @@
     "name": "HomeTest",
     "commands": [{
       "id": "182515a1-91bd-44b5-8e8d-e617143e67b2",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "a23939bb-474e-4dd3-8eeb-afd79facd2e0",
-      "comment": "",
+      "comment": "Click the Home page",
       "command": "click",
       "target": "xpath=//a[contains(text(),'Начало')]",
       "targets": [
@@ -516,14 +516,14 @@
       "value": ""
     }, {
       "id": "afd95d7e-9ac9-49c6-839c-142943ae80e6",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "f7f9fdf4-7b2a-40cf-ad4e-8addb668e1e9",
-      "comment": "",
+      "comment": "Assert this is the home page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -534,14 +534,14 @@
     "name": "TextbooksTest",
     "commands": [{
       "id": "3320f56b-d889-4643-8cf8-3d300100c6b4",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "18ae1a8e-f3b7-46cb-9e9c-5671f7734053",
-      "comment": "",
+      "comment": "Click the Schoolboks page",
       "command": "click",
       "target": "xpath=//a[contains(text(),'Учебници')]",
       "targets": [
@@ -554,14 +554,14 @@
       "value": ""
     }, {
       "id": "8a649e45-3c0f-45a9-8c1c-5b854e613f2b",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "57f0c0e2-6ac2-4029-9c2d-f67726145ba8",
-      "comment": "",
+      "comment": "Assert this is the Textbooks page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -572,14 +572,14 @@
     "name": "EBooksTest",
     "commands": [{
       "id": "801bd422-d86b-4c7d-abcf-def0c9fb234a",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "3d611cc8-d819-42ce-8fc4-570a8bf63a9c",
-      "comment": "",
+      "comment": "Click the E-Books link",
       "command": "click",
       "target": "xpath=//a[contains(text(),'Е-Книги')]",
       "targets": [
@@ -592,14 +592,14 @@
       "value": ""
     }, {
       "id": "4e54d4e5-d46d-470d-8971-fe54755d7c26",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "ce82d876-5f3e-4deb-8194-17a16b65d62e",
-      "comment": "",
+      "comment": "Assert this the E-Books page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -610,14 +610,14 @@
     "name": "EMagazinesTest",
     "commands": [{
       "id": "a38fcc15-1f35-4392-86bf-8a210f3860d8",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "c3f51f87-6966-4130-8b3c-1b5aa739b064",
-      "comment": "",
+      "comment": "Click the E-Magazines link",
       "command": "click",
       "target": "xpath=//a[contains(text(),'Е-списания')]",
       "targets": [
@@ -630,14 +630,14 @@
       "value": ""
     }, {
       "id": "448f6f4e-8bae-419e-96fa-4e54ed156218",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "8b435ac9-3430-44f5-9bb9-6236210ecb28",
-      "comment": "",
+      "comment": "Assert this is the E-Magazines page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -648,14 +648,14 @@
     "name": "GiftsTest",
     "commands": [{
       "id": "0774b83a-a2da-48ed-8f53-ed114a7b61c8",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "556fa437-dcf5-45c0-be0b-570a5149c4ae",
-      "comment": "",
+      "comment": "Click the Presents link",
       "command": "click",
       "target": "xpath=//a[contains(text(),'Подаръци')]",
       "targets": [
@@ -668,14 +668,14 @@
       "value": ""
     }, {
       "id": "f9d03aa5-8234-4821-b7d5-b4a3b86ed5dc",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "391cb40b-c1ab-40db-8c02-88358c61b544",
-      "comment": "",
+      "comment": "Assert this is the Gifts page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -686,14 +686,14 @@
     "name": "AccessoriesTest",
     "commands": [{
       "id": "e9b85bff-681a-433a-aba8-68b8d75b8ee5",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "de47c567-7844-48a1-a411-00a306580cbb",
-      "comment": "",
+      "comment": "Click the accessories link",
       "command": "click",
       "target": "xpath=//a[contains(text(),'Аксесоари')]",
       "targets": [
@@ -706,14 +706,14 @@
       "value": ""
     }, {
       "id": "2251189d-338e-41e1-b2f1-f014296be0da",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "2233f678-7aba-4a25-bd37-6523f4fedf39",
-      "comment": "",
+      "comment": "Assert this is the accessories page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -724,14 +724,14 @@
     "name": "CouponsTest",
     "commands": [{
       "id": "fb231f9a-8367-4b74-abcf-212ce2c6555d",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "5931681e-86cd-41fa-95da-b7d237af7429",
-      "comment": "",
+      "comment": "Click the coupons link",
       "command": "click",
       "target": "xpath=//a[contains(text(),'Ваучери')]",
       "targets": [
@@ -744,14 +744,14 @@
       "value": ""
     }, {
       "id": "d4be7e21-bb55-44f4-a166-0fd8b97f9a54",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "cdd4bc6e-e146-46b5-a70d-4598d8ff5025",
-      "comment": "",
+      "comment": "Assert this is the Coupns page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -762,14 +762,14 @@
     "name": "ClassificationsTest",
     "commands": [{
       "id": "51c2b5e3-0fd9-40b8-916d-d927342dc46b",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "d586a41b-39fe-4de0-ab3d-39599e062b3e",
-      "comment": "",
+      "comment": "Click the Classifications button",
       "command": "click",
       "target": "xpath=//a[contains(text(),'класации')]",
       "targets": [
@@ -782,14 +782,14 @@
       "value": ""
     }, {
       "id": "38eaa189-35b0-40d5-a863-71c8cc22fe72",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "da7c55d5-3ef1-41e1-bfb3-1f020e7fd114",
-      "comment": "",
+      "comment": "Assert this is the classifications page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -800,14 +800,14 @@
     "name": "FavouitesLinkLogoutUserTest",
     "commands": [{
       "id": "9545854c-1775-404d-a74d-5a88941a69b2",
-      "comment": "",
+      "comment": "Open a logged out instance",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "ff936547-4e48-439b-a8bf-ac5bbeeb958b",
-      "comment": "",
+      "comment": "Assert there is no Favouites link",
       "command": "assertElementNotPresent",
       "target": "linkText=Любими продукти",
       "targets": [],
@@ -818,14 +818,14 @@
     "name": "OrderHistoryLinkLoggedOutUserTest",
     "commands": [{
       "id": "83537abb-0afe-4f6c-844c-d30e22fc9b90",
-      "comment": "",
+      "comment": "Open a logged out instance",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "fd98f5e7-cbee-4161-9f43-41f34a526e4f",
-      "comment": "",
+      "comment": "Assert there is no Order History link",
       "command": "assertElementNotPresent",
       "target": "linkText=История на поръчките",
       "targets": [],
@@ -836,14 +836,14 @@
     "name": "ProfileLinkLoggedOutUserTest",
     "commands": [{
       "id": "e930632c-8b17-49f2-ac13-9301206fb2f1",
-      "comment": "",
+      "comment": "Open the webpage",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "0bb35b55-0091-4ca9-bbab-42a135e417da",
-      "comment": "",
+      "comment": "Assert there is no link to the profile page",
       "command": "assertElementNotPresent",
       "target": "linkText=Профил",
       "targets": [],
@@ -1750,14 +1750,14 @@
     "name": "WorkFooterLinkTest",
     "commands": [{
       "id": "25daf70a-3e60-4f6a-a967-57d21ef5689f",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "430c1df7-ae3b-4aee-99f5-8f44e8600ca8",
-      "comment": "",
+      "comment": "Click the Work link",
       "command": "click",
       "target": "linkText=Работа",
       "targets": [
@@ -1772,14 +1772,14 @@
       "value": ""
     }, {
       "id": "cb18161d-ac08-49d0-89fb-38b69155578d",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "3e804709-3ce0-413f-8785-19770cb6a5f6",
-      "comment": "",
+      "comment": "Assert this is the work webpage",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
@@ -1790,14 +1790,14 @@
     "name": "ContactsFooterLinkTest",
     "commands": [{
       "id": "0219a7f6-dce1-43ae-ac2f-3d383795db38",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "a07db9fe-42ba-4240-be20-bbbff71571d0",
-      "comment": "",
+      "comment": "Click Contacts link",
       "command": "click",
       "target": "linkText=Контакти",
       "targets": [
@@ -1812,21 +1812,21 @@
       "value": ""
     }, {
       "id": "896baec7-f89d-4869-a55f-d4792be3aa81",
-      "comment": "",
+      "comment": "Get current HREF",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "44889f6f-b860-4da8-a91a-b11ebd0d2fb4",
-      "comment": "",
+      "comment": "Assert this is the Contacts page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/contacts/"
     }, {
       "id": "2cd791a8-6e40-430e-a430-4a51a5e1844a",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -1837,14 +1837,14 @@
       "value": ""
     }, {
       "id": "86715ae5-e983-469f-902c-3484453ccba5",
-      "comment": "",
+      "comment": "Check if the contect contains phone numbers",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.includes(\"тел\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "d48d56e1-496a-4357-b8d6-64bb7b16ecbb",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -1855,14 +1855,14 @@
     "name": "TermsFooterLinkTest",
     "commands": [{
       "id": "45dd7908-80e8-439e-964c-1069a392eecb",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "2d7b4796-b811-4998-a499-652fe36aa321",
-      "comment": "",
+      "comment": "Click the Common Conditions link",
       "command": "click",
       "target": "linkText=Общи условия",
       "targets": [
@@ -1877,21 +1877,21 @@
       "value": ""
     }, {
       "id": "082cdb33-4a37-478a-82da-6d32c3786a26",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "71f8d32d-e8af-43d3-b7e4-2c6715525982",
-      "comment": "",
+      "comment": "Assert this is the common conditions page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/page/obshti-uslovia.html"
     }, {
       "id": "c4b8bb38-0cd6-4ea9-ae29-c2f6961b4e17",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -1902,14 +1902,14 @@
       "value": ""
     }, {
       "id": "36dd9e9a-2ea7-4940-8ea7-4d8e419fa255",
-      "comment": "",
+      "comment": "Check if the content contains information",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"хеликон\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "3c984b3f-81e0-4379-814b-677989a9111c",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -1938,14 +1938,14 @@
     "name": "SearchHelpFooterLinkTest",
     "commands": [{
       "id": "00b144a8-af06-49da-9eb1-cbab01db704a",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "6b6a0c11-79ef-41ed-92aa-314581359149",
-      "comment": "",
+      "comment": "Click the Search Link",
       "command": "click",
       "target": "linkText=Търсене",
       "targets": [
@@ -1960,21 +1960,21 @@
       "value": ""
     }, {
       "id": "a9166e0e-0990-481c-8e4d-adaba33dc440",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "18863d33-6f86-4140-950f-fc325fb698e9",
-      "comment": "",
+      "comment": "Assert this is the search help page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/page/tarsene.html"
     }, {
       "id": "454a19c1-89ca-4fec-ae9e-a1b09e76e50b",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -1985,14 +1985,14 @@
       "value": ""
     }, {
       "id": "6e7279b8-47ce-45e6-8b92-50daa767fc6d",
-      "comment": "",
+      "comment": "Check if the content contains information",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"търсене\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "f889cac9-fd4e-4bee-966c-866535c2d919",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -2003,14 +2003,14 @@
     "name": "OrderHelpFooterLinkTest",
     "commands": [{
       "id": "996ff569-47ed-4841-bbd1-a577c97a84be",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "f017bf0f-4c50-48c9-aedf-eb2e35883942",
-      "comment": "",
+      "comment": "Click the Order link",
       "command": "click",
       "target": "linkText=Поръчка",
       "targets": [
@@ -2025,21 +2025,21 @@
       "value": ""
     }, {
       "id": "934d1293-c525-43c1-bb54-5f0205f0849f",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "c232614a-93a8-4ccb-9447-c01d5ca47100",
-      "comment": "",
+      "comment": "Assert this is the How to order page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/page/porachka.html"
     }, {
       "id": "ce29c7ba-d556-457d-ad4c-8601beb042db",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -2050,14 +2050,14 @@
       "value": ""
     }, {
       "id": "1be33bd2-6a72-43a8-9735-b9310924efbc",
-      "comment": "",
+      "comment": "Check if the content contains the word \"Order\"",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"поръчка\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "062f200a-bec8-46cd-bfe2-3a669416ae83",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -2068,14 +2068,14 @@
     "name": "PaymentsHelpFooterLinkTest",
     "commands": [{
       "id": "2b15693c-c0a8-4663-a28c-3f58b43a5505",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "30c14412-f4ff-4689-ac24-5f5375f560a1",
-      "comment": "",
+      "comment": "Select the Payments link",
       "command": "click",
       "target": "linkText=Плащания",
       "targets": [
@@ -2090,21 +2090,21 @@
       "value": ""
     }, {
       "id": "3bc05303-3d4c-4dc5-ac49-5249b709bef3",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "4976ab2c-d59e-464c-a426-c38fa9adae2f",
-      "comment": "",
+      "comment": "Assert this is the Payments help page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/page/plashtania.html"
     }, {
       "id": "ca0df908-044c-4238-97d6-10c8539f357b",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -2115,14 +2115,14 @@
       "value": ""
     }, {
       "id": "d9f2b69b-8908-4b47-864c-374ab2e5a95c",
-      "comment": "",
+      "comment": "Check if the content contains payment information",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"плащане\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "d11353fc-fb63-4fd5-9503-cbe0d1263b79",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -2133,14 +2133,14 @@
     "name": "DeliveryHelpFooterLinkTest",
     "commands": [{
       "id": "68e504f9-ded4-4d8e-8a10-18579edadc48",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "a899bb33-4f1b-4b1c-9ec1-9735f836ba50",
-      "comment": "",
+      "comment": "Click the delivery link",
       "command": "click",
       "target": "linkText=Доставка",
       "targets": [
@@ -2155,21 +2155,21 @@
       "value": ""
     }, {
       "id": "df2e1a9b-770c-48d4-9666-53f06b57d2c3",
-      "comment": "",
+      "comment": "Get the current URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "7abede77-c26b-4e25-a33c-93a677adeaba",
-      "comment": "",
+      "comment": "Assert this is the Delivery page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/page/dostavka.html"
     }, {
       "id": "c0f34dcd-3e4b-49f8-9fc5-c71f3bfd861a",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -2180,14 +2180,14 @@
       "value": ""
     }, {
       "id": "ee6e1db5-4962-4b1c-a626-2efc6b7bf65d",
-      "comment": "",
+      "comment": "Check if the content contains the word \"Delivery\"",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"доставка\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "746a84c0-87f4-45d1-8167-efc3be3d2d76",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -2198,14 +2198,14 @@
     "name": "ClientDataHelpFooterLinkTest",
     "commands": [{
       "id": "cb9ea9fd-b597-4897-95f5-a03eb6f433ce",
-      "comment": "",
+      "comment": "Open website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "f4c665be-c4a0-425e-9ea1-81b4557c7a32",
-      "comment": "",
+      "comment": "Click Client Data link",
       "command": "click",
       "target": "linkText=Данни за клиента",
       "targets": [
@@ -2220,21 +2220,21 @@
       "value": ""
     }, {
       "id": "77789fe9-2ccf-4c37-8ac1-d3488eba3338",
-      "comment": "",
+      "comment": "Get current HREF",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "cd579910-c291-4697-a125-7650c1616109",
-      "comment": "",
+      "comment": "Assert that this is the Client Data page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/page/registracia.html"
     }, {
       "id": "ead15783-f47d-454f-bc01-920d3f6c2174",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -2245,14 +2245,14 @@
       "value": ""
     }, {
       "id": "3e3226a7-be6c-4ed4-9bfc-8c51333dfdca",
-      "comment": "",
+      "comment": "Check if the content contains the words \"Client data\"",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"данни\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "5ef49d9c-daff-45a0-a6aa-66c8ff92c732",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -2263,14 +2263,14 @@
     "name": "EBookHelpFooterLinkTest",
     "commands": [{
       "id": "34c9cac8-5779-4c39-b203-55ef269338d5",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "8dcccd5a-2ecd-4bd0-9b83-ae977a46ad5d",
-      "comment": "",
+      "comment": "Click the E-Books link",
       "command": "click",
       "target": "linkText=Как да свалим е-книги",
       "targets": [
@@ -2285,21 +2285,21 @@
       "value": ""
     }, {
       "id": "d954ae42-29d0-49c8-a81f-8fd404553501",
-      "comment": "",
+      "comment": "Get the current URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "d359155d-43b4-4724-9d92-29b3fecb7f6c",
-      "comment": "",
+      "comment": "Assert this is the E-Book page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/read_ebooks/"
     }, {
       "id": "5a28b361-5fd1-4f66-adae-7176a7c10d0d",
-      "comment": "",
+      "comment": "Assert there is content on the page",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -2310,14 +2310,14 @@
       "value": ""
     }, {
       "id": "10d4d8f5-505f-4f69-b1da-92d3c6c7b0a7",
-      "comment": "",
+      "comment": "Check if the content contains the word \"e-book\"",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"електронна книга\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "bb33487e-5198-4d43-a8d0-cf6bc40332f0",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -2328,14 +2328,14 @@
     "name": "CouponHelpFooterLinkTest",
     "commands": [{
       "id": "1ba1e9af-c0fb-485e-b300-d84f5f51ec12",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "707efeea-3896-4ac0-9acb-bc29028a0239",
-      "comment": "",
+      "comment": "Click the Terms and Conditions link",
       "command": "click",
       "target": "linkText=Условия за ползване на ваучер",
       "targets": [
@@ -2350,21 +2350,21 @@
       "value": ""
     }, {
       "id": "d36f87f2-54f8-4c26-986c-2a867db13d4b",
-      "comment": "",
+      "comment": "Get the current HREF",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "231836d9-d1d1-406b-9cbd-221565b6481f",
-      "comment": "",
+      "comment": "Assert this is the Coupons page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/page/vaucher.html"
     }, {
       "id": "459bd975-9715-4abc-8337-1a8d9aef9c23",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -2375,14 +2375,14 @@
       "value": ""
     }, {
       "id": "c4678e37-fa34-403b-971b-b2623c2575c1",
-      "comment": "",
+      "comment": "Check if the content contains the word \"content\"",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"ваучер\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "ab7599f9-3a12-42a7-9869-b4aebe5d2ff0",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -2393,14 +2393,14 @@
     "name": "ReturnHelpFooterLinkTest",
     "commands": [{
       "id": "b96dbb52-eca8-48a4-bcad-4f33d53b8bd6",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "076250ee-3f55-4e2c-9460-d3c62947c067",
-      "comment": "",
+      "comment": "Click the Cance Order rights button",
       "command": "click",
       "target": "linkText=Право на отказ от закупена стока",
       "targets": [
@@ -2415,21 +2415,21 @@
       "value": ""
     }, {
       "id": "089d1a7a-3e5d-440e-abbc-0b7624b0cb9e",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "1b075539-ebec-49a9-b832-07deaa9ecce8",
-      "comment": "",
+      "comment": "Assert this is the Cancel Order help page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://www.helikon.bg/page/pravo-na-otkaz.html"
     }, {
       "id": "0ada3b0e-c3c3-4c4a-89c3-bd0d253497ec",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -2440,14 +2440,14 @@
       "value": ""
     }, {
       "id": "d6b2fe82-d1bc-4654-b4d8-471eafd3cf92",
-      "comment": "",
+      "comment": "Check if the content contains information",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"отказ\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "d44c55d9-bbef-4736-9d00-3d6e4f857b56",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -2523,14 +2523,14 @@
     "name": "DataSecurityFooterLink",
     "commands": [{
       "id": "50961c7f-c78e-418f-977a-3263e1ce1d0d",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
       "id": "4b8758de-eaae-4777-a939-08c68bae3431",
-      "comment": "",
+      "comment": "Click the Data Security link",
       "command": "click",
       "target": "linkText=Политика за сигурност на личните данни",
       "targets": [
@@ -2545,21 +2545,21 @@
       "value": ""
     }, {
       "id": "b9279cb7-3701-4d4f-8127-3bcc951cc993",
-      "comment": "",
+      "comment": "Get the current HREF",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "currentHREF"
     }, {
       "id": "515668ed-7cae-453e-9fdf-6d054fbcaa6d",
-      "comment": "",
+      "comment": "Assert this is the data security page",
       "command": "assert",
       "target": "currentHREF",
       "targets": [],
       "value": "https://helikon.bg/page/li4ni-dani.html"
     }, {
       "id": "83fa1290-c76f-4323-ba2c-eb5dcc973047",
-      "comment": "",
+      "comment": "Assert there is content",
       "command": "assertElementPresent",
       "target": "css=.box",
       "targets": [
@@ -2570,14 +2570,14 @@
       "value": ""
     }, {
       "id": "81c3698b-d268-4bfa-af17-ba2e50377264",
-      "comment": "",
+      "comment": "Check if the content contains the word \"data\"",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"сигурност на личните данни\");",
       "targets": [],
       "value": "result"
     }, {
       "id": "76b125ad-efde-4387-aec6-b14b176f7243",
-      "comment": "",
+      "comment": "Assert the check is positive",
       "command": "assert",
       "target": "result",
       "targets": [],
@@ -2588,14 +2588,14 @@
     "name": "FavouitesLinkLoggedInUserTest",
     "commands": [{
       "id": "414b5ad4-9f90-44b1-8a21-4980a3ef581f",
-      "comment": "",
+      "comment": "Open a logged out session",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "5af90792-27c7-4b5b-92a9-ee930ae85dc1",
-      "comment": "",
+      "comment": "Click the accout button",
       "command": "click",
       "target": "css=.nav-menu .popup-text > .darkBlueBig",
       "targets": [
@@ -2607,7 +2607,7 @@
       "value": ""
     }, {
       "id": "f7053ecb-40a8-4692-b74e-bf9e65eaeb79",
-      "comment": "",
+      "comment": "Enter the username",
       "command": "type",
       "target": "name=username",
       "targets": [
@@ -2620,7 +2620,7 @@
       "value": "sample_user"
     }, {
       "id": "66ba8460-c721-4762-9ce3-0c728e98087f",
-      "comment": "",
+      "comment": "Enter the password",
       "command": "type",
       "target": "name=password",
       "targets": [
@@ -2633,14 +2633,14 @@
       "value": "12345678qwer"
     }, {
       "id": "28f298fa-edc8-4b22-946e-b8b1e056b2d3",
-      "comment": "",
+      "comment": "Confirm the login",
       "command": "click",
       "target": "css=.login-btn",
       "targets": [],
       "value": ""
     }, {
       "id": "e0a5d3b9-5660-4121-a823-49dc0b71a897",
-      "comment": "",
+      "comment": "Select the Favourites page",
       "command": "click",
       "target": "linkText=Любими продукти",
       "targets": [
@@ -2655,14 +2655,14 @@
       "value": ""
     }, {
       "id": "7aa05b20-e0fc-47ab-b4b5-99df5580042f",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "ea42e4f4-b114-404e-82de-d8316052ef41",
-      "comment": "",
+      "comment": "Assert this is the Favouites page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -2673,14 +2673,14 @@
     "name": "OrderHistoryLinkLoggedInUserTest",
     "commands": [{
       "id": "e574a767-180c-4600-89c2-5e8887c3b0c3",
-      "comment": "",
+      "comment": "Open a logged out session",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "931a6fd0-7bb9-4008-b594-6394d3168e35",
-      "comment": "",
+      "comment": "Click the account button",
       "command": "click",
       "target": "css=.nav-menu .popup-text > .darkBlueBig",
       "targets": [
@@ -2692,7 +2692,7 @@
       "value": ""
     }, {
       "id": "52337fd3-fe4c-4f61-a953-1568738faefb",
-      "comment": "",
+      "comment": "Enter the username",
       "command": "type",
       "target": "name=username",
       "targets": [
@@ -2705,7 +2705,7 @@
       "value": "sample_user"
     }, {
       "id": "686c0904-7cf1-4c64-a16a-af859fbfb282",
-      "comment": "",
+      "comment": "Enter the password",
       "command": "type",
       "target": "name=password",
       "targets": [
@@ -2718,14 +2718,14 @@
       "value": "12345678qwer"
     }, {
       "id": "c868ef8e-2d41-4866-806b-fb3abea94668",
-      "comment": "",
+      "comment": "Confirm login",
       "command": "click",
       "target": "css=.login-btn",
       "targets": [],
       "value": ""
     }, {
       "id": "df36ce16-ff04-4da8-817b-95409720b7e7",
-      "comment": "",
+      "comment": "Click the profile butto n",
       "command": "click",
       "target": "css=.nav-menu > .collapseProfile .darkBlue",
       "targets": [
@@ -2737,7 +2737,7 @@
       "value": ""
     }, {
       "id": "194300e8-800c-42ec-82b1-47054e7bba18",
-      "comment": "",
+      "comment": "Select the Order History option",
       "command": "click",
       "target": "linkText=История на поръчките",
       "targets": [
@@ -2752,14 +2752,14 @@
       "value": ""
     }, {
       "id": "d610adb8-aa0d-4c44-9832-8d8584437369",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "40894149-8ef6-4783-b1e1-510b6edb6c2c",
-      "comment": "",
+      "comment": "Assert this is the Order History page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -2770,14 +2770,14 @@
     "name": "ProfileLinkLoggedInUserTest",
     "commands": [{
       "id": "77ab4045-ffb9-4605-b6ff-c07c7686d5c4",
-      "comment": "",
+      "comment": "Open the website",
       "command": "open",
       "target": "/logout.php",
       "targets": [],
       "value": ""
     }, {
       "id": "6ef5138a-6005-470f-81aa-705d68765f7c",
-      "comment": "",
+      "comment": "Click the login button",
       "command": "click",
       "target": "css=.nav-menu .popup-text > .darkBlueBig",
       "targets": [
@@ -2789,7 +2789,7 @@
       "value": ""
     }, {
       "id": "370542dd-a87c-40f7-b5e1-50488ba43e42",
-      "comment": "",
+      "comment": "Enter the username",
       "command": "type",
       "target": "name=username",
       "targets": [
@@ -2802,7 +2802,7 @@
       "value": "sample_user"
     }, {
       "id": "507ff1e4-493b-4d11-965c-0ce7af313312",
-      "comment": "",
+      "comment": "Enter the password",
       "command": "type",
       "target": "name=password",
       "targets": [
@@ -2815,7 +2815,7 @@
       "value": "12345678qwer"
     }, {
       "id": "3389540d-4768-41d7-891d-b0a7d2528288",
-      "comment": "",
+      "comment": "Confirm the login",
       "command": "click",
       "target": "css=.login-btn",
       "targets": [
@@ -2828,7 +2828,7 @@
       "value": ""
     }, {
       "id": "753ba20f-6758-4fde-a65b-37a3fcad3b75",
-      "comment": "",
+      "comment": "Click the account button",
       "command": "click",
       "target": "linkText=Здравей,",
       "targets": [
@@ -2842,7 +2842,7 @@
       "value": ""
     }, {
       "id": "4cce1752-86b2-4b95-b204-aab8baa86fe3",
-      "comment": "",
+      "comment": "Select the profile option",
       "command": "click",
       "target": "linkText=Профил",
       "targets": [
@@ -2857,14 +2857,14 @@
       "value": ""
     }, {
       "id": "c187c89f-4f34-48a6-91ff-cc5e654c6eaf",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "9b685c54-19e1-40f3-bc6a-5c116f4f8c29",
-      "comment": "",
+      "comment": "Assert this is the user's profile page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -3933,7 +3933,7 @@
       "id": "b857106f-731d-4075-ae61-a46dc692104c",
       "comment": "Click Buy Button",
       "command": "click",
-      "target": "xpath=//a[contains(text(),'Купи')]",
+      "target": "css=.col-12 li:nth-child(1) > .btn",
       "targets": [
         ["css=.col-12 li:nth-child(1) > .btn", "css:finder"],
         ["xpath=//a[contains(text(),'Купи')]", "xpath:link"],
@@ -4648,7 +4648,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["6e84fd7e-43a8-4002-8dce-3e429ac02cb8", "f71e4e71-93a0-407d-8f96-789138ed83f6", "173090cc-242a-4975-8f73-5dfacb3c6e89", "6d9f83bf-6692-4b63-af9d-40c58af391bc", "5c7ac831-801c-4adb-912f-bb7cf1aa7578", "46e65370-57f6-4c1f-b705-ca91a2c0968c", "caf33ca9-4dbd-4f59-9e9f-de0cfdf957fe", "01606f9c-9c9b-4031-b95c-95005b0bd131", "3197499c-65f0-4f71-8a3a-fff9655cc18a", "5484858c-f8d3-4f5f-9e99-5c4fbc1ac6cb", "9a39720f-b823-4eb1-9b49-2845dc51ad72", "ca5d6c6b-5576-4382-afaa-3b63f188020b", "495b6cad-b018-4ad2-aee7-3d68f9f4e1f6", "88f6eb09-ea1d-49b6-b1af-89853cd8571b", "be77bf45-c7d8-4f6a-90cd-32d5da2e6e6f"]
+    "tests": ["6e84fd7e-43a8-4002-8dce-3e429ac02cb8", "f71e4e71-93a0-407d-8f96-789138ed83f6", "173090cc-242a-4975-8f73-5dfacb3c6e89", "6d9f83bf-6692-4b63-af9d-40c58af391bc", "5c7ac831-801c-4adb-912f-bb7cf1aa7578", "46e65370-57f6-4c1f-b705-ca91a2c0968c", "caf33ca9-4dbd-4f59-9e9f-de0cfdf957fe", "01606f9c-9c9b-4031-b95c-95005b0bd131", "3197499c-65f0-4f71-8a3a-fff9655cc18a", "5484858c-f8d3-4f5f-9e99-5c4fbc1ac6cb", "9a39720f-b823-4eb1-9b49-2845dc51ad72", "ca5d6c6b-5576-4382-afaa-3b63f188020b", "88f6eb09-ea1d-49b6-b1af-89853cd8571b", "be77bf45-c7d8-4f6a-90cd-32d5da2e6e6f"]
   }, {
     "id": "e0e8127d-8fae-4548-a137-207b76c06b17",
     "name": "LoginTest",
