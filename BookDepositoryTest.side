@@ -852,7 +852,7 @@
     }]
   }, {
     "id": "0c29d511-bfd0-47c5-af3c-515eb675ed94",
-    "name": "TestCheckCartEmpty",
+    "name": "CheckCartEmptyTest",
     "commands": [{
       "id": "7cc9f6f1-1625-46ac-9e78-65f32f1026de",
       "comment": "Open a session of a logged-out user",
@@ -924,21 +924,21 @@
       "value": ""
     }, {
       "id": "1835ea7e-e489-4f7e-b529-17af1628242b",
-      "comment": "",
+      "comment": "Store cart status",
       "command": "storeText",
       "target": "css=.nav-menu > #cart-header .darkBlueBig",
       "targets": [],
       "value": "cartStatus"
     }, {
       "id": "95c5f5ba-a517-49a2-85b9-ea768b23a27e",
-      "comment": "",
+      "comment": "Check if cart status is emprty",
       "command": "if",
       "target": "${cartStatus} === \"0 продукта\"",
       "targets": [],
       "value": ""
     }, {
       "id": "c0125b1b-f324-4e44-a13c-65977b11e91b",
-      "comment": "",
+      "comment": "Click on Go to Cart Button",
       "command": "click",
       "target": "css=.nav-menu > #cart-header .darkBlueBig",
       "targets": [
@@ -950,21 +950,21 @@
       "value": ""
     }, {
       "id": "a6e40e4e-4296-4c45-b9c1-9b8453471fbe",
-      "comment": "",
+      "comment": "Get the URL",
       "command": "executeScript",
       "target": "return window.location.href;",
       "targets": [],
       "value": "href"
     }, {
       "id": "dd117e9d-54ce-4566-b4b3-8212f46fb739",
-      "comment": "",
+      "comment": "Assert this is the home webpage",
       "command": "assert",
       "target": "href",
       "targets": [],
       "value": "https://helikon.bg/"
     }, {
       "id": "f56f1d64-18ba-45fb-9f93-0298c873108a",
-      "comment": "",
+      "comment": "End the condition",
       "command": "end",
       "target": "",
       "targets": [],
@@ -1093,7 +1093,7 @@
       "value": ""
     }, {
       "id": "1e266787-0321-473f-bd1f-5c6e99990293",
-      "comment": "Click Registation",
+      "comment": "Click Registration",
       "command": "click",
       "target": "linkText=Регистрация",
       "targets": [
@@ -1297,7 +1297,7 @@
       "value": ""
     }, {
       "id": "c1004106-58dd-4418-9877-5f6bf3c77b42",
-      "comment": "Click Registation",
+      "comment": "Click Registration",
       "command": "click",
       "target": "linkText=Регистрация",
       "targets": [
@@ -1501,7 +1501,7 @@
       "value": ""
     }, {
       "id": "34ffe86d-8504-4458-8a57-87c959cb7568",
-      "comment": "Click Registation",
+      "comment": "Click Registration",
       "command": "click",
       "target": "linkText=Регистрация",
       "targets": [
@@ -1516,7 +1516,7 @@
       "value": ""
     }, {
       "id": "20485002-2ec0-4b15-83b7-b0fe0e32a8c2",
-      "comment": "Click UserName",
+      "comment": "Click Username",
       "command": "click",
       "target": "name=username",
       "targets": [
@@ -1529,7 +1529,7 @@
       "value": ""
     }, {
       "id": "40c1d286-5680-4734-985e-6c60117721d4",
-      "comment": "Enter Already Existing UserName",
+      "comment": "Enter Username",
       "command": "type",
       "target": "name=username",
       "targets": [
@@ -1838,7 +1838,7 @@
       "value": ""
     }, {
       "id": "86715ae5-e983-469f-902c-3484453ccba5",
-      "comment": "Check if the contect contains phone numbers",
+      "comment": "Check if the content contains phone numbers",
       "command": "executeScript",
       "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.includes(\"тел\");",
       "targets": [],
@@ -2383,7 +2383,7 @@
       "value": ""
     }, {
       "id": "076250ee-3f55-4e2c-9460-d3c62947c067",
-      "comment": "Click the Cance Order rights button",
+      "comment": "Click the Cancel Order rights button",
       "command": "click",
       "target": "linkText=Право на отказ от закупена стока",
       "targets": [
@@ -2578,7 +2578,7 @@
       "value": ""
     }, {
       "id": "5af90792-27c7-4b5b-92a9-ee930ae85dc1",
-      "comment": "Click the accout button",
+      "comment": "Click the account button",
       "command": "click",
       "target": "css=.nav-menu .popup-text > .darkBlueBig",
       "targets": [
@@ -2645,7 +2645,7 @@
       "value": "href"
     }, {
       "id": "ea42e4f4-b114-404e-82de-d8316052ef41",
-      "comment": "Assert this is the Favouites page",
+      "comment": "Assert this is the Favourites page",
       "command": "assert",
       "target": "href",
       "targets": [],
@@ -2708,7 +2708,7 @@
       "value": ""
     }, {
       "id": "df36ce16-ff04-4da8-817b-95409720b7e7",
-      "comment": "Click the profile butto n",
+      "comment": "Click the profile button",
       "command": "click",
       "target": "css=.nav-menu > .collapseProfile .darkBlue",
       "targets": [
@@ -2877,7 +2877,7 @@
       "value": ""
     }, {
       "id": "f01ba280-e94a-4a0d-bebc-aa882bc29eca",
-      "comment": "Click Registation",
+      "comment": "Click Registration",
       "command": "click",
       "target": "linkText=Регистрация",
       "targets": [
@@ -2957,7 +2957,7 @@
       "value": ""
     }, {
       "id": "d35c6f61-fcf8-4879-9e31-1379687b49e8",
-      "comment": "Enter Wrong Re-entered Password",
+      "comment": "Enter Re-entered Password",
       "command": "type",
       "target": "name=password2",
       "targets": [
@@ -4658,7 +4658,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["40d965e4-09fa-4963-89e3-b28ecc5d029a", "54fb94dd-0aca-4577-9230-530095353bf7", "4e8d9a76-4d96-46f0-a33f-04da0cc8f0a2"]
+    "tests": ["40d965e4-09fa-4963-89e3-b28ecc5d029a", "54fb94dd-0aca-4577-9230-530095353bf7", "4e8d9a76-4d96-46f0-a33f-04da0cc8f0a2", "0c29d511-bfd0-47c5-af3c-515eb675ed94"]
   }, {
     "id": "544988a8-3d0a-4309-915e-55fe446466d1",
     "name": "SortTest",
