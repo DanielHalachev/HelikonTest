@@ -123,7 +123,7 @@
       "id": "672e8fbc-41cc-4860-bda0-f06c0fbb0b5b",
       "comment": "Make sure you get the alert",
       "command": "assertAlert",
-      "target": "\"Трябва да влезете в профила си за да добавите този продукт в любими!\"",
+      "target": "Трябва да влезете в профила си за да добавите този продукт в любими!",
       "targets": [],
       "value": ""
     }]
@@ -1915,24 +1915,6 @@
       "target": "result",
       "targets": [],
       "value": "true"
-    }]
-  }, {
-    "id": "495b6cad-b018-4ad2-aee7-3d68f9f4e1f6",
-    "name": "SocialMediaFooterLinkTest",
-    "commands": [{
-      "id": "2add9f1e-3980-485b-998c-18401b0e9d2f",
-      "comment": "",
-      "command": "run",
-      "target": "LoginProcess",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "e890b27d-4865-4cbc-a7f1-bd7c0765490a",
-      "comment": "",
-      "command": "click",
-      "target": "",
-      "targets": [],
-      "value": ""
     }]
   }, {
     "id": "ca5d6c6b-5576-4382-afaa-3b63f188020b",
