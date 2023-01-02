@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                version="1.0">
+                version="3.0">
 
     <xsl:output method="html" indent="yes"/>
     <xsl:template match="/">
         <html>
         <body>
         <xsl:for-each select="tests/test">
-            <h2><xsl:value-of select="test/name"/></h2>
+            <h3>                
+                <xsl:variable name="testCounter" select="position()" />
+                3.<xsl:value-of select="$testCounter"/>. 
+                <xsl:value-of select="name"/>
+            </h3>
+            <p><b>Special Instructions</b></p>
+            <p><i>NONE</i></p>
             <br/>
-            <!-- <table>
+            <table border="1px solid black" style="border-collapse: collapse;">
                 <tr>
                     <td>
-                        Test Case <br/> ID
+                        <b>Test Case <br/> ID</b>
                     </td>
                     <td colspan="2">
-                        <xsl:value-of select="test/name"/>
-                    </td>
-                    <td>
+                    <span style="text-transform:uppercase">
+                        <xsl:value-of select="id"/>
+                    </span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Description
+                        <b>Description</b>
                     </td>
                     <td colspan="2">
-                    </td>
-                    <td>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Applicable for
+                        <b>Applicable<br/>for</b>
                     </td>
                     <td colspan="2">
-                        Firefox, Vivaldi, Chromium
-                    </td>
-                    <td>
+                        Firefox, Vivaldi, Chrome
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Initial Conditions
+                        <b>Initial<br/>Conditions</b>
                     </td>
                     <td colspan="2">
                         None. Tests are independent from each other and prepare the system automatically.
                     </td>
-                    <td>
-                    </td>
                 </tr>
                <tr>
                     <td>
-                        Test Step ID
+                        <b>Test Step ID</b>
                     </td>
                     <td>
-                        Test Step Description
+                        <b>Test Step Description</b>
                     </td>
                     <td>
-                        Expected Result
+                        <b>Expected Result</b>
                     </td>
                 </tr>
-                <xsl:variable name="counter" as="xs:integer" select="1"/>
-                <xsl:for-each select="command">
-                    <xsl:variable name="counter" select="$counter + 1"/>
+                <xsl:for-each select="commands">
+                <xsl:variable name="counter" select="position()" />
+                <tr>
                     <td>
                         <xsl:value-of select="$counter"/>
                     </td>
@@ -73,8 +73,17 @@
                     <td>
                         <xsl:value-of select="comment"/>
                     </td>
+                </tr>
                 </xsl:for-each>
-            </table> -->
+                <tr>
+                    <td>
+                        <b>Test Verdict</b>
+                    </td>
+                    <td colspan="2">
+                        Passed
+                    </td>
+                </tr>
+            </table>
             <br/>
         </xsl:for-each>
         </body>
