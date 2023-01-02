@@ -1,0 +1,4686 @@
+{
+  "id": "efc437a8-f399-42e4-8a76-952a41ce0810",
+  "version": "2.0",
+  "name": "HelikonTest",
+  "url": "https://helikon.bg",
+  "tests": [{
+    "id": "1a28f82f-fd7d-4239-b879-c9d6192ed248",
+    "name": "LoginProcessSuccessfullyTest",
+    "commands": [{
+      "id": "ddbf264e-ed77-451d-bd19-49fec464069d",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d871e4fd-ecf2-4ebb-ba71-2db56152f0c8",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "aba4432f-cecd-4e9d-994a-ab2e6364a8f0",
+      "comment": "Enter UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "e4d8465f-cd4c-43ff-9528-91387789f51a",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "61754163-7249-465f-9911-cd172c1d7f32",
+      "comment": "Confirm Login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "46f0de87-7be8-49e5-9033-ba948e8cf9cc",
+      "comment": "Assert Successfully Logged-In",
+      "command": "assertText",
+      "target": "css=.nav-menu > .collapseProfile .darkBlue",
+      "targets": [
+        ["css=.nav-menu > .collapseProfile .darkBlue", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Здравей,')]", "xpath:innerText"]
+      ],
+      "value": "Здравей,"
+    }]
+  }, {
+    "id": "5dfab364-9775-4c90-a159-d85e4128c259",
+    "name": "AddToFavouritesBeforeLoginTest",
+    "commands": [{
+      "id": "8494fd10-4373-415b-8a3b-0782438cedef",
+      "comment": "Open logged-out instance",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b41d77bb-7da9-4ad8-b571-6fb5fdb15924",
+      "comment": "Open first possible book",
+      "command": "click",
+      "target": "xpath=//div[@id='owl-item']/div/div/a/img",
+      "targets": [
+        ["css=.margin-bottom-30:nth-child(3) .owl-item:nth-child(1) .custom-responsive-style", "css:finder"],
+        ["xpath=//img[@alt='Да живееш нататък']", "xpath:img"],
+        ["xpath=//div[@id='owl-item']/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div/div/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f24fdad-c613-4c3f-8e58-52e84fa4b575",
+      "comment": "Prepare to click OK on alert",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ad965e4f-586a-47ef-84ca-01d4b93fb7d9",
+      "comment": "Click the AddToFavourites Button",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > .btn",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Добави в любими')])[2]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[14]", "xpath:href"],
+        ["xpath=//div[6]/div/div[2]/div/div/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "672e8fbc-41cc-4860-bda0-f06c0fbb0b5b",
+      "comment": "Make sure you get the alert",
+      "command": "assertAlert",
+      "target": "Трябва да влезете в профила си за да добавите този продукт в любими!",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8f830b3d-a77f-4001-ac7b-eb3902d7c539",
+    "name": "AddToFavouritesAfterLogin",
+    "commands": [{
+      "id": "fd895ac7-92e6-48f9-b905-7aa11ee603bd",
+      "comment": "Open logged out instance",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "908ff310-2c6b-47d0-8dd7-94df77ff078b",
+      "comment": "Click Login",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text",
+      "targets": [
+        ["css=.nav-menu .popup-text", "css:finder"],
+        ["xpath=//a[@onclick='if (!window.__cfRLUnblockHandlers) return false; loadGoogleScripts()']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#nav-login-dialog')])[2]", "xpath:href"],
+        ["xpath=//nav/div/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "54f734ad-5ba8-4bbd-a770-7c515a9709ad",
+      "comment": "Enter username",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "86173ffa-97f8-4ca5-a8de-8e7db13608d3",
+      "comment": "Enter password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "a95e984e-92fe-407e-83a5-6c2b48e02b71",
+      "comment": "Confirm login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5613efe7-6f8b-426d-b8d7-2894f5958549",
+      "comment": "Remember name of the book",
+      "command": "storeText",
+      "target": "xpath=//div[@id='owl-item']/div/div[2]/h5/a",
+      "targets": [
+        ["linkText=Да живееш нататък", "linkText"],
+        ["css=.margin-bottom-30:nth-child(3) .owl-item:nth-child(1) .product-caption a", "css:finder"],
+        ["xpath=//a[contains(text(),'Да живееш нататък')]", "xpath:link"],
+        ["xpath=//div[@id='owl-item']/div/div[2]/h5/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/214661-Да-живееш-нататък.html')])[3]", "xpath:href"],
+        ["xpath=//h5/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Да живееш нататък')]", "xpath:innerText"]
+      ],
+      "value": "bookName"
+    }, {
+      "id": "6fa26965-4e99-4976-98e5-2a0567dfc97e",
+      "comment": "Click the first possible book",
+      "command": "click",
+      "target": "xpath=//div[@id='owl-item']/div/div[2]/h5/a",
+      "targets": [
+        ["linkText=Да живееш нататък", "linkText"],
+        ["css=.margin-bottom-30:nth-child(3) .owl-item:nth-child(1) .product-caption a", "css:finder"],
+        ["xpath=//a[contains(text(),'Да живееш нататък')]", "xpath:link"],
+        ["xpath=//div[@id='owl-item']/div/div[2]/h5/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/214661-Да-живееш-нататък.html')])[3]", "xpath:href"],
+        ["xpath=//h5/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Да живееш нататък')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "61218d33-a0de-480b-b59d-d7d7bfe2b6be",
+      "comment": "Click add to favourites",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(2) > .btn",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(2) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Добави в любими')])[2]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div[2]/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[10]", "xpath:href"],
+        ["xpath=//div[3]/div/div[2]/div/div/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4db75b45-e85b-4a3b-be8b-e20a85312555",
+      "comment": "Click profile button",
+      "command": "click",
+      "target": "css=.nav-menu > .collapseProfile .darkBlue",
+      "targets": [
+        ["css=.nav-menu > .collapseProfile .darkBlue", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Здравей,')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e94f8902-4255-4711-9e6d-3ab44e93b8ce",
+      "comment": "Select Favouites button",
+      "command": "click",
+      "target": "linkText=Любими продукти",
+      "targets": [
+        ["linkText=Любими продукти", "linkText"],
+        ["css=#profile-dialog > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Любими продукти')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/profile.php?do=favorite-products')]", "xpath:href"],
+        ["xpath=//li/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Любими продукти')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4bfbc83b-068b-4cc8-ac75-03bad5beb539",
+      "comment": "Confirm the book is in the list",
+      "command": "assertText",
+      "target": "xpath=//div[2]/div/div/div/div/a",
+      "targets": [
+        ["linkText=Да живееш нататък", "linkText"],
+        ["css=.margin-bottom-5 > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Да живееш нататък')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/214661-Да-живееш-нататък.html')])[2]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Да живееш нататък')]", "xpath:innerText"]
+      ],
+      "value": "${bookName}"
+    }, {
+      "id": "99543ebb-d4b8-42c2-a03a-c7eafea60e42",
+      "comment": "Clean up test leftovers",
+      "command": "click",
+      "target": "linkText=премахни от любими",
+      "targets": [
+        ["linkText=премахни от любими", "linkText"],
+        ["css=.text-danger", "css:finder"],
+        ["xpath=//a[contains(text(),'премахни от любими')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div[2]/div/div/div/div/div[2]/div/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[8]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' премахни от любими')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f361b298-0039-478e-810e-2a7039f60cf0",
+    "name": "SearchTestValidCriteria",
+    "commands": [{
+      "id": "2d999eae-e622-4fc9-9654-1dca17353fe7",
+      "comment": "Open logged out instance",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6c8bef71-5017-4a31-a53c-eb0a6061a557",
+      "comment": "Click on search box",
+      "command": "click",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58cc11f2-f9f6-4ebe-bb12-21a1b14c4598",
+      "comment": "Enter \"Agatha Christie\" as search criteria",
+      "command": "type",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": "Agatha Christie"
+    }, {
+      "id": "d3380406-7192-4eee-bb37-4fc7dc89d440",
+      "comment": "Click search button",
+      "command": "click",
+      "target": "css=.navbar-left .submit-search-btn",
+      "targets": [
+        ["css=.navbar-left .submit-search-btn", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca1f2434-28a2-440c-9ade-be45ee6a0da4",
+      "comment": "Fetch title and author data of results",
+      "command": "executeScript",
+      "target": "books = document.getElementsByClassName('product-caption'); results = []; for (var i = 0; i< books.length; i++){   var book = books[i];   results[i]  = book.innerHTML.includes(\"Agatha\") || book.innerHTML.includes(\"Christie\") || book.innerHTML.includes(\"Агата\") || book.innerHTML.includes(\"Кристи\"); } return results;",
+      "targets": [],
+      "value": "results"
+    }, {
+      "id": "50da94b8-0a8f-4836-a411-919bb438d0c7",
+      "comment": "For each book result",
+      "command": "forEach",
+      "target": "results",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "efd69a5c-d3e8-41f6-b82a-782e91e4f288",
+      "comment": "Assert the title/ author contains the words \"Agatha\" or \"Christie\" in Bulgarian or English",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }, {
+      "id": "7b26f5c6-85cf-4639-bf40-0d4327901e15",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4bf8989d-a196-4bb7-89ed-b02d7a421ec0",
+    "name": "SearchTestInvalidCriteria",
+    "commands": [{
+      "id": "31a3fcc8-4523-4316-accc-ca9c84005662",
+      "comment": "Open logged out session",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a609162f-3462-4e61-8770-b6aeb0b5f840",
+      "comment": "Click on search box",
+      "command": "click",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "697e2b00-e93c-4c0f-aad2-d3ebe4ac63e8",
+      "comment": "Click search button with nothing entered in search box",
+      "command": "click",
+      "target": "css=.navbar-left .submit-search-btn",
+      "targets": [
+        ["css=.navbar-left .submit-search-btn", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c6f8e45-a87a-472c-9161-5534e9246be5",
+      "comment": "Assert there are no results",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//h1[contains(.,'Резултати')]",
+      "targets": [
+        ["css=.page-title", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/header/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Търсене - Резултати за - \"agatha christie\"')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "cd6ddeb1-b465-4f15-abb7-0844c5b9e598",
+    "name": "LogoTest",
+    "commands": [{
+      "id": "760dcb25-97de-46aa-b83f-9a90541e5192",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b4ab11a8-27c2-4379-bdd3-22f8c3de1680",
+      "comment": "Click the logo",
+      "command": "click",
+      "target": "css=.navbar-brand > .loaded",
+      "targets": [
+        ["css=.navbar-brand > .loaded", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c9299bd-9c0b-49bc-83c5-babda83c1c91",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "4db0456f-be4d-4063-800b-be776dce0c5e",
+      "comment": "Assert this is the home page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/"
+    }]
+  }, {
+    "id": "9d873c0f-28d0-4ddd-95a4-cee76a6081ba",
+    "name": "BooksTest",
+    "commands": [{
+      "id": "03ef9358-6b52-468d-a37e-1bbca674f19b",
+      "comment": "Open the page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "30e28453-66f9-48ac-882d-efcc71454667",
+      "comment": "Click the Books link",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Книги')]",
+      "targets": [
+        ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//nav[2]/div/div[2]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce8766d5-ae8d-42c6-9f5a-7e2cfeca0673",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "cae72c85-73fc-489c-b9d1-e747ac3f47b5",
+      "comment": "Assert this is the Books page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/books/"
+    }]
+  }, {
+    "id": "b5d16cb7-e847-40c4-981f-afde1c685019",
+    "name": "HomeTest",
+    "commands": [{
+      "id": "182515a1-91bd-44b5-8e8d-e617143e67b2",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a23939bb-474e-4dd3-8eeb-afd79facd2e0",
+      "comment": "Click the Home page",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Начало')]",
+      "targets": [
+        ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//nav[2]/div/div[2]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afd95d7e-9ac9-49c6-839c-142943ae80e6",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "f7f9fdf4-7b2a-40cf-ad4e-8addb668e1e9",
+      "comment": "Assert this is the home page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/"
+    }]
+  }, {
+    "id": "9423638e-f31a-4f3b-a933-a571f65451f7",
+    "name": "TextbooksTest",
+    "commands": [{
+      "id": "3320f56b-d889-4643-8cf8-3d300100c6b4",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "18ae1a8e-f3b7-46cb-9e9c-5671f7734053",
+      "comment": "Click the Schoolboks page",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Учебници')]",
+      "targets": [
+        ["css=.dropdown:nth-child(3) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Учебници')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/textbooks/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a649e45-3c0f-45a9-8c1c-5b854e613f2b",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "57f0c0e2-6ac2-4029-9c2d-f67726145ba8",
+      "comment": "Assert this is the Textbooks page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/textbooks/"
+    }]
+  }, {
+    "id": "ff5b8676-0566-4ec2-9c21-0fd93a0da713",
+    "name": "EBooksTest",
+    "commands": [{
+      "id": "801bd422-d86b-4c7d-abcf-def0c9fb234a",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3d611cc8-d819-42ce-8fc4-570a8bf63a9c",
+      "comment": "Click the E-Books link",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Е-Книги')]",
+      "targets": [
+        ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//nav[2]/div/div[2]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e54d4e5-d46d-470d-8971-fe54755d7c26",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "ce82d876-5f3e-4deb-8194-17a16b65d62e",
+      "comment": "Assert this the E-Books page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/ebooks/"
+    }]
+  }, {
+    "id": "c6789b7c-5ad7-4246-8b0f-ce3508561786",
+    "name": "EMagazinesTest",
+    "commands": [{
+      "id": "a38fcc15-1f35-4392-86bf-8a210f3860d8",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c3f51f87-6966-4130-8b3c-1b5aa739b064",
+      "comment": "Click the E-Magazines link",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Е-списания')]",
+      "targets": [
+        ["css=.dropdown:nth-child(5) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Е-списания')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/ezines/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "448f6f4e-8bae-419e-96fa-4e54ed156218",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "8b435ac9-3430-44f5-9bb9-6236210ecb28",
+      "comment": "Assert this is the E-Magazines page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/ezines/"
+    }]
+  }, {
+    "id": "ef019ff7-c670-4069-9db6-5c1ce0876fdc",
+    "name": "GiftsTest",
+    "commands": [{
+      "id": "0774b83a-a2da-48ed-8f53-ed114a7b61c8",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "556fa437-dcf5-45c0-be0b-570a5149c4ae",
+      "comment": "Click the Presents link",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Подаръци')]",
+      "targets": [
+        ["css=.dropdown:nth-child(6) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Подаръци')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/gifts/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9d03aa5-8234-4821-b7d5-b4a3b86ed5dc",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "391cb40b-c1ab-40db-8c02-88358c61b544",
+      "comment": "Assert this is the Gifts page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/gifts/"
+    }]
+  }, {
+    "id": "9d4e5487-f42e-4478-abfa-2f5fff1ed5bb",
+    "name": "AccessoriesTest",
+    "commands": [{
+      "id": "e9b85bff-681a-433a-aba8-68b8d75b8ee5",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de47c567-7844-48a1-a411-00a306580cbb",
+      "comment": "Click the accessories link",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Аксесоари')]",
+      "targets": [
+        ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//nav[2]/div/div[2]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2251189d-338e-41e1-b2f1-f014296be0da",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "2233f678-7aba-4a25-bd37-6523f4fedf39",
+      "comment": "Assert this is the accessories page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/accessories/"
+    }]
+  }, {
+    "id": "1a6d355e-b1cf-42b3-94b1-212da98e33cd",
+    "name": "CouponsTest",
+    "commands": [{
+      "id": "fb231f9a-8367-4b74-abcf-212ce2c6555d",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5931681e-86cd-41fa-95da-b7d237af7429",
+      "comment": "Click the coupons link",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Ваучери')]",
+      "targets": [
+        ["css=.navbar-nav-menu > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Начало')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/')])[4]", "xpath:href"],
+        ["xpath=//nav[2]/div/div[2]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4be7e21-bb55-44f4-a166-0fd8b97f9a54",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "cdd4bc6e-e146-46b5-a70d-4598d8ff5025",
+      "comment": "Assert this is the Coupns page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/coupons/"
+    }]
+  }, {
+    "id": "7c4311d9-c802-47a0-a384-5a130f0842a3",
+    "name": "ClassificationsTest",
+    "commands": [{
+      "id": "51c2b5e3-0fd9-40b8-916d-d927342dc46b",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d586a41b-39fe-4de0-ab3d-39599e062b3e",
+      "comment": "Click the Classifications button",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'класации')]",
+      "targets": [
+        ["css=.navbar-left a", "css:finder"],
+        ["xpath=//a[contains(text(),'класации')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/classifications/')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38eaa189-35b0-40d5-a863-71c8cc22fe72",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "da7c55d5-3ef1-41e1-bfb3-1f020e7fd114",
+      "comment": "Assert this is the classifications page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/classifications/"
+    }]
+  }, {
+    "id": "bfc8b49c-39d0-4834-a716-cfa6b8c760bb",
+    "name": "FavouitesLinkLogoutUserTest",
+    "commands": [{
+      "id": "9545854c-1775-404d-a74d-5a88941a69b2",
+      "comment": "Open a logged out instance",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff936547-4e48-439b-a8bf-ac5bbeeb958b",
+      "comment": "Assert there is no Favouites link",
+      "command": "assertElementNotPresent",
+      "target": "linkText=Любими продукти",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d1ff0ec5-0940-43df-a53a-ba95481b881d",
+    "name": "OrderHistoryLinkLoggedOutUserTest",
+    "commands": [{
+      "id": "83537abb-0afe-4f6c-844c-d30e22fc9b90",
+      "comment": "Open a logged out instance",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fd98f5e7-cbee-4161-9f43-41f34a526e4f",
+      "comment": "Assert there is no Order History link",
+      "command": "assertElementNotPresent",
+      "target": "linkText=История на поръчките",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "0d5cec07-dd49-43d4-899b-4ea276f3d010",
+    "name": "ProfileLinkLoggedOutUserTest",
+    "commands": [{
+      "id": "e930632c-8b17-49f2-ac13-9301206fb2f1",
+      "comment": "Open the webpage",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0bb35b55-0091-4ca9-bbab-42a135e417da",
+      "comment": "Assert there is no link to the profile page",
+      "command": "assertElementNotPresent",
+      "target": "linkText=Профил",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "0c29d511-bfd0-47c5-af3c-515eb675ed94",
+    "name": "CheckCartEmptyTest",
+    "commands": [{
+      "id": "7cc9f6f1-1625-46ac-9e78-65f32f1026de",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9e332820-e396-49d8-96c8-9e1924a8a372",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "36525ab1-d0ab-4f2a-a5b6-033a415f3a14",
+      "comment": "Enter UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "cde9fd44-f30e-4d75-80f2-7ed205cbeea9",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "63630402-fedb-4488-9462-c0e5b384b395",
+      "comment": "Confirm Login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18890b0e-8cf4-4035-a9c7-f8103fae12df",
+      "comment": "Go to Home",
+      "command": "click",
+      "target": "css=.navbar-brand > .loaded",
+      "targets": [
+        ["css=.navbar-brand > .loaded", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1835ea7e-e489-4f7e-b529-17af1628242b",
+      "comment": "Store cart status",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [],
+      "value": "cartStatus"
+    }, {
+      "id": "95c5f5ba-a517-49a2-85b9-ea768b23a27e",
+      "comment": "Check if cart status is emprty",
+      "command": "if",
+      "target": "${cartStatus} === \"0 продукта\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0125b1b-f324-4e44-a13c-65977b11e91b",
+      "comment": "Click on Go to Cart Button",
+      "command": "click",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 0 продукта')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a6e40e4e-4296-4c45-b9c1-9b8453471fbe",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "dd117e9d-54ce-4566-b4b3-8212f46fb739",
+      "comment": "Assert this is the home webpage",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/"
+    }, {
+      "id": "f56f1d64-18ba-45fb-9f93-0298c873108a",
+      "comment": "End the condition",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "05806705-f5ae-4063-9cc5-c6c4bab9ce5e",
+    "name": "LoginWithWrongUserNameOrPasswordTest",
+    "commands": [{
+      "id": "1e9ba034-447b-445a-aeaf-b8479329b0be",
+      "comment": "Open Session of a Logged-Out User",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f080db57-2821-4bf6-ae2a-e8221e8a769a",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlue",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlue", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Вход')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "086da4ed-763b-4cd5-8fea-b9edea25b9eb",
+      "comment": "Click UserName",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ecb21740-1ede-4306-be36-7bd0745a8cf3",
+      "comment": "Enter UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "a5186490-4cce-451a-ae2e-1142db6ac0f2",
+      "comment": "Click Password",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "87487ede-9b50-4886-83ad-bc4a2d1fe0ce",
+      "comment": "Enter Wrong Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "wrongPassword"
+    }, {
+      "id": "31cf0889-73e2-41fe-85f9-f0ae3cd4b3d3",
+      "comment": "Confirm Login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "36f350ca-9504-402b-8eb9-6dc47726c380",
+      "comment": "Assert Error Message",
+      "command": "assertText",
+      "target": "css=div:nth-child(1) > ul:nth-child(1) > li",
+      "targets": [
+        ["css=div:nth-child(1) > ul:nth-child(1) > li", "css:finder"],
+        ["xpath=//div[@id='nav-login-dialog']/div[3]/div/div/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"]
+      ],
+      "value": "* Неправилно потребителско име или парола в Хеликон"
+    }]
+  }, {
+    "id": "5192d4f2-40a7-47a2-b2b0-7df589037ea2",
+    "name": "RegistrationWithAlreadyExistingUserNameTest",
+    "commands": [{
+      "id": "bc8760c1-6911-40c2-bd5c-4500d5ba7ab6",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9060dd3-88b9-400f-8fca-8e4c2597f3cb",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e266787-0321-473f-bd1f-5c6e99990293",
+      "comment": "Click Registration",
+      "command": "click",
+      "target": "linkText=Регистрация",
+      "targets": [
+        ["linkText=Регистрация", "linkText"],
+        ["css=.list-inline:nth-child(8) > li:nth-child(1) > .popup-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//div[@id='nav-login-dialog']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#nav-account-dialog')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Регистрация')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7791209-6f64-47e0-bd44-3963cf7f6ef3",
+      "comment": "Click UserName",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d5a4e98-a63b-46f9-84f5-f680145cb4a7",
+      "comment": "Enter Already Existing UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "ea652479-a619-461f-9a99-7427e873806f",
+      "comment": "Click Password",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "71d22bb6-ba4a-4067-88f2-084154159b3c",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "d5cebcc7-c2cc-488f-943d-958614aa2b4f",
+      "comment": "Click Re-enter Password",
+      "command": "click",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b28704bf-3381-446f-8cb6-c4d527c3d8de",
+      "comment": "Enter Re-enter Password",
+      "command": "type",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "430dedd0-1322-44ac-92e3-8f77898ffffd",
+      "comment": "Click Email",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1d0cdc2-8227-4eca-9b8f-d6b6b1db32e6",
+      "comment": "Enter Email",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "sample_mail35@abv.bg"
+    }, {
+      "id": "c743b9fa-40a4-4828-a218-a1eada0e83a0",
+      "comment": "Click Phone Number",
+      "command": "click",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f423212-6748-4a98-a928-19b18a31134b",
+      "comment": "Enter Phone Number",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "0888888888"
+    }, {
+      "id": "71369af9-f872-4187-addd-f182c1b5f5f9",
+      "comment": "Agree with Terms & Conditions",
+      "command": "click",
+      "target": "xpath=//label[contains(.,'Приемам Общите условия.')]",
+      "targets": [
+        ["css=.checkbox > .hover", "css:finder"],
+        ["xpath=//form[@id='register_form']/div[7]/label", "xpath:idRelative"],
+        ["xpath=//div[7]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Приемам Общите условия.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "71b3b7ff-b458-4360-b265-b188a2e0ebfd",
+      "comment": "Click Registration Button",
+      "command": "click",
+      "target": "css=.register-btn",
+      "targets": [
+        ["css=.register-btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//form[@id='register_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "03998f99-64a6-4ec5-9257-0e532b309a7c",
+      "comment": "Assert Error Message in UserName",
+      "command": "assertText",
+      "target": "css=div:nth-child(1) > ul:nth-child(1) > li",
+      "targets": [
+        ["css=div:nth-child(1) > ul:nth-child(1) > li", "css:finder"],
+        ["xpath=//div[@id='nav-account-dialog']/div/div/div/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"]
+      ],
+      "value": "* възникна грешка в следните полета:\\nПотребителско име"
+    }]
+  }, {
+    "id": "a41c0c19-df67-4b4c-8b1a-68a1b8e4a60a",
+    "name": "RegistrationWithAlreadyExistingEmailTest",
+    "commands": [{
+      "id": "2898dd6b-34ce-435a-b04f-e3df46cf3356",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef15f68c-37d0-4105-ad68-73ab7a2b6e6f",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1004106-58dd-4418-9877-5f6bf3c77b42",
+      "comment": "Click Registration",
+      "command": "click",
+      "target": "linkText=Регистрация",
+      "targets": [
+        ["linkText=Регистрация", "linkText"],
+        ["css=.list-inline:nth-child(8) > li:nth-child(1) > .popup-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//div[@id='nav-login-dialog']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#nav-account-dialog')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Регистрация')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d682ae2-8609-4dc1-bed7-b81c01e9facb",
+      "comment": "Click UserName",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e19fa6f2-25f7-426b-b615-0933516ebbf6",
+      "comment": "Enter UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "unexistingSampleUser"
+    }, {
+      "id": "b546070f-5efc-4c1a-a31d-b832a8e9368c",
+      "comment": "Click Password",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1fd43957-b84b-4f6c-8ee8-598ff8609d0f",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "c381ac7e-a3b0-471e-a6e7-44b1e0bd8b5b",
+      "comment": "Click Re-enter Password",
+      "command": "click",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee8d7cd6-5afa-4dda-bd39-3389efe7cdcf",
+      "comment": "Enter Re-enter Password",
+      "command": "type",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "8b541daf-ec8f-45ff-b67a-3278cefc057a",
+      "comment": "Click Email",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9a80c05-41a7-4cfe-9717-876bfee898c7",
+      "comment": "Enter Already Existing Email",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "sample_mail@abv.bg"
+    }, {
+      "id": "d0e0c91f-c6cc-4ac8-a359-f042edb74813",
+      "comment": "Click Phone Number",
+      "command": "click",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afe7538a-8f30-440e-a976-7af801008e72",
+      "comment": "Enter Phone Number",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "0888888888"
+    }, {
+      "id": "cb77255c-a34f-49de-acf9-8e8ede88a0a8",
+      "comment": "Agree with Terms & Conditions",
+      "command": "click",
+      "target": "xpath=//label[contains(.,'Приемам Общите условия.')]",
+      "targets": [
+        ["css=.checkbox > .hover", "css:finder"],
+        ["xpath=//form[@id='register_form']/div[7]/label", "xpath:idRelative"],
+        ["xpath=//div[7]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Приемам Общите условия.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e8995c2-73ca-4636-92dd-d91148b57b17",
+      "comment": "Click Registration Button",
+      "command": "click",
+      "target": "css=.register-btn",
+      "targets": [
+        ["css=.register-btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//form[@id='register_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b50ad32-ed56-496a-b48d-284b6cca3db3",
+      "comment": "Assert Error Message in Email",
+      "command": "assertText",
+      "target": "css=div:nth-child(1) > ul:nth-child(1) > li",
+      "targets": [
+        ["css=div:nth-child(1) > ul:nth-child(1) > li", "css:finder"],
+        ["xpath=//div[@id='nav-account-dialog']/div/div/div/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"]
+      ],
+      "value": "* възникна грешка в следните полета:\\nЕ-mail адрес"
+    }]
+  }, {
+    "id": "4e82dd8a-5771-4ada-aae6-76693f9931ed",
+    "name": "RegistrationWithDifferentReenteredPasswordTest",
+    "commands": [{
+      "id": "1e00b559-4390-4e35-9289-dcb2dd53e446",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6690a545-93d3-4715-a753-b645cfc788d4",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "34ffe86d-8504-4458-8a57-87c959cb7568",
+      "comment": "Click Registration",
+      "command": "click",
+      "target": "linkText=Регистрация",
+      "targets": [
+        ["linkText=Регистрация", "linkText"],
+        ["css=.list-inline:nth-child(8) > li:nth-child(1) > .popup-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//div[@id='nav-login-dialog']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#nav-account-dialog')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Регистрация')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "20485002-2ec0-4b15-83b7-b0fe0e32a8c2",
+      "comment": "Click Username",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "40c1d286-5680-4734-985e-6c60117721d4",
+      "comment": "Enter Username",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user34"
+    }, {
+      "id": "4281e835-87eb-4940-b57e-613769024eb0",
+      "comment": "Click Password",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b1744321-61f5-490f-91a2-9bf8cd54923c",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "3ec5a013-f9c6-46ad-b68f-44becbdc9959",
+      "comment": "Click Re-enter Password",
+      "command": "click",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d44e2623-b09f-4504-af67-9f0b923a9616",
+      "comment": "Enter Wrong Re-entered Password",
+      "command": "type",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "7c3c5c6c-39cc-47f2-826e-0525372d58c7",
+      "comment": "Click Email",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "13ef9f08-4af0-4b92-b304-5943803094af",
+      "comment": "Enter Email",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "sample_mail34@abv.bg"
+    }, {
+      "id": "63c644c3-9a9d-490b-a491-4fad6af96a54",
+      "comment": "Click Phone Number",
+      "command": "click",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20e59b87-5882-45cf-a816-ee5f4ccbc44a",
+      "comment": "Enter Phone Number",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "0888888888"
+    }, {
+      "id": "9d85ace4-a503-417a-970e-556147cd5a04",
+      "comment": "Agree with Terms & Conditions",
+      "command": "click",
+      "target": "xpath=//label[contains(.,'Приемам Общите условия.')]",
+      "targets": [
+        ["css=.checkbox > .hover", "css:finder"],
+        ["xpath=//form[@id='register_form']/div[7]/label", "xpath:idRelative"],
+        ["xpath=//div[7]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Приемам Общите условия.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b3b1133-bbf4-4ea8-b490-cb859b734202",
+      "comment": "Click Registration Button",
+      "command": "click",
+      "target": "css=.register-btn",
+      "targets": [
+        ["css=.register-btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//form[@id='register_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9282c526-069d-4119-86a2-6541434641ba",
+      "comment": "Assert Error Message for Unequal Passwords",
+      "command": "assertText",
+      "target": "css=div:nth-child(1) > ul:nth-child(1) > li",
+      "targets": [
+        ["css=div:nth-child(1) > ul:nth-child(1) > li", "css:finder"],
+        ["xpath=//div[@id='nav-account-dialog']/div/div/div/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"]
+      ],
+      "value": "* Въведените пароли не съвпадат"
+    }]
+  }, {
+    "id": "6e84fd7e-43a8-4002-8dce-3e429ac02cb8",
+    "name": "AboutUsFooterLinkTest",
+    "commands": [{
+      "id": "ba9ae44d-89cd-47a2-a0a0-6eb00077d97d",
+      "comment": "Open website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b936277-b9c8-49f2-b8be-3d5efcc4eaa1",
+      "comment": "Click AboutUs link",
+      "command": "click",
+      "target": "linkText=За нас",
+      "targets": [
+        ["linkText=За нас", "linkText"],
+        ["css=.footer-left-c:nth-child(1) > .footer-nav > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'За нас')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/page/za-helikon.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'За нас')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c28de24d-6cd8-46af-8530-24da40019b42",
+      "comment": "Get HREF",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "ebe37a0f-f35c-42a5-8105-e15bcb81d8b7",
+      "comment": "Assert we are at the right page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/za-helikon.html"
+    }, {
+      "id": "8ae042cc-72d2-49ce-ac51-9c2e65803844",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5709af7f-515e-4ca3-b1a2-a93df9f72c9f",
+      "comment": "Run check if content contains meaningful information",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"хеликон\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "88f66101-89f0-4b2c-a2be-8d72c780c088",
+      "comment": "Assert check result",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "be77bf45-c7d8-4f6a-90cd-32d5da2e6e6f",
+    "name": "WorkFooterLinkTest",
+    "commands": [{
+      "id": "25daf70a-3e60-4f6a-a967-57d21ef5689f",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "430c1df7-ae3b-4aee-99f5-8f44e8600ca8",
+      "comment": "Click the Work link",
+      "command": "click",
+      "target": "linkText=Работа",
+      "targets": [
+        ["linkText=Работа", "linkText"],
+        ["css=.footer-left-c:nth-child(1) > .footer-nav > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Работа')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/page/rabota.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Работа')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb18161d-ac08-49d0-89fb-38b69155578d",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "3e804709-3ce0-413f-8785-19770cb6a5f6",
+      "comment": "Assert this is the work webpage",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/rabota.html"
+    }]
+  }, {
+    "id": "6d9f83bf-6692-4b63-af9d-40c58af391bc",
+    "name": "ContactsFooterLinkTest",
+    "commands": [{
+      "id": "0219a7f6-dce1-43ae-ac2f-3d383795db38",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a07db9fe-42ba-4240-be20-bbbff71571d0",
+      "comment": "Click Contacts link",
+      "command": "click",
+      "target": "linkText=Контакти",
+      "targets": [
+        ["linkText=Контакти", "linkText"],
+        ["css=.footer-left-c:nth-child(1) li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Контакти')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/contacts/')]", "xpath:href"],
+        ["xpath=//div/div/div/ul/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Контакти')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "896baec7-f89d-4869-a55f-d4792be3aa81",
+      "comment": "Get current HREF",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "44889f6f-b860-4da8-a91a-b11ebd0d2fb4",
+      "comment": "Assert this is the Contacts page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/contacts/"
+    }, {
+      "id": "2cd791a8-6e40-430e-a430-4a51a5e1844a",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "86715ae5-e983-469f-902c-3484453ccba5",
+      "comment": "Check if the content contains phone numbers",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.includes(\"тел\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "d48d56e1-496a-4357-b8d6-64bb7b16ecbb",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "88f6eb09-ea1d-49b6-b1af-89853cd8571b",
+    "name": "TermsFooterLinkTest",
+    "commands": [{
+      "id": "45dd7908-80e8-439e-964c-1069a392eecb",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2d7b4796-b811-4998-a499-652fe36aa321",
+      "comment": "Click the Common Conditions link",
+      "command": "click",
+      "target": "linkText=Общи условия",
+      "targets": [
+        ["linkText=Общи условия", "linkText"],
+        ["css=.footer-left-c:nth-child(1) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Общи условия')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/page/obshti-uslovia.html')])[2]", "xpath:href"],
+        ["xpath=//div/div/div/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Общи условия')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "082cdb33-4a37-478a-82da-6d32c3786a26",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "71f8d32d-e8af-43d3-b7e4-2c6715525982",
+      "comment": "Assert this is the common conditions page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/obshti-uslovia.html"
+    }, {
+      "id": "c4b8bb38-0cd6-4ea9-ae29-c2f6961b4e17",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "36dd9e9a-2ea7-4940-8ea7-4d8e419fa255",
+      "comment": "Check if the content contains information",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"хеликон\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "3c984b3f-81e0-4379-814b-677989a9111c",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "ca5d6c6b-5576-4382-afaa-3b63f188020b",
+    "name": "SearchHelpFooterLinkTest",
+    "commands": [{
+      "id": "00b144a8-af06-49da-9eb1-cbab01db704a",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b6a0c11-79ef-41ed-92aa-314581359149",
+      "comment": "Click the Search Link",
+      "command": "click",
+      "target": "linkText=Търсене",
+      "targets": [
+        ["linkText=За нас", "linkText"],
+        ["css=.footer-left-c:nth-child(1) > .footer-nav > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'За нас')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/page/za-helikon.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'За нас')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9166e0e-0990-481c-8e4d-adaba33dc440",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "18863d33-6f86-4140-950f-fc325fb698e9",
+      "comment": "Assert this is the search help page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/tarsene.html"
+    }, {
+      "id": "454a19c1-89ca-4fec-ae9e-a1b09e76e50b",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e7279b8-47ce-45e6-8b92-50daa767fc6d",
+      "comment": "Check if the content contains information",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"търсене\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "f889cac9-fd4e-4bee-966c-866535c2d919",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "3197499c-65f0-4f71-8a3a-fff9655cc18a",
+    "name": "OrderHelpFooterLinkTest",
+    "commands": [{
+      "id": "996ff569-47ed-4841-bbd1-a577c97a84be",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f017bf0f-4c50-48c9-aedf-eb2e35883942",
+      "comment": "Click the Order link",
+      "command": "click",
+      "target": "linkText=Поръчка",
+      "targets": [
+        ["linkText=За нас", "linkText"],
+        ["css=.footer-left-c:nth-child(1) > .footer-nav > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'За нас')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/page/za-helikon.html')]", "xpath:href"],
+        ["xpath=//div/div/div/div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'За нас')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "934d1293-c525-43c1-bb54-5f0205f0849f",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "c232614a-93a8-4ccb-9447-c01d5ca47100",
+      "comment": "Assert this is the How to order page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/porachka.html"
+    }, {
+      "id": "ce29c7ba-d556-457d-ad4c-8601beb042db",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1be33bd2-6a72-43a8-9735-b9310924efbc",
+      "comment": "Check if the content contains the word \"Order\"",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"поръчка\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "062f200a-bec8-46cd-bfe2-3a669416ae83",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "5484858c-f8d3-4f5f-9e99-5c4fbc1ac6cb",
+    "name": "PaymentsHelpFooterLinkTest",
+    "commands": [{
+      "id": "2b15693c-c0a8-4663-a28c-3f58b43a5505",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "30c14412-f4ff-4689-ac24-5f5375f560a1",
+      "comment": "Select the Payments link",
+      "command": "click",
+      "target": "linkText=Плащания",
+      "targets": [
+        ["linkText=Плащания", "linkText"],
+        ["css=.footer-left-c:nth-child(2) li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Плащания')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div[2]/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/page/plashtania.html')]", "xpath:href"],
+        ["xpath=//div/div/div[2]/ul/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Плащания')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3bc05303-3d4c-4dc5-ac49-5249b709bef3",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "4976ab2c-d59e-464c-a426-c38fa9adae2f",
+      "comment": "Assert this is the Payments help page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/plashtania.html"
+    }, {
+      "id": "ca0df908-044c-4238-97d6-10c8539f357b",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9f2b69b-8908-4b47-864c-374ab2e5a95c",
+      "comment": "Check if the content contains payment information",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"плащане\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "d11353fc-fb63-4fd5-9503-cbe0d1263b79",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "caf33ca9-4dbd-4f59-9e9f-de0cfdf957fe",
+    "name": "DeliveryHelpFooterLinkTest",
+    "commands": [{
+      "id": "68e504f9-ded4-4d8e-8a10-18579edadc48",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a899bb33-4f1b-4b1c-9ec1-9735f836ba50",
+      "comment": "Click the delivery link",
+      "command": "click",
+      "target": "linkText=Доставка",
+      "targets": [
+        ["linkText=Доставка", "linkText"],
+        ["css=.footer-left-c:nth-child(2) li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Доставка')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div[2]/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/page/dostavka.html')]", "xpath:href"],
+        ["xpath=//div/div/div[2]/ul/li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Доставка')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "df2e1a9b-770c-48d4-9666-53f06b57d2c3",
+      "comment": "Get the current URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "7abede77-c26b-4e25-a33c-93a677adeaba",
+      "comment": "Assert this is the Delivery page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/dostavka.html"
+    }, {
+      "id": "c0f34dcd-3e4b-49f8-9fc5-c71f3bfd861a",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee6e1db5-4962-4b1c-a626-2efc6b7bf65d",
+      "comment": "Check if the content contains the word \"Delivery\"",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"доставка\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "746a84c0-87f4-45d1-8167-efc3be3d2d76",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "173090cc-242a-4975-8f73-5dfacb3c6e89",
+    "name": "ClientDataHelpFooterLinkTest",
+    "commands": [{
+      "id": "cb9ea9fd-b597-4897-95f5-a03eb6f433ce",
+      "comment": "Open website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f4c665be-c4a0-425e-9ea1-81b4557c7a32",
+      "comment": "Click Client Data link",
+      "command": "click",
+      "target": "linkText=Данни за клиента",
+      "targets": [
+        ["linkText=Данни за клиента", "linkText"],
+        ["css=.footer-nav > li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Данни за клиента')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div[2]/ul/li[5]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/page/registracia.html')]", "xpath:href"],
+        ["xpath=//div/div/div[2]/ul/li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Данни за клиента')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "77789fe9-2ccf-4c37-8ac1-d3488eba3338",
+      "comment": "Get current HREF",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "cd579910-c291-4697-a125-7650c1616109",
+      "comment": "Assert that this is the Client Data page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/registracia.html"
+    }, {
+      "id": "ead15783-f47d-454f-bc01-920d3f6c2174",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e3226a7-be6c-4ed4-9bfc-8c51333dfdca",
+      "comment": "Check if the content contains the words \"Client data\"",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"данни\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "5ef49d9c-daff-45a0-a6aa-66c8ff92c732",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "01606f9c-9c9b-4031-b95c-95005b0bd131",
+    "name": "EBookHelpFooterLinkTest",
+    "commands": [{
+      "id": "34c9cac8-5779-4c39-b203-55ef269338d5",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8dcccd5a-2ecd-4bd0-9b83-ae977a46ad5d",
+      "comment": "Click the E-Books link",
+      "command": "click",
+      "target": "linkText=Как да свалим е-книги",
+      "targets": [
+        ["linkText=Как да свалим е-книги", "linkText"],
+        ["css=.footer-nav > li:nth-child(6) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Как да свалим е-книги')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div[2]/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/read_ebooks/')]", "xpath:href"],
+        ["xpath=//div/div/div[2]/ul/li[6]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Как да свалим е-книги')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d954ae42-29d0-49c8-a81f-8fd404553501",
+      "comment": "Get the current URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "d359155d-43b4-4724-9d92-29b3fecb7f6c",
+      "comment": "Assert this is the E-Book page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/read_ebooks/"
+    }, {
+      "id": "5a28b361-5fd1-4f66-adae-7176a7c10d0d",
+      "comment": "Assert there is content on the page",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "10d4d8f5-505f-4f69-b1da-92d3c6c7b0a7",
+      "comment": "Check if the content contains the word \"e-book\"",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"електронна книга\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "bb33487e-5198-4d43-a8d0-cf6bc40332f0",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "5c7ac831-801c-4adb-912f-bb7cf1aa7578",
+    "name": "CouponHelpFooterLinkTest",
+    "commands": [{
+      "id": "1ba1e9af-c0fb-485e-b300-d84f5f51ec12",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "707efeea-3896-4ac0-9acb-bc29028a0239",
+      "comment": "Click the Terms and Conditions link",
+      "command": "click",
+      "target": "linkText=Условия за ползване на ваучер",
+      "targets": [
+        ["linkText=Условия за ползване на ваучер", "linkText"],
+        ["css=.footer-nav > li:nth-child(7) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Условия за ползване на ваучер')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div[2]/ul/li[7]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/page/vaucher.html')]", "xpath:href"],
+        ["xpath=//div/div/div[2]/ul/li[7]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Условия за ползване на ваучер')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d36f87f2-54f8-4c26-986c-2a867db13d4b",
+      "comment": "Get the current HREF",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "231836d9-d1d1-406b-9cbd-221565b6481f",
+      "comment": "Assert this is the Coupons page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/vaucher.html"
+    }, {
+      "id": "459bd975-9715-4abc-8337-1a8d9aef9c23",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c4678e37-fa34-403b-971b-b2623c2575c1",
+      "comment": "Check if the content contains the word \"content\"",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"ваучер\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "ab7599f9-3a12-42a7-9869-b4aebe5d2ff0",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "9a39720f-b823-4eb1-9b49-2845dc51ad72",
+    "name": "ReturnHelpFooterLinkTest",
+    "commands": [{
+      "id": "b96dbb52-eca8-48a4-bcad-4f33d53b8bd6",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "076250ee-3f55-4e2c-9460-d3c62947c067",
+      "comment": "Click the Cancel Order rights button",
+      "command": "click",
+      "target": "linkText=Право на отказ от закупена стока",
+      "targets": [
+        ["linkText=Право на отказ от закупена стока", "linkText"],
+        ["css=.footer-nav > li:nth-child(8) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Право на отказ от закупена стока')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div[2]/ul/li[8]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://www.helikon.bg/page/pravo-na-otkaz.html')]", "xpath:href"],
+        ["xpath=//div/div/div[2]/ul/li[8]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Право на отказ от закупена стока')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "089d1a7a-3e5d-440e-abbc-0b7624b0cb9e",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "1b075539-ebec-49a9-b832-07deaa9ecce8",
+      "comment": "Assert this is the Cancel Order help page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://www.helikon.bg/page/pravo-na-otkaz.html"
+    }, {
+      "id": "0ada3b0e-c3c3-4c4a-89c3-bd0d253497ec",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6b2fe82-d1bc-4654-b4d8-471eafd3cf92",
+      "comment": "Check if the content contains information",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"отказ\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "d44c55d9-bbef-4736-9d00-3d6e4f857b56",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "f71e4e71-93a0-407d-8f96-789138ed83f6",
+    "name": "BiscuitsFooterLink",
+    "commands": [{
+      "id": "578b53ca-015c-42f5-b002-068127212011",
+      "comment": "Open website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "70964cfc-6088-4e9d-acd7-5aa9ea3ccb1f",
+      "comment": "Click Biscuits link",
+      "command": "click",
+      "target": "linkText=Политика за използване на \"бисквитки\"",
+      "targets": [
+        ["linkText=Политика за използване на \"бисквитки\"", "linkText"],
+        ["css=.footer-nav > li:nth-child(10) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Политика за използване на \"бисквитки\"')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div[2]/ul/li[10]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/page/cookies.html')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[10]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Политика за използване на \"бисквитки\"')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b33b9488-5ac9-401b-9bac-0d09f2337d05",
+      "comment": "Get HREF",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "2c8d20b7-890c-4c5a-af1f-fe9fd30b0c63",
+      "comment": "Assert we are at the right page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/cookies.html"
+    }, {
+      "id": "3741ae01-e27c-44e6-8987-33662ea0ba43",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7dd0e179-a067-425d-a4d7-ef295e5ad42f",
+      "comment": "Run check if content contains meaningful information",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"бисквитки\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "eebbb408-6344-4f5c-a23f-3a48bafacdb1",
+      "comment": "Assert check result",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "46e65370-57f6-4c1f-b705-ca91a2c0968c",
+    "name": "DataSecurityFooterLink",
+    "commands": [{
+      "id": "50961c7f-c78e-418f-977a-3263e1ce1d0d",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4b8758de-eaae-4777-a939-08c68bae3431",
+      "comment": "Click the Data Security link",
+      "command": "click",
+      "target": "linkText=Политика за сигурност на личните данни",
+      "targets": [
+        ["linkText=Политика за сигурност на личните данни", "linkText"],
+        ["css=.footer-nav > li:nth-child(11) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Политика за сигурност на личните данни')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/footer/div/div/div/div[2]/ul/li[11]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/page/li4ni-dani.html')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[11]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Политика за сигурност на личните данни')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9279cb7-3701-4d4f-8127-3bcc951cc993",
+      "comment": "Get the current HREF",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "currentHREF"
+    }, {
+      "id": "515668ed-7cae-453e-9fdf-6d054fbcaa6d",
+      "comment": "Assert this is the data security page",
+      "command": "assert",
+      "target": "currentHREF",
+      "targets": [],
+      "value": "https://helikon.bg/page/li4ni-dani.html"
+    }, {
+      "id": "83fa1290-c76f-4323-ba2c-eb5dcc973047",
+      "comment": "Assert there is content",
+      "command": "assertElementPresent",
+      "target": "css=.box",
+      "targets": [
+        ["css=.box", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "81c3698b-d268-4bfa-af17-ba2e50377264",
+      "comment": "Check if the content contains the word \"data\"",
+      "command": "executeScript",
+      "target": "return document.getElementsByClassName(\"box\")[0].innerHTML.toLowerCase().includes(\"сигурност на личните данни\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "76b125ad-efde-4387-aec6-b14b176f7243",
+      "comment": "Assert the check is positive",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "367a8037-ffaa-4d3b-90a8-c16581b1c277",
+    "name": "FavouitesLinkLoggedInUserTest",
+    "commands": [{
+      "id": "414b5ad4-9f90-44b1-8a21-4980a3ef581f",
+      "comment": "Open a logged out session",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5af90792-27c7-4b5b-92a9-ee930ae85dc1",
+      "comment": "Click the account button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7053ecb-40a8-4692-b74e-bf9e65eaeb79",
+      "comment": "Enter the username",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "66ba8460-c721-4762-9ce3-0c728e98087f",
+      "comment": "Enter the password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "28f298fa-edc8-4b22-946e-b8b1e056b2d3",
+      "comment": "Confirm the login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e0a5d3b9-5660-4121-a823-49dc0b71a897",
+      "comment": "Select the Favourites page",
+      "command": "click",
+      "target": "linkText=Любими продукти",
+      "targets": [
+        ["linkText=Любими продукти", "linkText"],
+        ["css=#profile-dialog > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Любими продукти')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/profile.php?do=favorite-products')]", "xpath:href"],
+        ["xpath=//li/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Любими продукти')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7aa05b20-e0fc-47ab-b4b5-99df5580042f",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "ea42e4f4-b114-404e-82de-d8316052ef41",
+      "comment": "Assert this is the Favourites page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/profile.php?do=favorite-products"
+    }]
+  }, {
+    "id": "9588b008-6108-4385-81d9-8d64ee1f6477",
+    "name": "OrderHistoryLinkLoggedInUserTest",
+    "commands": [{
+      "id": "e574a767-180c-4600-89c2-5e8887c3b0c3",
+      "comment": "Open a logged out session",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "931a6fd0-7bb9-4008-b594-6394d3168e35",
+      "comment": "Click the account button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "52337fd3-fe4c-4f61-a953-1568738faefb",
+      "comment": "Enter the username",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "686c0904-7cf1-4c64-a16a-af859fbfb282",
+      "comment": "Enter the password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "c868ef8e-2d41-4866-806b-fb3abea94668",
+      "comment": "Confirm login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "df36ce16-ff04-4da8-817b-95409720b7e7",
+      "comment": "Click the profile button",
+      "command": "click",
+      "target": "css=.nav-menu > .collapseProfile .darkBlue",
+      "targets": [
+        ["css=.nav-menu > .collapseProfile .darkBlue", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a/span", "xpath:idRelative"],
+        ["xpath=//li/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Здравей,')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "194300e8-800c-42ec-82b1-47054e7bba18",
+      "comment": "Select the Order History option",
+      "command": "click",
+      "target": "linkText=История на поръчките",
+      "targets": [
+        ["linkText=История на поръчките", "linkText"],
+        ["css=#profile-dialog > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'История на поръчките')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/profile.php?do=order-history')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' История на поръчките')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d610adb8-aa0d-4c44-9832-8d8584437369",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "40894149-8ef6-4783-b1e1-510b6edb6c2c",
+      "comment": "Assert this is the Order History page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/profile.php?do=order-history"
+    }]
+  }, {
+    "id": "5ac12d71-b0a1-4b4d-ba95-24c132baaaa7",
+    "name": "ProfileLinkLoggedInUserTest",
+    "commands": [{
+      "id": "77ab4045-ffb9-4605-b6ff-c07c7686d5c4",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6ef5138a-6005-470f-81aa-705d68765f7c",
+      "comment": "Click the login button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "370542dd-a87c-40f7-b5e1-50488ba43e42",
+      "comment": "Enter the username",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "507ff1e4-493b-4d11-965c-0ce7af313312",
+      "comment": "Enter the password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "3389540d-4768-41d7-891d-b0a7d2528288",
+      "comment": "Confirm the login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "753ba20f-6758-4fde-a65b-37a3fcad3b75",
+      "comment": "Click the account button",
+      "command": "click",
+      "target": "linkText=Здравей,",
+      "targets": [
+        ["linkText=Здравей,", "linkText"],
+        ["css=.nav-menu > .collapseProfile > a", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div/nav/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#profile-dialog')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Здравей,')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4cce1752-86b2-4b95-b204-aab8baa86fe3",
+      "comment": "Select the profile option",
+      "command": "click",
+      "target": "linkText=Профил",
+      "targets": [
+        ["linkText=Профил", "linkText"],
+        ["css=#profile-dialog > li:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Профил')]", "xpath:link"],
+        ["xpath=//ul[@id='profile-dialog']/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/profile.php')])[3]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c187c89f-4f34-48a6-91ff-cc5e654c6eaf",
+      "comment": "Get the URL",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "9b685c54-19e1-40f3-bc6a-5c116f4f8c29",
+      "comment": "Assert this is the user's profile page",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/profile.php"
+    }]
+  }, {
+    "id": "067ab18a-3727-44b9-8f89-22d3b5b0be8a",
+    "name": "RegistrationWithoutAcceptingTermsTest",
+    "commands": [{
+      "id": "d656f784-e3d7-414b-bf0e-4cd86cfbcad0",
+      "comment": "Open a session of a logged-out user",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "40af9540-f03b-4b00-aaae-e7158dcba595",
+      "comment": "Click Login Button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f01ba280-e94a-4a0d-bebc-aa882bc29eca",
+      "comment": "Click Registration",
+      "command": "click",
+      "target": "linkText=Регистрация",
+      "targets": [
+        ["linkText=Регистрация", "linkText"],
+        ["css=.list-inline:nth-child(8) > li:nth-child(1) > .popup-text", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//div[@id='nav-login-dialog']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#nav-account-dialog')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Регистрация')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "22232fcb-b097-483c-8421-590e018682b9",
+      "comment": "Click UserName",
+      "command": "click",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "041d3ec8-dee8-4a3d-a6e2-1f48408439f2",
+      "comment": "Enter Already Existing UserName",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#register_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user34"
+    }, {
+      "id": "d411a4b6-c758-431f-bd58-13bf0f321e53",
+      "comment": "Click Password",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9dfb914c-89d3-4c95-a2b0-bdb3eefecafe",
+      "comment": "Enter Password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#register_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "17a8a0d7-a0c4-4f16-8c68-4bf77113e83a",
+      "comment": "Click Re-enter Password",
+      "command": "click",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d35c6f61-fcf8-4879-9e31-1379687b49e8",
+      "comment": "Enter Re-entered Password",
+      "command": "type",
+      "target": "name=password2",
+      "targets": [
+        ["name=password2", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password2']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "fb64c25b-8d36-412b-875a-3107beb7e99d",
+      "comment": "Click Email",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c4317b1-2197-4216-a3ad-880d71f965d2",
+      "comment": "Enter Email",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "sample_mail34@abv.bg"
+    }, {
+      "id": "2e33489d-b8de-4c7e-b0d0-005c8cb2e1da",
+      "comment": "Click Phone Number",
+      "command": "click",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64f58f1f-3bac-483e-8d34-96690f120648",
+      "comment": "Enter Phone Number",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//form[@id='register_form']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "0888888888"
+    }, {
+      "id": "96482f75-1c66-45f2-8c44-12547be15d4a",
+      "comment": "Click Registration Button",
+      "command": "click",
+      "target": "css=.register-btn",
+      "targets": [
+        ["css=.register-btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Регистрация')]", "xpath:link"],
+        ["xpath=//form[@id='register_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7c9f208-c9ca-41bc-ad65-03152013f604",
+      "comment": "Assert Error Message in Disagreement with Terms & Conditions",
+      "command": "assertText",
+      "target": "xpath=//li[contains(.,'* Съгласете се с Общите условия')]",
+      "targets": [
+        ["css=div:nth-child(1) > ul:nth-child(1) > li", "css:finder"],
+        ["xpath=//div[@id='nav-account-dialog']/div/div/div/ul/li", "xpath:idRelative"],
+        ["xpath=//li", "xpath:position"],
+        ["xpath=//li[contains(.,'* Съгласете се с Общите условия')]", "xpath:innerText"]
+      ],
+      "value": "* Съгласете се с Общите условия"
+    }]
+  }, {
+    "id": "40d965e4-09fa-4963-89e3-b28ecc5d029a",
+    "name": "AddToCartIfEmptyTest",
+    "commands": [{
+      "id": "a8d26637-6af1-4453-926d-f77fc5be0ef7",
+      "comment": "Open Session of a Logged-Out User",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c9a98aed-de8e-473f-9253-0d2cf35abdc8",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "ebefc0f1-b433-4227-8131-f722e89f0480",
+      "comment": "Assert Cart is Empty",
+      "command": "assert",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "0 продукта"
+    }, {
+      "id": "5e80bd06-7f99-4314-991e-d202ba44e0a8",
+      "comment": "Click Search Bar",
+      "command": "click",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "222863ef-911d-42a5-8600-cd40b676766d",
+      "comment": "Store Desired Book Title",
+      "command": "store",
+      "target": "Смърт край Нил",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "f87d1fe9-b283-43ff-91b5-d146b6e8eef4",
+      "comment": "Enter Desired Book Title",
+      "command": "type",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${title}"
+    }, {
+      "id": "16c45f08-6e1f-46a5-bf34-465e78138014",
+      "comment": "Click Search Button",
+      "command": "click",
+      "target": "css=.navbar-left .submit-search-btn",
+      "targets": [
+        ["css=.navbar-left .submit-search-btn", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3fcd06c9-f9bf-46b6-b155-c9c2f2f3e698",
+      "comment": "Choose Book",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .custom-responsive-style",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .custom-responsive-style", "css:finder"],
+        ["xpath=//img[@alt='Смърт край Нил']", "xpath:img"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div[2]/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ffb3b960-a145-4439-a350-1214714ca796",
+      "comment": "Click Buy Button",
+      "command": "click",
+      "target": "css=.btn > .loading",
+      "targets": [
+        ["css=.btn > .loading", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "26d1c0be-c5ef-4232-855d-d31e26597fc0",
+      "comment": "Click View Cart Button",
+      "command": "click",
+      "target": "css=.col-md-3 > .btn",
+      "targets": [
+        ["css=.col-md-3 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'виж количката')]", "xpath:link"],
+        ["xpath=//div[@id='dynamicModal']/div/div/div[2]/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/cart/')])[3]", "xpath:href"],
+        ["xpath=//div/div[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c0b3ce2-1855-465c-86ef-2936fd85415d",
+      "comment": "Wait to Load My Order Page",
+      "command": "waitForElementVisible",
+      "target": "css=.page-title",
+      "targets": [
+        ["css=.page-title", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/header/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Моята поръчка')]", "xpath:innerText"]
+      ],
+      "value": "3000"
+    }, {
+      "id": "85d18030-520b-41a7-b9eb-2c0a60325509",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "e90072b9-1d46-48f0-b8bf-3d3586c1b9c7",
+      "comment": "Verify There is One Product in Cart",
+      "command": "verify",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "1 продукт"
+    }, {
+      "id": "a178a2f0-bdf3-4d69-888f-bf663f12b323",
+      "comment": "Choose OK On Next Alert",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "578f5409-7a24-4dfa-82e1-d6b8ab12ee36",
+      "comment": "Remove Product from Cart",
+      "command": "click",
+      "target": "linkText=изтрий",
+      "targets": [
+        ["linkText=изтрий", "linkText"],
+        ["css=.text-orange", "css:finder"],
+        ["xpath=//a[contains(text(),'изтрий')]", "xpath:link"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[14]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' изтрий')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "54fb94dd-0aca-4577-9230-530095353bf7",
+    "name": "UpdateProductQuantityInCartTest",
+    "commands": [{
+      "id": "d19bea11-d854-47b3-a927-65b24de46058",
+      "comment": "Open Session of a Logged-Out User",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e951185a-4c81-4818-848b-4bc37a67a9e7",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "a62d3d8b-cd5d-4e66-a2e9-f500699a28ce",
+      "comment": "Assert Cart is Empty",
+      "command": "assert",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "0 продукта"
+    }, {
+      "id": "53bbe3df-cb6f-40d0-a59e-ff0869bb6960",
+      "comment": "Click Search Bar",
+      "command": "click",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d44f74cc-f9bb-41d3-a0dd-13cbde4e8e9c",
+      "comment": "Store Desired Book Title",
+      "command": "store",
+      "target": "Смърт край Нил",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "fd732865-2452-432e-be4c-97ee71eb23d3",
+      "comment": "Enter Desired Book Title",
+      "command": "type",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${title}"
+    }, {
+      "id": "aaa7f9fd-9b27-43c7-b44a-da0d8d273dec",
+      "comment": "Click Search Button",
+      "command": "click",
+      "target": "css=.navbar-left .submit-search-btn",
+      "targets": [
+        ["css=.navbar-left .submit-search-btn", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c859f292-6ae7-4971-b3c2-2df35e59637a",
+      "comment": "Choose Book",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .custom-responsive-style",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .custom-responsive-style", "css:finder"],
+        ["xpath=//img[@alt='Смърт край Нил']", "xpath:img"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div[2]/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9f088b0-af01-4824-a9a0-0e6f43662cc6",
+      "comment": "Click Buy Button",
+      "command": "click",
+      "target": "css=.btn > .loading",
+      "targets": [
+        ["css=.btn > .loading", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3447b0f-39bc-4a36-a45f-640d807378d8",
+      "comment": "Click View Cart Button",
+      "command": "click",
+      "target": "css=.col-md-3 > .btn",
+      "targets": [
+        ["css=.col-md-3 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'виж количката')]", "xpath:link"],
+        ["xpath=//div[@id='dynamicModal']/div/div/div[2]/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/cart/')])[3]", "xpath:href"],
+        ["xpath=//div/div[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "645e4808-b3e2-4b02-b165-65fc1675d55a",
+      "comment": "Wait to Load My Order Page",
+      "command": "waitForElementVisible",
+      "target": "css=.page-title",
+      "targets": [
+        ["css=.page-title", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/header/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Моята поръчка')]", "xpath:innerText"]
+      ],
+      "value": "3000"
+    }, {
+      "id": "456b6996-9776-44ff-a69a-5587c3c50520",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "b1e397ad-841a-4dda-aea3-a6c72dc7347b",
+      "comment": "Assert There is One Product in Cart",
+      "command": "assert",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "1 продукт"
+    }, {
+      "id": "f5240cf8-4c2c-43c9-9ae0-3262115e0489",
+      "comment": "Create LoopVariable",
+      "command": "executeScript",
+      "target": "return 0",
+      "targets": [],
+      "value": "loopVariable"
+    }, {
+      "id": "56fed31d-4905-4087-9322-67f65b7f26a5",
+      "comment": "Start Do Loop",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f61c01f2-2a01-4d72-a04f-81072fa25a1a",
+      "comment": "Click + button",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[2]/div/div/span[2]/a/i", "xpath:idRelative"],
+        ["xpath=//span[2]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c681199-e9b4-4427-aa3b-f0486c8faf03",
+      "comment": "Increment LoopVariable",
+      "command": "executeScript",
+      "target": "return ${loopVariable} + 1",
+      "targets": [],
+      "value": "loopVariable"
+    }, {
+      "id": "c2d8ac27-6b64-4d74-889b-3adb2db49541",
+      "comment": "Check Do Loop Condition",
+      "command": "repeatIf",
+      "target": "${loopVariable} < 9",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4bb6111d-6413-4973-bc9c-b3cb9440eab7",
+      "comment": "Click Finish Order Button",
+      "command": "click",
+      "target": "xpath=//a[contains(text(),'Завърши поръчката')]",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(text(),'Завърши поръчката')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div[2]/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/checkout/')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2bd5cc8-a759-4575-b31d-4287d63b2a89",
+      "comment": "Verify that Ten Books are Ordered",
+      "command": "verifyText",
+      "target": "css=td:nth-child(3)",
+      "targets": [],
+      "value": "10"
+    }, {
+      "id": "17c81c9d-d7a9-460e-8595-a382bfc328a1",
+      "comment": "Go back to My Order Page",
+      "command": "click",
+      "target": "linkText=Моята поръчка",
+      "targets": [
+        ["linkText=Моята поръчка", "linkText"],
+        ["css=.breadcrumb > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Моята поръчка')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/header/ol/li[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/cart/')])[5]", "xpath:href"],
+        ["xpath=//ol/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9f61dfe-7b29-4e06-9aa4-0f3dc671b800",
+      "comment": "Choose OK on next alert",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1c86bd2-f827-4fd2-a450-4862c8cb4ac6",
+      "comment": "Remove the Books from the Cart",
+      "command": "click",
+      "target": "linkText=изтрий",
+      "targets": [
+        ["linkText=изтрий", "linkText"],
+        ["css=.text-orange", "css:finder"],
+        ["xpath=//a[contains(text(),'изтрий')]", "xpath:link"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[14]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' изтрий')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "4e8d9a76-4d96-46f0-a33f-04da0cc8f0a2",
+    "name": "UpdateProductQuantityTryToDecreaseToZeroInCartTest",
+    "commands": [{
+      "id": "e7f03dac-6a54-4ba0-8f3f-a9f0871eba3b",
+      "comment": "Open Session of a Logged-Out User",
+      "command": "open",
+      "target": "https://helikon.bg/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "85b2f334-16ed-4aa9-a2a1-1c45a710b3a4",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "2001febb-5faa-43c7-9099-9af9cd6bbdc7",
+      "comment": "Assert Cart is Empty",
+      "command": "assert",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "0 продукта"
+    }, {
+      "id": "f21c2cf2-4b2a-4493-b2fc-1ba0d6fccff5",
+      "comment": "Click Search Bar",
+      "command": "click",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae39ccf4-d73b-43b5-83df-bc3fe3a298d0",
+      "comment": "Store Desired Book Title",
+      "command": "store",
+      "target": "Смърт край Нил",
+      "targets": [],
+      "value": "title"
+    }, {
+      "id": "0772ba77-e2a6-4f62-8642-074335a8589e",
+      "comment": "Enter Desired Book Title",
+      "command": "type",
+      "target": "id=s_input_1",
+      "targets": [
+        ["id=s_input_1", "id"],
+        ["name=q", "name"],
+        ["css=#s_input_1", "css:finder"],
+        ["xpath=//input[@id='s_input_1']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//nav/div/form/div/input", "xpath:position"]
+      ],
+      "value": "${title}"
+    }, {
+      "id": "f8323a8d-c7a7-4020-a750-0edb41680290",
+      "comment": "Click Search Button",
+      "command": "click",
+      "target": "css=.navbar-left .submit-search-btn",
+      "targets": [
+        ["css=.navbar-left .submit-search-btn", "css:finder"],
+        ["xpath=(//input[@value=''])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/form/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79ad5222-2c06-4519-83b4-a4e7dff4cdb6",
+      "comment": "Choose Book",
+      "command": "click",
+      "target": "css=.col-sm-4:nth-child(2) .custom-responsive-style",
+      "targets": [
+        ["css=.col-sm-4:nth-child(2) .custom-responsive-style", "css:finder"],
+        ["xpath=//img[@alt='Смърт край Нил']", "xpath:img"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div[2]/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a75ca321-2952-457c-ab9b-83d223f8a2a9",
+      "comment": "Click Buy Button",
+      "command": "click",
+      "target": "css=.btn > .loading",
+      "targets": [
+        ["css=.btn > .loading", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div[2]/div/div/ul/li/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7d98316e-5d84-411d-850a-91632c1a1fdf",
+      "comment": "Click View Cart Button",
+      "command": "click",
+      "target": "css=.col-md-3 > .btn",
+      "targets": [
+        ["css=.col-md-3 > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'виж количката')]", "xpath:link"],
+        ["xpath=//div[@id='dynamicModal']/div/div/div[2]/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/cart/')])[3]", "xpath:href"],
+        ["xpath=//div/div[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ab81c10-8f76-481e-9b26-5c0ae67b2470",
+      "comment": "Wait to Load My Order Page",
+      "command": "waitForElementVisible",
+      "target": "css=.page-title",
+      "targets": [
+        ["css=.page-title", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/header/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Моята поръчка')]", "xpath:innerText"]
+      ],
+      "value": "3000"
+    }, {
+      "id": "9455f7ce-f61c-473f-ad76-3946939c83cc",
+      "comment": "Store Cart Status in Variable",
+      "command": "storeText",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": "cartStatus"
+    }, {
+      "id": "d0dd7ab9-f9f6-4352-87b9-594234ed2ad6",
+      "comment": "Assert There is One Product in Cart",
+      "command": "assert",
+      "target": "cartStatus",
+      "targets": [],
+      "value": "1 продукт"
+    }, {
+      "id": "eff28700-1fca-41d8-82e1-c7499b1d0199",
+      "comment": "Decrease Quantity of Book",
+      "command": "click",
+      "target": "css=.fa-minus",
+      "targets": [
+        ["css=.fa-minus", "css:finder"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[2]/div/div/span/span/i", "xpath:idRelative"],
+        ["xpath=//span/span/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "836b1a56-1c27-47ce-913d-0ef601b2eb01",
+      "comment": "Verify Decrease Button On Only One Product Does Not Remove Book ",
+      "command": "verifyElementPresent",
+      "target": "linkText=${title}",
+      "targets": [
+        ["linkText=Смърт край Нил", "linkText"],
+        ["css=.margin-bottom-5 > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Смърт край Нил')]", "xpath:link"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div/div/div/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/155151-Смърт-край-Нил.html')])[4]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6f8b291-8af1-409a-96a7-59bb8a50703f",
+      "comment": "Choose OK on next alert",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "338dc659-a347-443b-a9ab-f25c8a44900c",
+      "comment": "Remove the Books from the Cart",
+      "command": "click",
+      "target": "linkText=изтрий",
+      "targets": [
+        ["linkText=изтрий", "linkText"],
+        ["css=.text-orange", "css:finder"],
+        ["xpath=//a[contains(text(),'изтрий')]", "xpath:link"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[14]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' изтрий')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "98825381-7aee-4d49-80c5-96d008a05654",
+    "name": "SortByPriceAscendingTest",
+    "commands": [{
+      "id": "8ca08ae0-618f-4a55-8745-2b18d6bee68c",
+      "comment": "Open the books page",
+      "command": "open",
+      "target": "/books",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f9ca2c2-bf39-4b67-9323-42f434e1c3d8",
+      "comment": "Click the sort selector",
+      "command": "click",
+      "target": "css=li > #popularity-sort",
+      "targets": [
+        ["id=popularity-sort", "id"],
+        ["css=li > #popularity-sort", "css:finder"],
+        ["xpath=//select[@id='popularity-sort']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/header/ul/li/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'- Подреди по -\nЗаглавие\nНай-нови\nНай-продавани\nНай-коментирани\nНай-преглеждани\nЦена - възходяща\nЦена - низходяща')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "76b5b52e-b52f-48e7-8d2c-a8f48878f041",
+      "comment": "Select Sort By Price Ascending Option",
+      "command": "select",
+      "target": "css=div > #popularity-sort",
+      "targets": [],
+      "value": "label=Цена - възходяща"
+    }, {
+      "id": "0d697407-02f2-4322-b4be-f2a5057b9650",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "86bba4d0-ecba-40e0-b977-d38f54a4ae42",
+      "comment": "Get the query part of the URL and extract the sort criteria",
+      "command": "executeScript",
+      "target": "return (new URLSearchParams(window.location.search).get(\"sort[]\"));",
+      "targets": [],
+      "value": "queryResult"
+    }, {
+      "id": "3b49e489-caf8-4c08-aa6c-3c01e59a31e8",
+      "comment": "Verify that the sort criteria is ascending",
+      "command": "verify",
+      "target": "queryResult",
+      "targets": [],
+      "value": "price-asc"
+    }, {
+      "id": "5eabfe19-015a-4952-afd3-88e51aa5c38f",
+      "comment": "Get all price texts, convert them to numbers and assert they are in increasing order",
+      "command": "executeScript",
+      "target": "function sorted(arr){     let second_index; \tfor(let first_index = 0; first_index < arr.length; first_index++){   \t  second_index = first_index + 1;       if(arr[second_index] - arr[first_index] < 0) return false;     }     return true; }  priceContainers = document.getElementsByClassName(\"product-caption-discount\"); prices = Array.apply(Number, Array(priceContainers.length)).map(function () {}); for (var i = 0; i < priceContainers.length; i++){     realPriceContainer = priceContainers[i].getElementsByClassName(\"product-caption-price\")[0];     if (realPriceContainer == null){         prices[i] = parseFloat(priceContainers[i].getElementsByClassName(\"text-orange\")[0].innerHTML.replace(\" лв.\", \"\"));     } else{         prices[i]=parseFloat(realPriceContainer.innerHTML);     } } return sorted(prices);",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "4845cfd5-9f50-4ba5-abc8-d1990b2f1675",
+      "comment": "Assert the prices are ascending",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "9c60fa14-2b7e-499a-a6a7-15509f81fd08",
+    "name": "SortByPriceDescendingTest",
+    "commands": [{
+      "id": "7d6b1e60-5315-44c2-91d2-627bb5d9cbbc",
+      "comment": "Open the books page",
+      "command": "open",
+      "target": "/books",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8919397c-309b-4be7-9b8b-af8a8fbc9f6a",
+      "comment": "Click the sort selector",
+      "command": "click",
+      "target": "css=li > #popularity-sort",
+      "targets": [
+        ["id=popularity-sort", "id"],
+        ["css=li > #popularity-sort", "css:finder"],
+        ["xpath=//select[@id='popularity-sort']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/header/ul/li/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'- Подреди по -\nЗаглавие\nНай-нови\nНай-продавани\nНай-коментирани\nНай-преглеждани\nЦена - възходяща\nЦена - низходяща')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6804a1c0-6bfc-43a9-9256-a69f36f01947",
+      "comment": "Select Sort By Price Decreasing Option",
+      "command": "select",
+      "target": "css=div > #popularity-sort",
+      "targets": [],
+      "value": "label=Цена - низходяща"
+    }, {
+      "id": "0d13e1ad-22e4-4490-a4cf-ff75e3364b44",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a57c73cc-890d-4a8b-a004-eb42b4c2b066",
+      "comment": "Extract the query from the URL and get the sort criteria",
+      "command": "executeScript",
+      "target": "return (new URLSearchParams(window.location.search).get(\"sort[]\"));",
+      "targets": [],
+      "value": "queryResult"
+    }, {
+      "id": "6e4c6313-eb3b-4c7a-bcd9-3e05d75440aa",
+      "comment": "Verify the sort criteria is price-descending",
+      "command": "verify",
+      "target": "queryResult",
+      "targets": [],
+      "value": "price-desc"
+    }, {
+      "id": "7da89f03-bbe5-496d-a1f6-5eac9374ae27",
+      "comment": "Fetch the prices of books, convert them to numbers and check the order",
+      "command": "executeScript",
+      "target": "function sorted(arr){     let second_index; \tfor(let first_index = 0; first_index < arr.length; first_index++){   \t  second_index = first_index + 1;       if(arr[second_index] - arr[first_index] > 0) return false;     }     return true; }  priceContainers = document.getElementsByClassName(\"product-caption-discount\"); prices = Array.apply(Number, Array(priceContainers.length)).map(function () {}); for (var i = 0; i < priceContainers.length; i++){     realPriceContainer = priceContainers[i].getElementsByClassName(\"product-caption-price\")[0];     if (realPriceContainer == null){         prices[i] = parseFloat(priceContainers[i].getElementsByClassName(\"text-orange\")[0].innerHTML.replace(\" лв.\", \"\"));     } else{         prices[i]=parseFloat(realPriceContainer.innerHTML);     } } return sorted(prices);",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "867e8cf3-ee1e-499e-bb1f-2cae9f88600c",
+      "comment": "Assert the order of prices is descending",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "51b1bf43-2067-42d7-a816-d1780482bc6f",
+    "name": "SortByTitleTest",
+    "commands": [{
+      "id": "55bde106-f3d6-4a33-8995-986c68f17c7c",
+      "comment": "Open books page",
+      "command": "open",
+      "target": "/books",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "539378b9-3945-4649-a3bd-f7b35f7db1b0",
+      "comment": "Click the sort selector",
+      "command": "click",
+      "target": "css=li > #popularity-sort",
+      "targets": [
+        ["id=popularity-sort", "id"],
+        ["css=li > #popularity-sort", "css:finder"],
+        ["xpath=//select[@id='popularity-sort']", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/header/ul/li/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'- Подреди по -\nЗаглавие\nНай-нови\nНай-продавани\nНай-коментирани\nНай-преглеждани\nЦена - възходяща\nЦена - низходяща')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "318bf4d9-a8fa-4926-b938-c95ef149118a",
+      "comment": "Select Sort By Tite Option",
+      "command": "select",
+      "target": "css=div > #popularity-sort",
+      "targets": [],
+      "value": "label=Заглавие"
+    }, {
+      "id": "1f42fee4-25ce-4191-bf66-2573a0b08f35",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b9634ce3-9bd5-4bdd-9e8c-b28be64651a2",
+      "comment": "Get the URL query and the sort criteria",
+      "command": "executeScript",
+      "target": "return (new URLSearchParams(window.location.search).get(\"sort[]\"));",
+      "targets": [],
+      "value": "queryResult"
+    }, {
+      "id": "7da6ba81-c212-4197-9a48-8b47238a3024",
+      "comment": "Verify the sort criteria is by title",
+      "command": "verify",
+      "target": "queryResult",
+      "targets": [],
+      "value": "name"
+    }, {
+      "id": "27e1c6fa-f82e-4b59-b606-407335a8c5b1",
+      "comment": "Fetch the book titles and check their order",
+      "command": "executeScript",
+      "target": "function sorted(arr){     let second_index; \tfor(let first_index = 0; first_index < arr.length; first_index++){   \t  second_index = first_index + 1;       if(arr[second_index] - arr[first_index] < 0) return false;     }     return true; }  titleContainers = document.getElementsByClassName(\"product-caption-title\"); titles = Array.apply(String, Array(titleContainers.length)).map(function () {}); for (var i = 0; i < titleContainers.length; i++){         titles[i] = titleContainers[i].getElementsByTagName(\"a\")[0].innerHTML; } return sorted(titles);",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "124ff086-b3f2-4c0d-9622-cfc049af98fb",
+      "comment": "Assert the books are ordered by title",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "acd3a38f-a71a-4859-9377-d66bd5666508",
+    "name": "PaymentTest",
+    "commands": [{
+      "id": "faec7394-7983-4751-a443-50bae99b6ea7",
+      "comment": "Open logged out instance",
+      "command": "open",
+      "target": "/logout.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "63917810-e63e-4905-935a-f50cde6c11fc",
+      "comment": "Click login button",
+      "command": "click",
+      "target": "css=.nav-menu .popup-text > .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu .popup-text > .darkBlueBig", "css:finder"],
+        ["xpath=//div[@id='global-wrapper']/div[4]/nav/div/ul/li/a/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Моят профил')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c615f6d3-0730-4ecf-b6de-5c11c24144f2",
+      "comment": "Enter username",
+      "command": "type",
+      "target": "name=username",
+      "targets": [
+        ["name=username", "name"],
+        ["css=#login_form > .form-group:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='username']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sample_user"
+    }, {
+      "id": "3f04d813-64ca-4d80-bf11-bb8e98a45eae",
+      "comment": "Enter password",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=#login_form > .form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//form[@id='login_form']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "12345678qwer"
+    }, {
+      "id": "e643f1d3-bf94-4502-b551-4e3bf07385d0",
+      "comment": "Confirm login",
+      "command": "click",
+      "target": "css=.login-btn",
+      "targets": [
+        ["css=.login-btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Вход')])[2]", "xpath:link"],
+        ["xpath=//form[@id='login_form']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'javascript:;')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7816be07-fae8-48b0-aa6e-bc56ff08f8eb",
+      "comment": "Select first possible book",
+      "command": "click",
+      "target": "xpath=//div[@id='owl-item']/div/div[2]/h5/a",
+      "targets": [
+        ["linkText=Малки жени (луксозно издание, нов превод)", "linkText"],
+        ["css=.margin-bottom-30:nth-child(3) .owl-item:nth-child(1) .product-caption a", "css:finder"],
+        ["xpath=//a[contains(text(),'Малки жени (луксозно издание, нов превод)')]", "xpath:link"],
+        ["xpath=//div[@id='owl-item']/div/div[2]/h5/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/236213-Малки-жени-(луксозно-издание,-нов-превод).html')])[5]", "xpath:href"],
+        ["xpath=//h5/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b857106f-731d-4075-ae61-a46dc692104c",
+      "comment": "Click Buy Button",
+      "command": "click",
+      "target": "css=.col-md-3 li:nth-child(1) > .btn",
+      "targets": [
+        ["css=.col-md-3 li:nth-child(1) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Купи')])[2]", "xpath:link"],
+        ["xpath=(//a[@onclick=\"if (!window.__cfRLUnblockHandlers) return false; onProductAddToCart('236213','Малки жени (луксозно издание, нов превод)','Световна детска класика','Хеликон','твърди','18.95','1',''); return !ga.loaded;\"])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div[2]/div/div/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'javascript:;')])[2]", "xpath:href"],
+        ["xpath=//div[3]/div/div[2]/div/div/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f667520-4d39-4ecf-8a6b-7e13f6c89b8f",
+      "comment": "Close image preview",
+      "command": "click",
+      "target": "css=.close > img",
+      "targets": [
+        ["css=.close > img", "css:finder"],
+        ["xpath=//div[@id='dynamicModal']/div/div/div/a/img", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div/a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2ff43f2-c02d-4335-b487-3be694afad6a",
+      "comment": "Go to cart",
+      "command": "click",
+      "target": "css=.nav-menu > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav-menu > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=//li[@id='cart-header']/a/span[2]", "xpath:idRelative"],
+        ["xpath=//li[2]/a/span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,' 1 продукт')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "42057e21-cbc9-4df9-a88e-ab6782659aec",
+      "comment": "Click continue with order button",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(text(),'Завърши поръчката')]", "xpath:link"],
+        ["xpath=//div[@id='global-wrapper']/div[3]/div/div[2]/div[2]/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/checkout/')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "feeda851-c77f-4ffa-9a07-5017eab94943",
+      "comment": "Assert the page contains order continuation",
+      "command": "assertText",
+      "target": "css=.page-title",
+      "targets": [],
+      "value": "Завършване на поръчката"
+    }, {
+      "id": "a8747fd4-35b3-49a9-be77-e88d5a7dc7c4",
+      "comment": "Assert the page contains list of products section",
+      "command": "assertText",
+      "target": "css=.panel:nth-child(1) .margin0",
+      "targets": [
+        ["css=.panel:nth-child(1) .margin0", "css:finder"],
+        ["xpath=//div[@id='checkout_page']/div[2]/div/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Поръчани продукти')]", "xpath:innerText"]
+      ],
+      "value": "Поръчани продукти"
+    }, {
+      "id": "7611f96c-f87a-4195-acb7-47e0e778fc4d",
+      "comment": "Assert page contains client section",
+      "command": "assertText",
+      "target": "css=.panel:nth-child(3) .margin0",
+      "targets": [],
+      "value": "Данни на получателя"
+    }, {
+      "id": "477961cf-d1c2-41e6-a7e6-6224fd2d534e",
+      "comment": "Assert page contains delivery section",
+      "command": "assertText",
+      "target": "css=.panel:nth-child(4) .margin0",
+      "targets": [],
+      "value": "Куриер"
+    }, {
+      "id": "1bb09a79-76c0-4baa-a8eb-f472d924e731",
+      "comment": "Assert page contains delivery details section",
+      "command": "assertText",
+      "target": "css=.panel:nth-child(5) .margin0",
+      "targets": [],
+      "value": "Данни за доставка"
+    }, {
+      "id": "366003c4-f583-4b2a-8514-568bc3e95af4",
+      "comment": "Assert page contains payment methods section",
+      "command": "assertText",
+      "target": "css=.panel:nth-child(7) .margin0",
+      "targets": [],
+      "value": "Начин на плащане"
+    }, {
+      "id": "5718fa85-3b31-407f-b004-600dad3c7573",
+      "comment": "Click Confirm payment button",
+      "command": "click",
+      "target": "css=.btn-danger",
+      "targets": [
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(text(),'Завърши поръчката')]", "xpath:link"],
+        ["xpath=//form[@id='order_form']/div[8]/div/div/div/div[2]/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[10]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "216f303f-b991-4677-a708-860920f488f8",
+      "comment": "Get HREF",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "d4420a72-a030-4727-8725-81440ce9bcf0",
+      "comment": "Assert the page is the same (nothing has happened)",
+      "command": "assert",
+      "target": "href",
+      "targets": [],
+      "value": "https://helikon.bg/checkout/"
+    }, {
+      "id": "85f238f2-16bb-4af8-987b-f63af67017d4",
+      "comment": "Go to cart again to start test cleanup",
+      "command": "click",
+      "target": "css=.nav:nth-child(3) > #cart-header .darkBlueBig",
+      "targets": [
+        ["css=.nav:nth-child(3) > #cart-header .darkBlueBig", "css:finder"],
+        ["xpath=(//li[@id='cart-header']/a/span[2])[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/ul/li[2]/a/span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a35004ed-326c-4201-8dfe-329ec870a046",
+      "comment": "Prepare to confirm order deletion",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b5e9a07-be58-493c-8945-4ca773169d09",
+      "comment": "Click Delete order button",
+      "command": "click",
+      "target": "linkText=изтрий",
+      "targets": [
+        ["linkText=изтрий", "linkText"],
+        ["css=.panel:nth-child(1) .text-orange", "css:finder"],
+        ["xpath=//a[contains(text(),'изтрий')]", "xpath:link"],
+        ["xpath=//form[@id='cart_form']/div/div/div/div/div[2]/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[12]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,' изтрий')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d065a7f-cd9b-432e-8378-db6f2834b9b9",
+      "comment": "Confirm deletion",
+      "command": "webdriverChooseOkOnVisibleConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "70b2d5ca-d5fb-4359-857c-948af0080987",
+    "name": "FilterByAvailabilityTest",
+    "commands": [{
+      "id": "bcd3d3e6-e757-476a-a67d-43597cd31c82",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "22f79bc5-ea2d-4591-b552-48431fc7d843",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbb47466-055d-4932-b848-5ed9a3fb4e2c",
+      "comment": "Click Filter By Availability",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(3)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "35910e28-be10-4def-8fcb-084c532f5675",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9a8424a0-5203-4df1-8e10-c676ca87b3e0",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "d9347165-571c-406f-9f92-dba0996cf293",
+      "comment": "Get info if the query is for all available books",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=available\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "91a1c33d-938f-4c9c-99b7-5b8860b15335",
+      "comment": "Assert the URL query is for all available books",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "9f9e930e-49fa-4302-831e-d7e1d40e419f",
+    "name": "FilterByFeaturedTest",
+    "commands": [{
+      "id": "db18fcf9-9beb-4f81-9ffb-96559ee8bf38",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8b3a2e2f-b5d4-4060-afa2-4386bc82f75f",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9bfbc6c-5b5a-4677-b9d6-113ac0ea49b5",
+      "comment": "Click Filter By Upcoming",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(7)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(7)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[12]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[2]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "52db1cbc-77f6-4d18-b80c-1e960b590ae4",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fbf91476-6ea4-4a6d-9188-b5dfb9d9dd17",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "fceb7c32-934a-4e90-958e-546eab81e2aa",
+      "comment": "Get info if the query is for all upcoming books",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=featured\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "ecfc5cf0-4e9c-44da-b401-c5215996c92d",
+      "comment": "Assert the URL query is for all upcoming books",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "0f8aa7a9-6402-4c75-9465-f07c3fa84349",
+    "name": "FilterByRecommendationTest",
+    "commands": [{
+      "id": "3131f059-d0bd-4f7c-8447-99a81e648e79",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b373143-d5d7-420a-a22f-184ec0df2ebd",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2776cb2e-c528-4f73-89fc-62a018a0af7d",
+      "comment": "Click Filter By Recommendation",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(11)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(11)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[13]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[3]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b55f454-15f7-4039-84f6-fefb2acebf84",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b310a3ad-514c-4232-9902-3331e187cbbe",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "41b55b46-4e25-4d3e-aacd-2abea018beed",
+      "comment": "Get info if the query is for all recommended books",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=recommended\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "bf213e2a-b665-4caf-a4af-9e938fbc1987",
+      "comment": "Assert the URL query is for all recommended books",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "ee42f5ff-527a-4c96-8faa-258b828ecc81",
+    "name": "FilterBySaleTest",
+    "commands": [{
+      "id": "14ec2e82-dfbd-45a8-bc75-d524bd1fa26d",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b1ca168-1db1-462c-ac78-40bdfe30ef49",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9426e12e-f13a-469b-b4f2-c96f1d32d480",
+      "comment": "Click Filter By In Sale",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(15)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(15)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[14]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[4]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0e9d0b0-a4bf-48ce-a31f-f3fb933ee7b5",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "56c592b8-cb39-4c11-b841-d9eb02653dc2",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "a721ecf7-8e1e-40ef-a9f9-7d761d2711fc",
+      "comment": "Get info if the query is for all books on offer",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=hot-price\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "832dc4ae-dfef-4c3d-b91d-df006595039b",
+      "comment": "Assert the URL query is for all books on offer",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "fb7bef8e-d324-449f-b03b-5756b480dfa3",
+    "name": "FilterByRevaluationTest",
+    "commands": [{
+      "id": "52d5eb4a-9246-4415-bab2-39544a917bc2",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98bb1eef-2f16-479b-8178-747f9e033c8d",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e16f498d-19de-43cf-9901-7a8ca312344f",
+      "comment": "Click Filter By Revaluation",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(19)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(19)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[15]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[5]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "212e830d-fd71-478f-9642-91534bc00394",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "578a70e9-c89c-454d-892e-7818584bb700",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "b0733cea-6560-499c-a9fb-b42b03f7eab1",
+      "comment": "Get info if the query is for all revalued books",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=revalued\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "3dc8af1f-d3b9-403a-8f95-71bb77a6aa62",
+      "comment": "Assert the URL query is for all revalued books",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "7225f5cd-f487-4ef2-8756-5e52c518a930",
+    "name": "FilterByReviewsTest",
+    "commands": [{
+      "id": "53ece102-d311-4f2a-abb6-68720a53e140",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7a3c208a-48c1-4a88-8fdf-8892b4ced794",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "61939272-bd76-4010-9dfe-41a7f9a73c69",
+      "comment": "Click Filter By Given Reviews",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(23)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(23)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[16]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[6]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea57e6ba-b216-45bb-a0f7-454a03c64a15",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28ac09e5-5c5a-408a-afc1-4c3540f80c8f",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "a413f53a-53d0-4074-90a3-12b4c1a6884c",
+      "comment": "Get info if the query is for all reviewed books",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=reviews\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "626ac55f-a4a2-49fb-ba54-658c7fe74614",
+      "comment": "Assert the URL query is for all reviewed books",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "147c9d26-3688-4f8a-ade7-033986acacca",
+    "name": "FilterByVideoReviewsTest",
+    "commands": [{
+      "id": "894ea9d9-2362-4a39-83f2-d78061cefda6",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98f98809-a02d-4009-aaf5-28fe667da96f",
+      "comment": "Click Gifts category",
+      "command": "click",
+      "target": "css=.dropdown:nth-child(6) > a:nth-child(1)",
+      "targets": [
+        ["css=.dropdown:nth-child(6) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Подаръци')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[6]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/gifts/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[6]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "89914994-958e-4592-8064-2efbe5f93f94",
+      "comment": "Click Filter By Availability of Video Reviews",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(27)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(27)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[17]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[7]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb586d6b-9f66-423a-9f3b-7de330787e85",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e93f303b-85cd-4623-a1ad-e7c7c0bbe765",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "2bfbc7c6-99c1-4ce5-9bdc-8572b756ff34",
+      "comment": "Get info if the query is for all gifts with video reviews",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=video_review\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "d5ad55b4-b95e-43e0-8c59-a336bdbda696",
+      "comment": "Assert the URL query is for all gifts with video reviews",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }, {
+    "id": "98ebee28-c6dd-4ff1-8067-9d945abe58bb",
+    "name": "FilterByAvailabilityAndVideoReviewsTest",
+    "commands": [{
+      "id": "ff92416e-8258-48fe-b914-0a2f074edef9",
+      "comment": "Open home page",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "19c2cb42-fa5f-4b9c-ae01-55603a88b56a",
+      "comment": "Click Books category",
+      "command": "click",
+      "target": "css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)",
+      "targets": [
+        ["css=.navbar-nav-menu > .dropdown:nth-child(2) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Книги')]", "xpath:link"],
+        ["xpath=//div[@id='collapsible-menu']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/books/')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ded73d83-3a64-4c87-a696-85d6d7f405b9",
+      "comment": "Click Filter By Availability",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(3)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(3)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[11]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc5e4fc7-4781-4394-bb43-43c2ef60bb11",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "40c15d29-9a6d-4f36-9c35-3b0dfc9ded61",
+      "comment": "Click Filter By Availability of Video Reviews",
+      "command": "click",
+      "target": "css=.category-filters-section > .sorting_link:nth-child(27)",
+      "targets": [
+        ["css=.category-filters-section > .sorting_link:nth-child(27)", "css:finder"],
+        ["xpath=(//input[@type='checkbox'])[17]", "xpath:attributes"],
+        ["xpath=//div[@id='global-wrapper']/div[6]/div/div/aside/div[3]/input[7]", "xpath:idRelative"],
+        ["xpath=//aside/div[3]/input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd63d631-d642-4bcc-b54e-e4d98f1fb8a2",
+      "comment": "Make sure the page is fully loaded",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d11471e-2f30-4ce6-acf1-20b08e33df7f",
+      "comment": "Get the URL from the newly opened webpage",
+      "command": "executeScript",
+      "target": "return window.location.href;",
+      "targets": [],
+      "value": "href"
+    }, {
+      "id": "a96ea03f-51d2-488b-9328-bf4263f1df98",
+      "comment": "Get info if the query is for all available books having video reviews",
+      "command": "executeScript",
+      "target": "return ${href}.includes(\"sort[]=video_review\") && ${href}.includes(\"sort[]=available\");",
+      "targets": [],
+      "value": "result"
+    }, {
+      "id": "4596a7ec-6f12-4522-88dc-ba77e9cdff6d",
+      "comment": "Assert the URL query is for all available books having video reviews",
+      "command": "assert",
+      "target": "result",
+      "targets": [],
+      "value": "true"
+    }]
+  }],
+  "suites": [{
+    "id": "65ca21f0-bf5e-4c61-8d67-4d8c06853851",
+    "name": "FavouritesTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5dfab364-9775-4c90-a159-d85e4128c259", "8f830b3d-a77f-4001-ac7b-eb3902d7c539"]
+  }, {
+    "id": "8068fdf0-0d73-41f0-b556-fb66e20b268e",
+    "name": "SearchTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["4bf8989d-a196-4bb7-89ed-b02d7a421ec0", "f361b298-0039-478e-810e-2a7039f60cf0"]
+  }, {
+    "id": "c6a2c2b8-598a-47c4-b025-1ef9f3381979",
+    "name": "NavigationTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["9d4e5487-f42e-4478-abfa-2f5fff1ed5bb", "7c4311d9-c802-47a0-a384-5a130f0842a3", "1a6d355e-b1cf-42b3-94b1-212da98e33cd", "ff5b8676-0566-4ec2-9c21-0fd93a0da713", "c6789b7c-5ad7-4246-8b0f-ce3508561786", "ef019ff7-c670-4069-9db6-5c1ce0876fdc", "b5d16cb7-e847-40c4-981f-afde1c685019", "cd6ddeb1-b465-4f15-abb7-0844c5b9e598", "9423638e-f31a-4f3b-a933-a571f65451f7", "9d873c0f-28d0-4ddd-95a4-cee76a6081ba", "0d5cec07-dd49-43d4-899b-4ea276f3d010", "5ac12d71-b0a1-4b4d-ba95-24c132baaaa7", "9588b008-6108-4385-81d9-8d64ee1f6477", "d1ff0ec5-0940-43df-a53a-ba95481b881d", "367a8037-ffaa-4d3b-90a8-c16581b1c277", "bfc8b49c-39d0-4834-a716-cfa6b8c760bb"]
+  }, {
+    "id": "6e100d29-0328-41f2-a453-8bbdecda608f",
+    "name": "FooterNavigationTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["6e84fd7e-43a8-4002-8dce-3e429ac02cb8", "f71e4e71-93a0-407d-8f96-789138ed83f6", "173090cc-242a-4975-8f73-5dfacb3c6e89", "6d9f83bf-6692-4b63-af9d-40c58af391bc", "5c7ac831-801c-4adb-912f-bb7cf1aa7578", "46e65370-57f6-4c1f-b705-ca91a2c0968c", "caf33ca9-4dbd-4f59-9e9f-de0cfdf957fe", "01606f9c-9c9b-4031-b95c-95005b0bd131", "3197499c-65f0-4f71-8a3a-fff9655cc18a", "5484858c-f8d3-4f5f-9e99-5c4fbc1ac6cb", "9a39720f-b823-4eb1-9b49-2845dc51ad72", "ca5d6c6b-5576-4382-afaa-3b63f188020b", "88f6eb09-ea1d-49b6-b1af-89853cd8571b", "be77bf45-c7d8-4f6a-90cd-32d5da2e6e6f"]
+  }, {
+    "id": "e0e8127d-8fae-4548-a137-207b76c06b17",
+    "name": "LoginTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1a28f82f-fd7d-4239-b879-c9d6192ed248", "05806705-f5ae-4063-9cc5-c6c4bab9ce5e"]
+  }, {
+    "id": "2993e825-2d0c-4dd5-84c4-b50c30a894a6",
+    "name": "RegistrationTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["a41c0c19-df67-4b4c-8b1a-68a1b8e4a60a", "5192d4f2-40a7-47a2-b2b0-7df589037ea2", "4e82dd8a-5771-4ada-aae6-76693f9931ed", "067ab18a-3727-44b9-8f89-22d3b5b0be8a"]
+  }, {
+    "id": "ef7f5219-b225-42dd-ba53-4daa446f6158",
+    "name": "OrderTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["40d965e4-09fa-4963-89e3-b28ecc5d029a", "54fb94dd-0aca-4577-9230-530095353bf7", "4e8d9a76-4d96-46f0-a33f-04da0cc8f0a2", "0c29d511-bfd0-47c5-af3c-515eb675ed94"]
+  }, {
+    "id": "544988a8-3d0a-4309-915e-55fe446466d1",
+    "name": "SortTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["98825381-7aee-4d49-80c5-96d008a05654", "9c60fa14-2b7e-499a-a6a7-15509f81fd08", "51b1bf43-2067-42d7-a816-d1780482bc6f"]
+  }, {
+    "id": "7931cc92-5838-47f3-ba3d-b618d14fc8f1",
+    "name": "PaymentTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["acd3a38f-a71a-4859-9377-d66bd5666508"]
+  }, {
+    "id": "55acbbad-87f6-4782-887b-9458de323813",
+    "name": "FilterTest",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["147c9d26-3688-4f8a-ade7-033986acacca", "ee42f5ff-527a-4c96-8faa-258b828ecc81", "7225f5cd-f487-4ef2-8756-5e52c518a930", "fb7bef8e-d324-449f-b03b-5756b480dfa3", "0f8aa7a9-6402-4c75-9465-f07c3fa84349", "9f9e930e-49fa-4302-831e-d7e1d40e419f", "70b2d5ca-d5fb-4359-857c-948af0080987", "98ebee28-c6dd-4ff1-8067-9d945abe58bb"]
+  }],
+  "urls": ["https://helikon.bg/"],
+  "plugins": []
+}
